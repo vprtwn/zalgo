@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9BE42F07-8563-4284-8861-D965A11722A1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GlitchText</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B38677BA-4740-40F1-8FA7-DDC9804F1CA0</key>
+		<string>ssh://github.com/benzguo/zalgo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GlitchText/GlitchText.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B38677BA-4740-40F1-8FA7-DDC9804F1CA0</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/benzguo/zalgo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B38677BA-4740-40F1-8FA7-DDC9804F1CA0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B38677BA-4740-40F1-8FA7-DDC9804F1CA0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>zalgo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
