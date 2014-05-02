@@ -1,3 +1,5 @@
 platform :ios, '6.0'
 
 pod 'ReactiveCocoa'
+pod 'FrameAccessor'
+pod 'UIImage-Helpers'

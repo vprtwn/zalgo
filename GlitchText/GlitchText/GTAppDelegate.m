@@ -1,14 +1,6 @@
-//
-//  GTXAppDelegate.m
-//  GlitchText
-//
-//  Created by Ben Guo on 4/29/14.
-//  Copyright (c) 2014 bguo. All rights reserved.
-//
+#import "GTAppDelegate.h"
 
-#import "GTXAppDelegate.h"
-
-@implementation GTXAppDelegate
+@implementation GTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
