@@ -23,6 +23,8 @@
 		968B7309190FE11C00D2B288 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E8190FE11C00D2B288 /* UIKit.framework */; };
 		968B7311190FE11C00D2B288 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 968B730F190FE11C00D2B288 /* InfoPlist.strings */; };
 		968B7313190FE11C00D2B288 /* GlitchTextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B7312190FE11C00D2B288 /* GlitchTextTests.m */; };
+		96E43225191559F800D617C2 /* GTZalgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E43224191559F800D617C2 /* GTZalgo.m */; };
+		96E432281915615900D617C2 /* NSString+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E432271915615900D617C2 /* NSString+GlitchText.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		968B730E190FE11C00D2B288 /* GlitchTextTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GlitchTextTests-Info.plist"; sourceTree = "<group>"; };
 		968B7310190FE11C00D2B288 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		968B7312190FE11C00D2B288 /* GlitchTextTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlitchTextTests.m; sourceTree = "<group>"; };
+		96E43223191559F800D617C2 /* GTZalgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZalgo.h; sourceTree = "<group>"; };
+		96E43224191559F800D617C2 /* GTZalgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZalgo.m; sourceTree = "<group>"; };
+		96E432261915615900D617C2 /* NSString+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GlitchText.h"; sourceTree = "<group>"; };
+		96E432271915615900D617C2 /* NSString+GlitchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GlitchText.m"; sourceTree = "<group>"; };
 		AF720A5749044690B4751E51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +132,10 @@
 				968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */,
 				968B72FC190FE11C00D2B288 /* GTZalgoViewController.h */,
 				968B72FD190FE11C00D2B288 /* GTZalgoViewController.m */,
+				96E43223191559F800D617C2 /* GTZalgo.h */,
+				96E43224191559F800D617C2 /* GTZalgo.m */,
+				96E432261915615900D617C2 /* NSString+GlitchText.h */,
+				96E432271915615900D617C2 /* NSString+GlitchText.m */,
 				968B72FF190FE11C00D2B288 /* Images.xcassets */,
 				968B72EB190FE11C00D2B288 /* Supporting Files */,
 			);
@@ -295,6 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E432281915615900D617C2 /* NSString+GlitchText.m in Sources */,
+				96E43225191559F800D617C2 /* GTZalgo.m in Sources */,
 				968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */,
 				968B72FE190FE11C00D2B288 /* GTZalgoViewController.m in Sources */,
 				968B72F1190FE11C00D2B288 /* main.m in Sources */,
