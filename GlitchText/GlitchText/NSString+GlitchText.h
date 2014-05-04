@@ -4,6 +4,7 @@
 
 + (NSString *)stringWithUnichar:(unichar)value;
 - (unichar)unichar;
+- (const char *)randomUnichar;
 - (NSString *)randomCharacter;
 
 @end

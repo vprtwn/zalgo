@@ -27,10 +27,15 @@
     return [self characterAtIndex:0];
 }
 
+- (const char *)randomUnichar {
+    NSString *letter = [self substringWithRange:NSMakeRange(arc4random_uniform([self length]), 1)];
+    return [letter UTF8String];
+}
+
+
 - (NSString *)randomCharacter {
-    NSString *character = [self substringWithRange:NSMakeRange(arc4random_uniform([self length]),
-                                                               1)];
-    return character;
+    NSString *letter = [self substringWithRange:NSMakeRange(arc4random_uniform([self length]), 1)];
+    return letter;
 }
 
 @end
