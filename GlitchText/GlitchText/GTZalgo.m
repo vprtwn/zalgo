@@ -25,43 +25,36 @@ unichar up[50] =
     
     
     
+   // THE TOWER
     
     
     
     
     
-    self.up = @"̎̄̅̿̑̆̐͒͗͑̇̈̊͂̓̈͊͋͌̃̂̌͐"
-//               " ̀ ́ ̋ ̏"
-//               " ̒ ̓ ̔ ̽"
-//               " ̉ ͣ ͤ ͥ"
-//               " ͦ ͧ ͨ ͩ"
-//               " ͪ ͫ ͬ ͭ"
-//               " ͮ ͯ ̾ ͛"
-//               " ͆ ̚"
+    
+    
+    
+    
+    
+    
+    self.up = @"̄̅̿̑̆̐͒͗͑̇̈̊͂̓̈͊͋͌̃̂̌͐̀́̋̏̒̓̔̽̉ͣͤͥͦͧͨͩͪͫͬͭͮͯ̾͛͆̚";
     
 
     
-    self.down = @""
-                 " ̖ ̗ ̘ ̙"
-                 " ̜ ̝ ̞ ̟"
-                 " ̠ ̤ ̥ ̦"
-                 " ̩ ̪ ̫ ̬"
-                 " ̭ ̮ ̯ ̰"
-                 " ̱ ̲ ̳ ̹"
-                 " ̺ ̻ ̼ ͅ"
-                 " ͇ ͈ ͉ ͍"
-                 " ͎ ͓ ͔ ͕"
-                 " ͖ ͙ ͚ ̣"
-                 "";
+    self.down = @"̗̘̙̜̝̞̟̠̤̥̦̪̫̬̭̮̯̰̱̲̳̹̺̻̼͇͈͉͍͎͓͔͕͖͙͚̣ͅ";
     
-    self.mid = @""
-                " ̕ ̛ ̀ ́"
-                " ͘ ̡ ̢ ̧"
-                " ̨ ̴  ̵ ̶"
-                " ͏ ͜  ͝ ͞"
-                " ͟ ͠  ͢ ̸"
-                " ̷ ͡ ҉_"
-                "";
+    
+    
+    // THE WELL
+    
+    
+    
+    
+    
+    
+    
+    self.mid = @"̴̵̶̡̢̧̨̛̀́̕͘͏̸̷͜͟͢͝͞͠͡҉"; // THE KNOT
+    
     
     self.all = [NSString stringWithFormat:@"%@%@%@", self.up, self.down, self.mid];
     
@@ -80,29 +73,27 @@ unichar up[50] =
     NSMutableString *newText = [NSMutableString new];
     NSUInteger len = [text length];
     for (int i = 0; i < len; i++) {
-        NSUInteger upCount = 4;
-        NSUInteger midCount = 4;
-        NSUInteger downCount = 4;
+        NSUInteger upCount = arc4random_uniform(8);
+        NSUInteger downCount = arc4random_uniform(8);
+        NSUInteger midCount = arc4random_uniform(2);
         
-        unichar buffer[upCount + 2];
-        buffer[0] = [text unichar];
         [newText appendString:text];
+        
         for (int j = 0; j < upCount; j++) {
-            const char *ch = [self.up randomUnichar];
             NSString *c = [self.up randomCharacter];
             [newText appendString:c];
-            NSLog(@"%@", c);
         }
-        buffer[upCount + 2] = '\0';
+        
+        for (int j = 0; j < downCount; j++) {
+            NSString *c = [self.down randomCharacter];
+            [newText appendString:c];
+        }
+        
+        for (int j = 0; j < midCount; j++) {
+            NSString *c = [self.mid randomCharacter];
+            [newText appendString:c];
+        }       
 
-//        for (int j = 0; j < midCount; j++) {
-//            unichar ch = [[self.mid randomCharacter] unichar];
-//            [newText appendString:[NSString stringWithUnichar:ch]];
-//        }
-//        for (int j = 0; j < downCount; j++) {
-//            unichar ch = [[self.down randomCharacter] unichar];
-//            [newText appendString:[NSString stringWithUnichar:ch]];
-//        }
     }
     return newText;
 }
