@@ -52,8 +52,9 @@ unichar up[50] =
     
     
     
+
     
-    self.mid = @"̴̵̶̡̢̧̨̛̀́̕͘͏̸̷͜͟͢͝͞͠͡҉"; // THE KNOT
+    self.mid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉"; // THE KNOT
     
     
     self.all = [NSString stringWithFormat:@"%@%@%@", self.up, self.down, self.mid];

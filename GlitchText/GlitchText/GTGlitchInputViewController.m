@@ -48,6 +48,15 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UICollectionViewControllerDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GTGlitchInputCell *cell = (GTGlitchInputCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [self.delegate shouldEnterText:cell.label.text];
+}
+
+
 #pragma mark - UICollectionViewControllerDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

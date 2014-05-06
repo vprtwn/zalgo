@@ -4,7 +4,7 @@
 #import "GTZalgo.h"
 #import "GTGlitchInputViewController.h"
 
-@interface GTMainViewController () <UITextViewDelegate>
+@interface GTMainViewController () <UITextViewDelegate, GTGlitchInputDelegate>
 
 @property (strong, nonatomic) GTZalgo *zalgo;
 
@@ -30,6 +30,7 @@
     self.zalgo = [GTZalgo new];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchInputVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchInputViewController"];
+    self.glitchInputVC.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,6 +75,14 @@
         self.textView.inputView = self.glitchInputVC.view;
         [self.textView becomeFirstResponder];
     }
+}
+
+#pragma mark - GTGlitchInputDelegate
+
+- (void)shouldEnterText:(NSString *)text
+{
+    NSRange selectedRange = self.textView.selectedRange;
+    self.textView.text = [self.textView.text stringByAppendingString:text];
 }
 
 #pragma mark - UITextFieldDelegate
