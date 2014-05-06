@@ -68,16 +68,18 @@ unichar up[50] =
 }
 
 //
-// http://nshipster.com/random/
+// ZALGORITHM
 //
 - (NSString *)process:(NSString *)text {
+
+#warning optimize this in C
     NSMutableString *newText = [NSMutableString new];
     NSUInteger len = [text length];
     for (int i = 0; i < len; i++) {
         NSUInteger upCount = arc4random_uniform(8);
         NSUInteger downCount = arc4random_uniform(8);
         NSUInteger midCount = arc4random_uniform(2);
-        
+
         [newText appendString:text];
         
         for (int j = 0; j < upCount; j++) {

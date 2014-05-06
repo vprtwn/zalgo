@@ -3,8 +3,11 @@
 @interface NSString (GlitchText)
 
 + (NSString *)stringWithUnichar:(unichar)value;
-- (unichar)unichar;
-- (const char *)randomUnichar;
+
 - (NSString *)randomCharacter;
+
+- (NSString *)stringCharacterAtIndex:(NSUInteger)index;
+
+- (NSString *)appendToEachCharacter:(NSString *)text;
 
 @end

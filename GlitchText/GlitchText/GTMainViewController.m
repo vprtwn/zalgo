@@ -1,8 +1,10 @@
 #import "GTMainViewController.h"
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "GTZalgo.h"
 #import "GTGlitchInputViewController.h"
+#import "NSString+GlitchText.h"
+
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface GTMainViewController () <UITextViewDelegate, GTGlitchInputDelegate>
 
@@ -82,7 +84,15 @@
 - (void)shouldEnterText:(NSString *)text
 {
     NSRange selectedRange = self.textView.selectedRange;
-    self.textView.text = [self.textView.text stringByAppendingString:text];
+    if (selectedRange.length) {
+        NSString *selectedString = [self.textView.text substringWithRange:selectedRange];
+        NSString *newSelectedString = [selectedString appendToEachCharacter:text];
+        self.textView.text = [self.textView.text stringByReplacingCharactersInRange:selectedRange
+                                                                         withString:newSelectedString];
+    }
+    else {
+        self.textView.text = [self.textView.text stringByAppendingString:text];
+    }
 }
 
 #pragma mark - UITextFieldDelegate
