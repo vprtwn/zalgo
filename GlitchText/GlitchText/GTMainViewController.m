@@ -28,7 +28,8 @@
     [self.textView becomeFirstResponder];
     
     self.zalgo = [GTZalgo new];
-    self.glitchInputVC = [[GTGlitchInputViewController alloc] initWithNibName:@"GTGlitchInputViewController" bundle:nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    self.glitchInputVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchInputViewController"];
 }
 
 - (void)didReceiveMemoryWarning

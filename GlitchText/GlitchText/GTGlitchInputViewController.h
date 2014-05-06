@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface GTGlitchInputViewController : UIViewController
+@interface GTGlitchInputViewController : UICollectionViewController
 
 @end
