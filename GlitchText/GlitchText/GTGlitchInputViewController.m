@@ -1,10 +1,10 @@
-#import "GTZalgoInputViewController.h"
+#import "GTGlitchInputViewController.h"
 
-@interface GTZalgoInputViewController ()
+@interface GTGlitchInputViewController ()
 
 @end
 
-@implementation GTZalgoInputViewController
+@implementation GTGlitchInputViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -2,17 +2,20 @@
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "GTZalgo.h"
-#import "GTZalgoInputViewController.h"
+#import "GTGlitchInputViewController.h"
 
 @interface GTMainViewController () <UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) GTZalgo *zalgo;
-@property (strong, nonatomic) GTZalgoInputViewController *zalgoInputVC;
 
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) GTGlitchInputViewController *glitchInputVC;
 
 // menu buttons
 @property (weak, nonatomic) IBOutlet UIButton *fontButton;
+@property (weak, nonatomic) IBOutlet UIButton *glitchButton;
+@property (weak, nonatomic) IBOutlet UIButton *symbolButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @end
 
@@ -25,9 +28,7 @@
     [self.textView becomeFirstResponder];
     
     self.zalgo = [GTZalgo new];
-    self.zalgoInputVC = [[GTZalgoInputViewController alloc] initWithNibName:@"GTZalgoInputViewController" bundle:nil];
-    self.textView.inputView = self.zalgoInputVC.view;
-
+    self.glitchInputVC = [[GTGlitchInputViewController alloc] initWithNibName:@"GTGlitchInputViewController" bundle:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,13 +38,42 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Actions
+#pragma mark - Buttons
+
+- (void)deselectAllButtons
+{
+    self.fontButton.selected = NO;
+    self.glitchButton.selected = NO;
+    self.symbolButton.selected = NO;
+    self.shareButton.selected = NO;
+}
 
 - (IBAction)fontButtonAction:(id)sender
 {
-    [self.textView resignFirstResponder];
+    if (self.fontButton.selected) {
+        self.fontButton.selected = NO;
+        [self.textView becomeFirstResponder];
+    }
+    else {
+        self.fontButton.selected = YES;
+        [self.textView resignFirstResponder];
+    }
 }
 
+- (IBAction)glitchButtonAction:(id)sender {
+    if (self.glitchButton.selected) {
+        self.glitchButton.selected = NO;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = nil;
+        [self.textView becomeFirstResponder];
+    }
+    else {
+        self.glitchButton.selected = YES;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = self.glitchInputVC.view;
+        [self.textView becomeFirstResponder];
+    }
+}
 
 #pragma mark - UITextFieldDelegate
 

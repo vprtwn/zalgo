@@ -1,13 +1,18 @@
-//
-//  GTFontTableViewController.h
-//  GlitchText
-//
-//  Created by Ben Guo on 5/6/14.
-//  Copyright (c) 2014 bguo. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, GTFontID) {
+    GTFontIDNormal,
+    GTFontIDZalgo
+};
+
+@protocol GTFontTableViewControllerDelegate <NSObject>
+
+- (void)didSelectFontWithID:(GTFontID)fontID;
+
+@end
+
 @interface GTFontTableViewController : UITableViewController
+
+@property (weak, nonatomic) id<GTFontTableViewControllerDelegate> delegate;
 
 @end
