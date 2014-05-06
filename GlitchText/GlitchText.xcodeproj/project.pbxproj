@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		305A72C2A2B04B79BABB4A5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 861D5B4AEACB43098D113584 /* libPods.a */; };
+		9622946519196661002861DB /* GTGlitchInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9622946419196661002861DB /* GTGlitchInputCell.m */; };
 		968B72E5190FE11C00D2B288 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E4190FE11C00D2B288 /* Foundation.framework */; };
 		968B72E7190FE11C00D2B288 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E6190FE11C00D2B288 /* CoreGraphics.framework */; };
 		968B72E9190FE11C00D2B288 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E8190FE11C00D2B288 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		861D5B4AEACB43098D113584 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9622946319196661002861DB /* GTGlitchInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGlitchInputCell.h; sourceTree = "<group>"; };
+		9622946419196661002861DB /* GTGlitchInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGlitchInputCell.m; sourceTree = "<group>"; };
 		968B72E1190FE11C00D2B288 /* GlitchText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlitchText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968B72E4190FE11C00D2B288 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		968B72E6190FE11C00D2B288 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +141,8 @@
 				968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */,
 				96AF73F719196382007BB4DD /* GTGlitchInputViewController.h */,
 				96AF73F819196382007BB4DD /* GTGlitchInputViewController.m */,
+				9622946319196661002861DB /* GTGlitchInputCell.h */,
+				9622946419196661002861DB /* GTGlitchInputCell.m */,
 				968B72FC190FE11C00D2B288 /* GTMainViewController.h */,
 				968B72FD190FE11C00D2B288 /* GTMainViewController.m */,
 				96D0D7FD19194EB700542773 /* GTFontTableViewController.h */,
@@ -319,6 +324,7 @@
 				96E43225191559F800D617C2 /* GTZalgo.m in Sources */,
 				968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */,
 				96AF73F919196382007BB4DD /* GTGlitchInputViewController.m in Sources */,
+				9622946519196661002861DB /* GTGlitchInputCell.m in Sources */,
 				968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */,
 				968B72F1190FE11C00D2B288 /* main.m in Sources */,
 				96D0D7FF19194EB700542773 /* GTFontTableViewController.m in Sources */,

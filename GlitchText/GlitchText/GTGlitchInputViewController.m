@@ -1,19 +1,11 @@
 #import "GTGlitchInputViewController.h"
+#import "GTGlitchInputCell.h"
 
 @interface GTGlitchInputViewController ()
 
 @end
 
 @implementation GTGlitchInputViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -25,6 +17,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UICollectionViewControllerDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GTGlitchInputCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIDGlitchInputCell forIndexPath:indexPath];
+    cell.label.text = @"hi";
+    return cell;
 }
 
 /*
