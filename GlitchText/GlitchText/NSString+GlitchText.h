@@ -8,6 +8,8 @@
 
 - (NSString *)stringCharacterAtIndex:(NSUInteger)index;
 
+- (BOOL)isZalgo;
+
 - (NSString *)appendToEachCharacter:(NSString *)text;
 
 @end

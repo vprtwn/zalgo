@@ -104,7 +104,7 @@
     }
 
     // zalgo
-    NSString *processed = [self.zalgo process:text];
+    NSString *processed = [GTZalgo process:text];
     NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:processed];
     textView.text = newText;
     return NO;

@@ -142,12 +142,7 @@
 				968B72F4190FE11C00D2B288 /* GTAppDelegate.m */,
 				968B72F6190FE11C00D2B288 /* Main_iPhone.storyboard */,
 				968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */,
-				96AF73F719196382007BB4DD /* GTGlitchInputViewController.h */,
-				96AF73F819196382007BB4DD /* GTGlitchInputViewController.m */,
-				9622946319196661002861DB /* GTGlitchInputCell.h */,
-				9622946419196661002861DB /* GTGlitchInputCell.m */,
-				96D16CD719196F3E00A56728 /* GTGlitchInputHeaderView.h */,
-				96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */,
+				96D16CDA1919873F00A56728 /* GlitchInput */,
 				968B72FC190FE11C00D2B288 /* GTMainViewController.h */,
 				968B72FD190FE11C00D2B288 /* GTMainViewController.m */,
 				96D0D7FD19194EB700542773 /* GTFontTableViewController.h */,
@@ -189,6 +184,19 @@
 				968B730F190FE11C00D2B288 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		96D16CDA1919873F00A56728 /* GlitchInput */ = {
+			isa = PBXGroup;
+			children = (
+				96AF73F719196382007BB4DD /* GTGlitchInputViewController.h */,
+				96AF73F819196382007BB4DD /* GTGlitchInputViewController.m */,
+				9622946319196661002861DB /* GTGlitchInputCell.h */,
+				9622946419196661002861DB /* GTGlitchInputCell.m */,
+				96D16CD719196F3E00A56728 /* GTGlitchInputHeaderView.h */,
+				96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */,
+			);
+			name = GlitchInput;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

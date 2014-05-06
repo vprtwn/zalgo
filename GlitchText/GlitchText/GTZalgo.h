@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
 
-@interface GTZalgo : NSObject
+extern NSString *const GTZalgoUp;
+extern NSString *const GTZalgoMid;
+extern NSString *const GTZalgoDown;
 
-@property NSString *up;
-@property NSString *down;
-@property NSString *mid;
-@property NSString *all;
+@interface GTZalgo : NSObject
 
 - (NSString *)process:(NSString *)text;
 

@@ -1,4 +1,5 @@
 #import "NSString+GlitchText.h"
+#import "GTZalgo.h"
 
 @implementation NSString (GlitchText)
 
@@ -23,6 +24,15 @@
 }
 
 
+- (BOOL)isZalgo
+{
+#warning this doesn't work, try using int range
+//    BOOL isZalgo = [GTZalgoAll rangeOfString:self].location != NSNotFound;
+//    return isZalgo;
+    return NO;
+}
+
+
 - (NSString *)appendToEachCharacter:(NSString *)text
 {
 #warning optimize this
@@ -31,7 +41,10 @@
     for (int i = 0; i < len; i++) {
         NSString *s = [self stringCharacterAtIndex:i];
         [newString appendString:s];
-        [newString appendString:text];
+        if (![s isZalgo]) {
+            [newString appendString:text];
+            NSLog(@"%@", s);
+        }
     }
     return newString;
 }

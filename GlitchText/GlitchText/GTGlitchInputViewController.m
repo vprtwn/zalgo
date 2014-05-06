@@ -64,15 +64,15 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
     NSInteger count;
     switch (self.glitchType) {
         case GTGlitchTypeUp:
-            count = [self.zalgo.up length];
+            count = [GTZalgoUp length];
             break;
 
         case GTGlitchTypeMid:
-            count = [self.zalgo.mid length];
+            count = [GTZalgoMid length];
             break;
 
         case GTGlitchTypeDown:
-            count = [self.zalgo.down length];
+            count = [GTZalgoDown length];
             break;
 
         case GTGlitchTypeCombo:
@@ -87,15 +87,15 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
     NSString *characters = @"";
     switch (self.glitchType) {
         case GTGlitchTypeUp:
-            characters = self.zalgo.up;
+            characters = GTZalgoUp;
             break;
 
         case GTGlitchTypeMid:
-            characters = self.zalgo.mid;
+            characters = GTZalgoMid;
             break;
 
         case GTGlitchTypeDown:
-            characters = self.zalgo.down;
+            characters = GTZalgoDown;
             break;
 
         case GTGlitchTypeCombo:

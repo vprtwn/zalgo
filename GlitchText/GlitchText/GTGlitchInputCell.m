@@ -12,10 +12,13 @@ NSString *const kReuseIDGlitchInputCell = @"glitchInputCell";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self)
-    {
-
+    if (!self) {
+        return nil;
     }
+
+    self.backgroundView.backgroundColor = [UIColor clearColor];
+    self.contentView.layer.cornerRadius = 20;
+
     return self;
 }
 
