@@ -26,6 +26,7 @@
 		968B7313190FE11C00D2B288 /* GlitchTextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B7312190FE11C00D2B288 /* GlitchTextTests.m */; };
 		96AF73F919196382007BB4DD /* GTGlitchInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AF73F819196382007BB4DD /* GTGlitchInputViewController.m */; };
 		96D0D7FF19194EB700542773 /* GTFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D0D7FE19194EB700542773 /* GTFontTableViewController.m */; };
+		96D16CD919196F3E00A56728 /* GTGlitchInputHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */; };
 		96E43225191559F800D617C2 /* GTZalgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E43224191559F800D617C2 /* GTZalgo.m */; };
 		96E432281915615900D617C2 /* NSString+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E432271915615900D617C2 /* NSString+GlitchText.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		96AF73F819196382007BB4DD /* GTGlitchInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGlitchInputViewController.m; sourceTree = "<group>"; };
 		96D0D7FD19194EB700542773 /* GTFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFontTableViewController.h; sourceTree = "<group>"; };
 		96D0D7FE19194EB700542773 /* GTFontTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFontTableViewController.m; sourceTree = "<group>"; };
+		96D16CD719196F3E00A56728 /* GTGlitchInputHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGlitchInputHeaderView.h; sourceTree = "<group>"; };
+		96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGlitchInputHeaderView.m; sourceTree = "<group>"; };
 		96E43223191559F800D617C2 /* GTZalgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZalgo.h; sourceTree = "<group>"; };
 		96E43224191559F800D617C2 /* GTZalgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZalgo.m; sourceTree = "<group>"; };
 		96E432261915615900D617C2 /* NSString+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GlitchText.h"; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				96AF73F819196382007BB4DD /* GTGlitchInputViewController.m */,
 				9622946319196661002861DB /* GTGlitchInputCell.h */,
 				9622946419196661002861DB /* GTGlitchInputCell.m */,
+				96D16CD719196F3E00A56728 /* GTGlitchInputHeaderView.h */,
+				96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */,
 				968B72FC190FE11C00D2B288 /* GTMainViewController.h */,
 				968B72FD190FE11C00D2B288 /* GTMainViewController.m */,
 				96D0D7FD19194EB700542773 /* GTFontTableViewController.h */,
@@ -327,6 +332,7 @@
 				9622946519196661002861DB /* GTGlitchInputCell.m in Sources */,
 				968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */,
 				968B72F1190FE11C00D2B288 /* main.m in Sources */,
+				96D16CD919196F3E00A56728 /* GTGlitchInputHeaderView.m in Sources */,
 				96D0D7FF19194EB700542773 /* GTFontTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

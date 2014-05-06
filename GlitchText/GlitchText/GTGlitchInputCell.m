@@ -14,10 +14,11 @@ NSString *const kReuseIDGlitchInputCell = @"glitchInputCell";
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        self.label.backgroundColor = [UIColor redColor];
+
     }
     return self;
 }
+
 
 - (void)prepareForReuse
 {
