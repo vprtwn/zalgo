@@ -16,8 +16,10 @@ NSString *const kReuseIDGlitchInputCell = @"glitchInputCell";
         return nil;
     }
 
-    self.backgroundView.backgroundColor = [UIColor clearColor];
-    self.contentView.layer.cornerRadius = 20;
+    CALayer *layer = [self layer];
+    [layer setCornerRadius:4];
+    [layer setRasterizationScale:[[UIScreen mainScreen] scale]];
+    [layer setShouldRasterize:YES];
 
     return self;
 }
