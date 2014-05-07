@@ -41,7 +41,7 @@ NSString *const GTZalgoMid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉";
 @implementation GTZalgo
 
 //
-// ZALGORITHM
+// BEHOLD THE ZALGORITHM
 //
 + (NSString *)process:(NSString *)text {
 

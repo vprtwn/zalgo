@@ -2,6 +2,7 @@
 
 #import "GTZalgo.h"
 #import "GTGlitchInputViewController.h"
+#import "GTFontTableViewController.h"
 #import "NSString+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -12,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) GTGlitchInputViewController *glitchInputVC;
+@property (strong, nonatomic) GTFontTableViewController *fontTVC;
 
 // menu buttons
 @property (weak, nonatomic) IBOutlet UIButton *fontButton;
@@ -33,6 +35,13 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchInputVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchInputViewController"];
     self.glitchInputVC.delegate = self;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"fontEmbedSegue"]) {
+        self.fontTVC = segue.destinationViewController;
+    }
 }
 
 - (void)didReceiveMemoryWarning

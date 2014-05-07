@@ -6,6 +6,7 @@ extern NSString *const GTZalgoDown;
 
 @interface GTZalgo : NSObject
 
-- (NSString *)process:(NSString *)text;
+/// BEHOLD THE ZALGORITHM
++ (NSString *)process:(NSString *)text;
 
 @end

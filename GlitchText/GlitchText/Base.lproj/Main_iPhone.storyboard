@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="width" constant="320" id="afW-dF-rsa"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="zJi-IB-slA" kind="embed" id="qUk-8Z-yMN"/>
+                                    <segue destination="zJi-IB-slA" kind="embed" identifier="fontEmbedSegue" id="qUk-8Z-yMN"/>
                                 </connections>
                             </containerView>
                             <textView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eO0-vf-xUc">
@@ -192,7 +192,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cK4-DT-Dzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="-261"/>
+            <point key="canvasLocation" x="646" y="231"/>
         </scene>
         <!--Glitch Input View Controller-->
         <scene sceneID="aW0-4x-OwN">
