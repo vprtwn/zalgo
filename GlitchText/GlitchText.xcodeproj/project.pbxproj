@@ -28,6 +28,7 @@
 		96D0D7FF19194EB700542773 /* GTFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D0D7FE19194EB700542773 /* GTFontTableViewController.m */; };
 		96D16CD919196F3E00A56728 /* GTGlitchInputHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */; };
 		96D38711191B486D00989B8F /* NSArray+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D38710191B486D00989B8F /* NSArray+GlitchText.m */; };
+		96D38715191B531F00989B8F /* GTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D38714191B531F00989B8F /* GTTextView.m */; };
 		96E43225191559F800D617C2 /* GTZalgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E43224191559F800D617C2 /* GTZalgo.m */; };
 		96E432281915615900D617C2 /* NSString+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E432271915615900D617C2 /* NSString+GlitchText.m */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,8 @@
 		96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGlitchInputHeaderView.m; sourceTree = "<group>"; };
 		96D3870F191B486D00989B8F /* NSArray+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GlitchText.h"; sourceTree = "<group>"; };
 		96D38710191B486D00989B8F /* NSArray+GlitchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GlitchText.m"; sourceTree = "<group>"; };
+		96D38713191B531F00989B8F /* GTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTextView.h; sourceTree = "<group>"; };
+		96D38714191B531F00989B8F /* GTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTextView.m; sourceTree = "<group>"; };
 		96E43223191559F800D617C2 /* GTZalgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZalgo.h; sourceTree = "<group>"; };
 		96E43224191559F800D617C2 /* GTZalgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZalgo.m; sourceTree = "<group>"; };
 		96E432261915615900D617C2 /* NSString+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GlitchText.h"; sourceTree = "<group>"; };
@@ -146,16 +149,15 @@
 				968B72F6190FE11C00D2B288 /* Main_iPhone.storyboard */,
 				968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */,
 				96D16CDA1919873F00A56728 /* GlitchInput */,
+				96D38712191B52C500989B8F /* Categories */,
 				968B72FC190FE11C00D2B288 /* GTMainViewController.h */,
 				968B72FD190FE11C00D2B288 /* GTMainViewController.m */,
 				96D0D7FD19194EB700542773 /* GTFontTableViewController.h */,
 				96D0D7FE19194EB700542773 /* GTFontTableViewController.m */,
+				96D38713191B531F00989B8F /* GTTextView.h */,
+				96D38714191B531F00989B8F /* GTTextView.m */,
 				96E43223191559F800D617C2 /* GTZalgo.h */,
 				96E43224191559F800D617C2 /* GTZalgo.m */,
-				96D3870F191B486D00989B8F /* NSArray+GlitchText.h */,
-				96D38710191B486D00989B8F /* NSArray+GlitchText.m */,
-				96E432261915615900D617C2 /* NSString+GlitchText.h */,
-				96E432271915615900D617C2 /* NSString+GlitchText.m */,
 				968B72FF190FE11C00D2B288 /* Images.xcassets */,
 				968B72EB190FE11C00D2B288 /* Supporting Files */,
 			);
@@ -202,6 +204,17 @@
 				96D16CD819196F3E00A56728 /* GTGlitchInputHeaderView.m */,
 			);
 			name = GlitchInput;
+			sourceTree = "<group>";
+		};
+		96D38712191B52C500989B8F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				96E432261915615900D617C2 /* NSString+GlitchText.h */,
+				96E432271915615900D617C2 /* NSString+GlitchText.m */,
+				96D3870F191B486D00989B8F /* NSArray+GlitchText.h */,
+				96D38710191B486D00989B8F /* NSArray+GlitchText.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +355,7 @@
 				96E43225191559F800D617C2 /* GTZalgo.m in Sources */,
 				96D38711191B486D00989B8F /* NSArray+GlitchText.m in Sources */,
 				968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */,
+				96D38715191B531F00989B8F /* GTTextView.m in Sources */,
 				96AF73F919196382007BB4DD /* GTGlitchInputViewController.m in Sources */,
 				9622946519196661002861DB /* GTGlitchInputCell.m in Sources */,
 				968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */,

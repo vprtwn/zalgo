@@ -2,6 +2,8 @@
 
 @interface NSString (GlitchText)
 
+- (BOOL)containsString:(NSString *)string;
+
 - (NSArray *)characterArray;
 
 - (BOOL)isZalgo;

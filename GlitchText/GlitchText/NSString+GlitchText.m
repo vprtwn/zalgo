@@ -3,6 +3,11 @@
 
 @implementation NSString (GlitchText)
 
+- (BOOL)containsString:(NSString *)string
+{
+    return [self rangeOfString:string].location != NSNotFound;
+}
+
 - (NSArray *)characterArray
 {
     NSUInteger length = [self length];
