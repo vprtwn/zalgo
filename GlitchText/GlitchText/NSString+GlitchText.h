@@ -2,11 +2,7 @@
 
 @interface NSString (GlitchText)
 
-+ (NSString *)stringWithUnichar:(unichar)value;
-
-- (NSString *)randomCharacter;
-
-- (NSString *)stringCharacterAtIndex:(NSUInteger)index;
+- (NSArray *)characterArray;
 
 - (BOOL)isZalgo;
 

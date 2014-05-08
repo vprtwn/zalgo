@@ -6,7 +6,14 @@ extern NSString *const GTZalgoDown;
 
 @interface GTZalgo : NSObject
 
+@property (strong, nonatomic) NSArray *up;
+@property (strong, nonatomic) NSArray *mid;
+@property (strong, nonatomic) NSArray *down;
+@property (strong, nonatomic) NSArray *all;
+
++ (instancetype)sharedInstance;
+
 /// BEHOLD THE ZALGORITHM
-+ (NSString *)process:(NSString *)text;
+- (NSString *)process:(NSString *)text;
 
 @end

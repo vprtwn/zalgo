@@ -84,26 +84,27 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *characters = @"";
+    GTGlitchInputCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIDGlitchInputCell forIndexPath:indexPath];
+    NSUInteger row = indexPath.row;
+
+    GTZalgo *zalgo = [GTZalgo sharedInstance];
     switch (self.glitchType) {
         case GTGlitchTypeUp:
-            characters = GTZalgoUp;
+            cell.label.text = zalgo.up[row];
             break;
 
         case GTGlitchTypeMid:
-            characters = GTZalgoMid;
+            cell.label.text = zalgo.mid[row];
             break;
 
         case GTGlitchTypeDown:
-            characters = GTZalgoDown;
+            cell.label.text = zalgo.down[row];
             break;
 
         case GTGlitchTypeCombo:
             break;
     }
 
-    GTGlitchInputCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIDGlitchInputCell forIndexPath:indexPath];
-    cell.label.text = [NSString stringWithUnichar:[characters characterAtIndex:indexPath.row]];
     return cell;
 }
 

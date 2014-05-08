@@ -30,7 +30,9 @@
     [super viewDidLoad];
     self.textView.delegate = self;
     [self.textView becomeFirstResponder];
-    
+
+    [self.textView addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:nil];
+
     self.zalgo = [GTZalgo new];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchInputVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchInputViewController"];
@@ -41,6 +43,15 @@
 {
     if ([segue.identifier isEqualToString:@"fontEmbedSegue"]) {
         self.fontTVC = segue.destinationViewController;
+    }
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"contentSize"]) {
+        UITextView *textView = object;
+        CGFloat topoffset = ([textView bounds].size.height - [textView contentSize].height * [textView zoomScale])/2.0;
+        topoffset = ( topoffset < 0.0 ? 0.0 : topoffset );
+        textView.contentOffset = (CGPoint){.x = 0, .y = -topoffset};
     }
 }
 
@@ -113,7 +124,7 @@
     }
 
     // zalgo
-    NSString *processed = [GTZalgo process:text];
+    NSString *processed = [[GTZalgo sharedInstance] process:text];
     NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:processed];
     textView.text = newText;
     return NO;
