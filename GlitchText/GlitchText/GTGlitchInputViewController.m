@@ -59,6 +59,11 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
 
 #pragma mark - UICollectionViewControllerDataSource
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger count;
@@ -120,6 +125,8 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
          map:^NSNumber *(UISegmentedControl *control) {
              return @(control.selectedSegmentIndex);
         }] doNext:^(NSNumber *index) {
+            [self.collectionView setContentOffset:CGPointZero animated:YES];
+            [self.collectionViewLayout invalidateLayout];
             [self.collectionView reloadData];
         }];
     }
