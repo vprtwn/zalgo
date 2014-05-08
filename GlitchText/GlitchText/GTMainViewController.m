@@ -109,6 +109,9 @@
         NSString *newSelectedString = [selectedString appendToEachCharacter:text];
         self.textView.text = [self.textView.text stringByReplacingCharactersInRange:selectedRange
                                                                          withString:newSelectedString];
+        // reselect
+        NSRange newRange = [self.textView.text rangeOfString:newSelectedString];
+        self.textView.selectedRange = newRange;
     }
     else {
         self.textView.text = [self.textView.text stringByAppendingString:text];
