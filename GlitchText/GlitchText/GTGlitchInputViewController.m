@@ -2,23 +2,25 @@
 
 #import "GTGlitchInputCell.h"
 #import "GTGlitchInputHeaderView.h"
+#import "GTZalgoFooterView.h"
 #import "GTZalgo.h"
 #import "NSString+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-typedef NS_ENUM(NSUInteger, GTGlitchType) {
-    GTGlitchTypeUp,
-    GTGlitchTypeMid,
-    GTGlitchTypeDown,
-    GTGlitchTypeCombo
+typedef NS_ENUM(NSUInteger, GTGlitchSection) {
+    GTGlitchSectionZalgo,
+    GTGlitchSectionUp,
+    GTGlitchSectionMid,
+    GTGlitchSectionDown
 };
 
 @interface GTGlitchInputViewController ()
 
 @property (strong, nonatomic) GTZalgo *zalgo;
 @property (strong, nonatomic) GTGlitchInputHeaderView *headerView;
-@property (assign, nonatomic) GTGlitchType glitchType;
+@property (strong, nonatomic) GTZalgoFooterView *zalgoFooterView;
+@property (assign, nonatomic) GTGlitchSection selectedSection;
 
 @end
 
@@ -32,7 +34,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
     }
 
     self.zalgo = [GTZalgo new];
-    self.glitchType = GTGlitchTypeUp;
+    self.selectedSection = GTGlitchSectionZalgo;
     return self;
 }
 
@@ -67,21 +69,20 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger count;
-    switch (self.glitchType) {
-        case GTGlitchTypeUp:
+    switch (self.selectedSection) {
+        case GTGlitchSectionZalgo:
+            count = 0;
+            break;
+        case GTGlitchSectionUp:
             count = [GTZalgoUp length];
             break;
 
-        case GTGlitchTypeMid:
+        case GTGlitchSectionMid:
             count = [GTZalgoMid length];
             break;
 
-        case GTGlitchTypeDown:
+        case GTGlitchSectionDown:
             count = [GTZalgoDown length];
-            break;
-
-        case GTGlitchTypeCombo:
-            count = 0;
             break;
     }
     return count;
@@ -93,20 +94,19 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
     NSUInteger row = indexPath.row;
 
     GTZalgo *zalgo = [GTZalgo sharedInstance];
-    switch (self.glitchType) {
-        case GTGlitchTypeUp:
+    switch (self.selectedSection) {
+        case GTGlitchSectionZalgo:
+            break;
+        case GTGlitchSectionUp:
             cell.label.text = zalgo.up[row];
             break;
 
-        case GTGlitchTypeMid:
+        case GTGlitchSectionMid:
             cell.label.text = zalgo.mid[row];
             break;
 
-        case GTGlitchTypeDown:
+        case GTGlitchSectionDown:
             cell.label.text = zalgo.down[row];
-            break;
-
-        case GTGlitchTypeCombo:
             break;
     }
 
@@ -115,22 +115,36 @@ typedef NS_ENUM(NSUInteger, GTGlitchType) {
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.headerView) {
-        self.headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                             withReuseIdentifier:@"glitchInputHeaderView"
-                                                                    forIndexPath:indexPath];
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        if (!self.headerView) {
+            self.headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                 withReuseIdentifier:@"glitchInputHeaderView"
+                                                                        forIndexPath:indexPath];
 
-        RAC(self, glitchType) =
-        [[[self.headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
-         map:^NSNumber *(UISegmentedControl *control) {
-             return @(control.selectedSegmentIndex);
-        }] doNext:^(NSNumber *index) {
-            [self.collectionView setContentOffset:CGPointZero animated:YES];
-            [self.collectionViewLayout invalidateLayout];
-            [self.collectionView reloadData];
-        }];
+            RAC(self, selectedSection) =
+            [[[self.headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
+             map:^NSNumber *(UISegmentedControl *control) {
+                 return @(control.selectedSegmentIndex);
+            }] doNext:^(NSNumber *index) {
+                [self.collectionView performBatchUpdates:^{
+                    [self.collectionView setContentOffset:CGPointZero animated:YES];
+                } completion:^(BOOL finished) {
+                    [self.collectionViewLayout invalidateLayout];
+                    [self.collectionView reloadData];
+                }];
+            }];
+        }
+        return self.headerView;
     }
-    return self.headerView;
+    else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        if (!self.zalgoFooterView) {
+            self.zalgoFooterView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                      withReuseIdentifier:@"zalgoFooterView"
+                                                                             forIndexPath:indexPath];
+        }
+        return self.zalgoFooterView;
+    }
+    return self.zalgoFooterView;
 }
 
 @end
