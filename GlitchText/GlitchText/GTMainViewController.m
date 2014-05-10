@@ -30,7 +30,6 @@
 {
     [super viewDidLoad];
     self.textView.delegate = self;
-    [self.textView addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:nil];
 
     self.zalgo = [GTZalgo new];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
@@ -47,18 +46,6 @@
     }
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"contentSize"]) {
-        UITextView *textView = object;
-        CGFloat topoffset = ([textView bounds].size.height - [textView contentSize].height * [textView zoomScale])/2.0;
-        topoffset = ( topoffset < 0.0 ? 0.0 : topoffset );
-        textView.contentOffset = (CGPoint){.x = 0, .y = -topoffset};
-    }
-}
-
-- (void)dealloc
-{
-}
 
 - (void)didReceiveMemoryWarning
 {
