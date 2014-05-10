@@ -88,9 +88,14 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
         }] doNext:^(NSNumber *index) {
             _footerView.previewLabel.text = [self.zalgo process:@"INVOKE THE HIVE MIND" mode:[index integerValue]];
         }];
+
+        [_footerView.keyboardButton addTarget:self.delegate
+                                       action:@selector(dismissGlitchView)
+                             forControlEvents:UIControlEventTouchUpInside];
     }
     return _footerView;
 }
+
 
 #pragma mark - UICollectionViewControllerDelegate
 

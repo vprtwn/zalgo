@@ -308,9 +308,6 @@
                                     <state key="normal" title="⌨">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <connections>
-                                        <action selector="keyboardButtonAction:" destination="KjV-za-Af1" eventType="touchUpInside" id="HGE-da-zY5"/>
-                                    </connections>
                                 </button>
                             </subviews>
                             <connections>

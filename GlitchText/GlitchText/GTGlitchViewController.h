@@ -3,6 +3,7 @@
 @protocol GTGlitchInputDelegate <NSObject>
 
 - (void)didSelectGlitch:(NSString *)text;
+- (void)dismissGlitchView;
 
 @end
 

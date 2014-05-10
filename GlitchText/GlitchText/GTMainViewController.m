@@ -111,6 +111,14 @@
     }
 }
 
+- (void)dismissGlitchView
+{
+    self.glitchButton.selected = NO;
+    [self.textView resignFirstResponder];
+    self.textView.inputView = nil;
+    [self.textView becomeFirstResponder];   
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text

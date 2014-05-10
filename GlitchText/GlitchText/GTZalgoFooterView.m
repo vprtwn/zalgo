@@ -11,9 +11,4 @@
     return self;
 }
 
-- (IBAction)keyboardButtonAction:(id)sender
-{
-
-}
-
 @end
