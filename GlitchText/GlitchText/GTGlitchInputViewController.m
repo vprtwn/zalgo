@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GTGlitchInputCell *cell = (GTGlitchInputCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self.delegate shouldEnterText:cell.label.text];
+    [self.delegate shouldGlitch:cell.label.text];
 }
 
 

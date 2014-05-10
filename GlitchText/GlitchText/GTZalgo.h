@@ -11,6 +11,8 @@ extern NSString *const GTZalgoDown;
 @property (strong, nonatomic) NSArray *down;
 @property (strong, nonatomic) NSArray *all;
 
+@property (assign, nonatomic) BOOL enabled;
+
 + (instancetype)sharedInstance;
 
 /// BEHOLD THE ZALGORITHM

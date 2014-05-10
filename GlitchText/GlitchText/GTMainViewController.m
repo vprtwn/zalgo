@@ -3,6 +3,7 @@
 #import "GTZalgo.h"
 #import "GTGlitchInputViewController.h"
 #import "GTFontTableViewController.h"
+#import "GTTextRange.h"
 #import "NSString+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -29,14 +30,14 @@
 {
     [super viewDidLoad];
     self.textView.delegate = self;
-    [self.textView becomeFirstResponder];
-
     [self.textView addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:nil];
 
     self.zalgo = [GTZalgo new];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchInputVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchInputViewController"];
     self.glitchInputVC.delegate = self;
+
+    [self.textView becomeFirstResponder];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -53,6 +54,10 @@
         topoffset = ( topoffset < 0.0 ? 0.0 : topoffset );
         textView.contentOffset = (CGPoint){.x = 0, .y = -topoffset};
     }
+}
+
+- (void)dealloc
+{
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,7 +106,7 @@
 
 #pragma mark - GTGlitchInputDelegate
 
-- (void)shouldEnterText:(NSString *)text
+- (void)shouldGlitch:(NSString *)text
 {
     NSRange selectedRange = self.textView.selectedRange;
     if (selectedRange.length) {
@@ -127,10 +132,15 @@
     }
 
     // zalgo
-    NSString *processed = [[GTZalgo sharedInstance] process:text];
-    NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:processed];
-    textView.text = newText;
-    return NO;
+    else {
+        NSString *processed = [[GTZalgo sharedInstance] process:text];
+        NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:processed];
+        textView.text = newText;
+        textView.textAlignment = textView.textAlignment;
+        return NO;
+    }
+
+    return YES;
 }
 
 @end

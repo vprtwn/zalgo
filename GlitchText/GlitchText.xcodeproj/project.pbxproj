@@ -10,6 +10,7 @@
 		305A72C2A2B04B79BABB4A5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 861D5B4AEACB43098D113584 /* libPods.a */; };
 		9622946519196661002861DB /* GTGlitchInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9622946419196661002861DB /* GTGlitchInputCell.m */; };
 		96554830191E7F5F00699CC9 /* GTZalgoFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9655482F191E7F5F00699CC9 /* GTZalgoFooterView.m */; };
+		96554833191E84B900699CC9 /* GTTextRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 96554832191E84B900699CC9 /* GTTextRange.m */; };
 		968B72E5190FE11C00D2B288 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E4190FE11C00D2B288 /* Foundation.framework */; };
 		968B72E7190FE11C00D2B288 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E6190FE11C00D2B288 /* CoreGraphics.framework */; };
 		968B72E9190FE11C00D2B288 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E8190FE11C00D2B288 /* UIKit.framework */; };
@@ -51,6 +52,8 @@
 		9622946419196661002861DB /* GTGlitchInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGlitchInputCell.m; sourceTree = "<group>"; };
 		9655482E191E7F5F00699CC9 /* GTZalgoFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZalgoFooterView.h; sourceTree = "<group>"; };
 		9655482F191E7F5F00699CC9 /* GTZalgoFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZalgoFooterView.m; sourceTree = "<group>"; };
+		96554831191E84B900699CC9 /* GTTextRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTextRange.h; sourceTree = "<group>"; };
+		96554832191E84B900699CC9 /* GTTextRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTextRange.m; sourceTree = "<group>"; };
 		968B72E1190FE11C00D2B288 /* GlitchText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlitchText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968B72E4190FE11C00D2B288 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		968B72E6190FE11C00D2B288 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -227,6 +230,8 @@
 		96D38716191B576C00989B8F /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				96554831191E84B900699CC9 /* GTTextRange.h */,
+				96554832191E84B900699CC9 /* GTTextRange.m */,
 				96D38713191B531F00989B8F /* GTTextView.h */,
 				96D38714191B531F00989B8F /* GTTextView.m */,
 				96D38717191B57AA00989B8F /* GTFixedHeaderLayout.h */,
@@ -376,6 +381,7 @@
 				968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */,
 				96D38715191B531F00989B8F /* GTTextView.m in Sources */,
 				96AF73F919196382007BB4DD /* GTGlitchInputViewController.m in Sources */,
+				96554833191E84B900699CC9 /* GTTextRange.m in Sources */,
 				9622946519196661002861DB /* GTGlitchInputCell.m in Sources */,
 				968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */,
 				968B72F1190FE11C00D2B288 /* main.m in Sources */,

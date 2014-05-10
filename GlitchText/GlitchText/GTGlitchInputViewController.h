@@ -2,7 +2,7 @@
 
 @protocol GTGlitchInputDelegate <NSObject>
 
-- (void)shouldEnterText:(NSString *)text;
+- (void)shouldGlitch:(NSString *)text;
 
 @end
 
