@@ -1,7 +1,7 @@
 #import "GTGlitchViewController.h"
 
 #import "GTButtonCell.h"
-#import "GTSectionHeaderView.h"
+#import "GTGlitchHeaderView.h"
 #import "GTZalgoFooterView.h"
 #import "GTZalgo.h"
 #import "NSString+GlitchText.h"
@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 @interface GTGlitchViewController ()
 
 @property (strong, nonatomic) GTZalgo *zalgo;
-@property (strong, nonatomic) GTSectionHeaderView *headerView;
+@property (strong, nonatomic) GTGlitchHeaderView *headerView;
 @property (strong, nonatomic) GTZalgoFooterView *footerView;
 @property (assign, nonatomic) GTGlitchSection selectedSection;
 
@@ -52,7 +52,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 #pragma mark - header and footer views
 
-- (GTSectionHeaderView *)headerView
+- (GTGlitchHeaderView *)headerView
 {
     if (!_headerView) {
         _headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader

@@ -29,7 +29,7 @@
 		968B7313190FE11C00D2B288 /* GlitchTextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B7312190FE11C00D2B288 /* GlitchTextTests.m */; };
 		96AF73F919196382007BB4DD /* GTGlitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AF73F819196382007BB4DD /* GTGlitchViewController.m */; };
 		96D0D7FF19194EB700542773 /* GTFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D0D7FE19194EB700542773 /* GTFontTableViewController.m */; };
-		96D16CD919196F3E00A56728 /* GTSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D16CD819196F3E00A56728 /* GTSectionHeaderView.m */; };
+		96D16CD919196F3E00A56728 /* GTGlitchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D16CD819196F3E00A56728 /* GTGlitchHeaderView.m */; };
 		96D38711191B486D00989B8F /* NSArray+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D38710191B486D00989B8F /* NSArray+GlitchText.m */; };
 		96D38715191B531F00989B8F /* GTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D38714191B531F00989B8F /* GTTextView.m */; };
 		96D38719191B57AA00989B8F /* GTFixedHeaderLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D38718191B57AA00989B8F /* GTFixedHeaderLayout.m */; };
@@ -81,8 +81,8 @@
 		96AF73F819196382007BB4DD /* GTGlitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGlitchViewController.m; sourceTree = "<group>"; };
 		96D0D7FD19194EB700542773 /* GTFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFontTableViewController.h; sourceTree = "<group>"; };
 		96D0D7FE19194EB700542773 /* GTFontTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFontTableViewController.m; sourceTree = "<group>"; };
-		96D16CD719196F3E00A56728 /* GTSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSectionHeaderView.h; sourceTree = "<group>"; };
-		96D16CD819196F3E00A56728 /* GTSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSectionHeaderView.m; sourceTree = "<group>"; };
+		96D16CD719196F3E00A56728 /* GTGlitchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGlitchHeaderView.h; sourceTree = "<group>"; };
+		96D16CD819196F3E00A56728 /* GTGlitchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGlitchHeaderView.m; sourceTree = "<group>"; };
 		96D3870F191B486D00989B8F /* NSArray+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GlitchText.h"; sourceTree = "<group>"; };
 		96D38710191B486D00989B8F /* NSArray+GlitchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GlitchText.m"; sourceTree = "<group>"; };
 		96D38713191B531F00989B8F /* GTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTextView.h; sourceTree = "<group>"; };
@@ -219,6 +219,8 @@
 			children = (
 				96AF73F719196382007BB4DD /* GTGlitchViewController.h */,
 				96AF73F819196382007BB4DD /* GTGlitchViewController.m */,
+				96D16CD719196F3E00A56728 /* GTGlitchHeaderView.h */,
+				96D16CD819196F3E00A56728 /* GTGlitchHeaderView.m */,
 				9655482E191E7F5F00699CC9 /* GTZalgoFooterView.h */,
 				9655482F191E7F5F00699CC9 /* GTZalgoFooterView.m */,
 			);
@@ -239,8 +241,6 @@
 		96D38716191B576C00989B8F /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				96D16CD719196F3E00A56728 /* GTSectionHeaderView.h */,
-				96D16CD819196F3E00A56728 /* GTSectionHeaderView.m */,
 				9622946319196661002861DB /* GTButtonCell.h */,
 				9622946419196661002861DB /* GTButtonCell.m */,
 				96554831191E84B900699CC9 /* GTTextRange.h */,
@@ -399,7 +399,7 @@
 				968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */,
 				964E844B191EB0C0008A304D /* GTSymbolViewController.m in Sources */,
 				968B72F1190FE11C00D2B288 /* main.m in Sources */,
-				96D16CD919196F3E00A56728 /* GTSectionHeaderView.m in Sources */,
+				96D16CD919196F3E00A56728 /* GTGlitchHeaderView.m in Sources */,
 				96D38719191B57AA00989B8F /* GTFixedHeaderLayout.m in Sources */,
 				96D0D7FF19194EB700542773 /* GTFontTableViewController.m in Sources */,
 			);

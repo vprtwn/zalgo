@@ -1,6 +1,6 @@
-#import "GTSectionHeaderView.h"
+#import "GTGlitchHeaderView.h"
 
-@implementation GTSectionHeaderView
+@implementation GTGlitchHeaderView
 
 - (id)initWithFrame:(CGRect)frame
 {

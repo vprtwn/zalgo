@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface GTSectionHeaderView : UICollectionReusableView
+@interface GTGlitchHeaderView : UICollectionReusableView
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
