@@ -58,6 +58,7 @@ NSString *const GTZalgoMid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉";
     self.mid = [GTZalgoMid characterArray];
     self.down = [GTZalgoDown characterArray];
     self.all = [[self.up arrayByAddingObjectsFromArray:self.mid] arrayByAddingObjectsFromArray:self.down];
+    self.mode = GTZalgoModeNormal;
 
     return self;
 }
@@ -68,10 +69,37 @@ NSString *const GTZalgoMid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉";
 //
 - (NSString *)processOne:(NSString *)c
 {
-    NSUInteger upCount = arc4random_uniform(8);
-    NSUInteger downCount = arc4random_uniform(8);
-    NSUInteger midCount = arc4random_uniform(2);
-    NSUInteger length = 1 + upCount + downCount + midCount;
+    NSUInteger upMaxRand, midMaxRand, downMaxRand;
+    NSUInteger upMin, midMin, downMin;
+    NSUInteger midDivisor = 1;
+    switch (self.mode) {
+        case GTZalgoModeMini:
+            upMaxRand = downMaxRand = 8;
+            midMaxRand = 2;
+            upMin = midMin = downMin = 0;
+            break;
+        case GTZalgoModeNormal:
+            upMaxRand = downMaxRand = 8;
+            midMaxRand = 6;
+            upMin = downMin = 1;
+            midMin = 0;
+            midDivisor = 2;
+            break;
+        case GTZalgoModeUltra:
+            upMaxRand = 16;
+            midMaxRand = 4;
+            downMaxRand = 64;
+            upMin = downMin = 3;
+            midMin = 1;
+            break;
+        default:
+            break;
+    }
+
+    NSUInteger upCount = arc4random_uniform(upMaxRand) + upMin;
+    NSUInteger midCount = (arc4random_uniform(midMaxRand) + midMin)/midDivisor;
+    NSUInteger downCount = arc4random_uniform(downMaxRand) + downMin;
+    NSUInteger length = 1 + upCount + midCount + downCount;
     
     unichar buffer[length + 1];
     NSUInteger i = 0;
@@ -102,6 +130,8 @@ NSString *const GTZalgoMid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉";
 
 - (NSString *)process:(NSString *)text
 {
+    if (self.mode == GTZalgoModeOff) return text;
+
     NSArray *cs = [text characterArray];
     NSMutableString *newText = [NSMutableString new];
     for (NSString *c in cs) {

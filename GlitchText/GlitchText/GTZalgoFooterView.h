@@ -2,4 +2,6 @@
 
 @interface GTZalgoFooterView : UICollectionReusableView
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 @end
