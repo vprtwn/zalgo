@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
         return nil;
     }
 
-    self.zalgo = [GTZalgo new];
+    self.zalgo = [GTZalgo sharedInstance];
     self.selectedSection = GTGlitchSectionZalgo;
     return self;
 }
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
         RAC(self, selectedSection) =
-        [[[self.headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
+        [[[_headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
           map:^NSNumber *(UISegmentedControl *control) {
               return @(control.selectedSegmentIndex);
           }] doNext:^(NSNumber *index) {
@@ -80,6 +80,14 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
         _footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                                                               withReuseIdentifier:@"zalgoFooterView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+
+        RAC(self.zalgo, mode) =
+        [[[_footerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
+         map:^NSNumber *(UISegmentedControl *control) {
+             return @(control.selectedSegmentIndex);
+        }] doNext:^(NSNumber *index) {
+            _footerView.previewLabel.text = [self.zalgo process:@"INVOKE THE HIVE MIND" mode:[index integerValue]];
+        }];
     }
     return _footerView;
 }
@@ -102,21 +110,20 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger count;
-    GTZalgo *zalgo = [GTZalgo sharedInstance];
     switch (self.selectedSection) {
         case GTGlitchSectionZalgo:
             count = 0;
             break;
         case GTGlitchSectionUp:
-            count = [zalgo.up count];
+            count = [self.zalgo.up count];
             break;
 
         case GTGlitchSectionMid:
-            count = [zalgo.mid count];
+            count = [self.zalgo.mid count];
             break;
 
         case GTGlitchSectionDown:
-            count = [zalgo.down count];
+            count = [self.zalgo.down count];
             break;
     }
     return count;
@@ -127,20 +134,19 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"glitchButtonCell" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
 
-    GTZalgo *zalgo = [GTZalgo sharedInstance];
     switch (self.selectedSection) {
         case GTGlitchSectionZalgo:
             break;
         case GTGlitchSectionUp:
-            cell.label.text = zalgo.up[row];
+            cell.label.text = self.zalgo.up[row];
             break;
 
         case GTGlitchSectionMid:
-            cell.label.text = zalgo.mid[row];
+            cell.label.text = self.zalgo.mid[row];
             break;
 
         case GTGlitchSectionDown:
-            cell.label.text = zalgo.down[row];
+            cell.label.text = self.zalgo.down[row];
             break;
     }
 

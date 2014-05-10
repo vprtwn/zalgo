@@ -67,17 +67,15 @@ NSString *const GTZalgoMid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉";
 //
 // BEHOLD THE ZALGORITHM
 //
-- (NSString *)processOne:(NSString *)c
+- (NSString *)processOne:(NSString *)c mode:(GTZalgoMode)mode
 {
+    if (mode == GTZalgoModeOff) {
+        return c;
+    }
     NSUInteger upMaxRand, midMaxRand, downMaxRand;
     NSUInteger upMin, midMin, downMin;
     NSUInteger midDivisor = 1;
-    switch (self.mode) {
-        case GTZalgoModeMini:
-            upMaxRand = downMaxRand = 8;
-            midMaxRand = 2;
-            upMin = midMin = downMin = 0;
-            break;
+    switch (mode) {
         case GTZalgoModeNormal:
             upMaxRand = downMaxRand = 8;
             midMaxRand = 6;
@@ -130,13 +128,23 @@ NSString *const GTZalgoMid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉";
 
 - (NSString *)process:(NSString *)text
 {
-    if (self.mode == GTZalgoModeOff) return text;
+    if (self.mode == GTZalgoModeOff) {
+        return text;
+    }
+    return [self process:text mode:self.mode];
+}
 
+
+- (NSString *)process:(NSString *)text mode:(GTZalgoMode)mode
+{
+    if (mode == GTZalgoModeOff) {
+        return text;
+    }
     NSArray *cs = [text characterArray];
     NSMutableString *newText = [NSMutableString new];
     for (NSString *c in cs) {
         if (![c isZalgo]) {
-            [newText appendString:[self processOne:c]];
+            [newText appendString:[self processOne:c mode:mode]];
         }
     }
     return newText;

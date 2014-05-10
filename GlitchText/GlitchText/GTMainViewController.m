@@ -31,7 +31,7 @@
     [super viewDidLoad];
     self.textView.delegate = self;
 
-    self.zalgo = [GTZalgo new];
+    self.zalgo = [GTZalgo sharedInstance];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
     self.glitchVC.delegate = self;
@@ -121,7 +121,7 @@
 
     // zalgo
     else {
-        NSString *processed = [[GTZalgo sharedInstance] process:text];
+        NSString *processed = [self.zalgo process:text];
         NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:processed];
         textView.text = newText;
         textView.textAlignment = textView.textAlignment;

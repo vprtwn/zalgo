@@ -232,7 +232,7 @@
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M1a-D9-btB" customClass="GTFixedHeaderLayout">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="320" height="50"/>
-                            <size key="footerReferenceSize" width="320" height="216"/>
+                            <size key="footerReferenceSize" width="320" height="172"/>
                             <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -272,7 +272,7 @@
                                         <segment title="MID"/>
                                         <segment title="DOWN"/>
                                     </segments>
-                                    <color key="tintColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
@@ -281,22 +281,41 @@
                             </connections>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="zalgoFooterView" id="KjV-za-Af1" customClass="GTZalgoFooterView">
-                            <rect key="frame" x="0.0" y="100" width="320" height="216"/>
+                            <rect key="frame" x="0.0" y="100" width="320" height="172"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INVOKE THE HIVE MIND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Q-Vf-Drx">
+                                    <rect key="frame" x="17" y="0.0" width="287" height="172"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TCp-Ho-0sc">
-                                    <rect key="frame" x="20" y="54" width="287" height="29"/>
+                                    <rect key="frame" x="20" y="5" width="280" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
                                         <segment title="OFF"/>
-                                        <segment title="MINI"/>
                                         <segment title="NORMAL"/>
                                         <segment title="ULTRA"/>
                                     </segments>
-                                    <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </segmentedControl>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX5-A3-T7t">
+                                    <rect key="frame" x="258" y="123" width="46" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <state key="normal" title="⌨">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="keyboardButtonAction:" destination="KjV-za-Af1" eventType="touchUpInside" id="HGE-da-zY5"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <connections>
+                                <outlet property="keyboardButton" destination="sX5-A3-T7t" id="SR2-eq-Nxe"/>
+                                <outlet property="previewLabel" destination="V6Q-Vf-Drx" id="pB8-q4-I3x"/>
                                 <outlet property="segmentedControl" destination="TCp-Ho-0sc" id="MKx-A6-C55"/>
                             </connections>
                         </collectionReusableView>

@@ -6,7 +6,6 @@ extern NSString *const GTZalgoDown;
 
 typedef NS_ENUM(NSUInteger, GTZalgoMode) {
     GTZalgoModeOff,
-    GTZalgoModeMini,
     GTZalgoModeNormal,
     GTZalgoModeUltra
 };
@@ -21,7 +20,7 @@ typedef NS_ENUM(NSUInteger, GTZalgoMode) {
 
 + (instancetype)sharedInstance;
 
-/// BEHOLD THE ZALGORITHM
 - (NSString *)process:(NSString *)text;
+- (NSString *)process:(NSString *)text mode:(GTZalgoMode)mode;
 
 @end
