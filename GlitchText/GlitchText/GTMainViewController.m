@@ -20,7 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *fontButton;
 @property (weak, nonatomic) IBOutlet UIButton *glitchButton;
 @property (weak, nonatomic) IBOutlet UIButton *symbolButton;
+@property (weak, nonatomic) IBOutlet UIButton *kaomojiButton;
+@property (weak, nonatomic) IBOutlet UIButton *movementButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) NSArray *buttons;
 
 @end
 
@@ -29,6 +32,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.buttons = @[self.fontButton,
+                     self.glitchButton,
+                     self.symbolButton,
+                     self.kaomojiButton,
+                     self.movementButton,
+                     self.shareButton];
+
     self.textView.delegate = self;
 
     self.zalgo = [GTZalgo sharedInstance];
@@ -56,16 +66,18 @@
 
 #pragma mark - Buttons
 
-- (void)deselectAllButtons
+- (void)deselectAllExcept:(NSArray *)buttons
 {
-    self.fontButton.selected = NO;
-    self.glitchButton.selected = NO;
-    self.symbolButton.selected = NO;
-    self.shareButton.selected = NO;
+    for (UIButton *b in self.buttons) {
+        if (![buttons containsObject:b]) {
+            b.selected = NO;
+        }
+    }
 }
 
 - (IBAction)fontButtonAction:(id)sender
 {
+    [self deselectAllExcept:@[self.fontButton, self.glitchButton]];
     if (self.fontButton.selected) {
         self.fontButton.selected = NO;
         [self.textView becomeFirstResponder];
@@ -77,6 +89,7 @@
 }
 
 - (IBAction)glitchButtonAction:(id)sender {
+    [self deselectAllExcept:@[self.glitchButton]];
     if (self.glitchButton.selected) {
         self.glitchButton.selected = NO;
         [self.textView resignFirstResponder];

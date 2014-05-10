@@ -153,6 +153,8 @@
                     <connections>
                         <outlet property="fontButton" destination="LLB-gL-m8f" id="47T-gR-XSe"/>
                         <outlet property="glitchButton" destination="eno-hu-WSs" id="hWT-0a-M3X"/>
+                        <outlet property="kaomojiButton" destination="Qh0-ZH-bZc" id="9tp-Kl-E6M"/>
+                        <outlet property="movementButton" destination="MCF-Iq-75C" id="ruj-cF-cDO"/>
                         <outlet property="shareButton" destination="liQ-OH-M2I" id="a7D-fT-dMg"/>
                         <outlet property="symbolButton" destination="j6W-UG-slL" id="94Y-84-mVF"/>
                         <outlet property="textView" destination="eO0-vf-xUc" id="clY-fL-6r2"/>
