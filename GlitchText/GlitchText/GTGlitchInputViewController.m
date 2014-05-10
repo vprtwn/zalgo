@@ -50,6 +50,40 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - header and footer views
+
+- (GTGlitchInputHeaderView *)headerView
+{
+    if (!_headerView) {
+        _headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                              withReuseIdentifier:@"glitchInputHeaderView"
+                                                                     forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+
+        RAC(self, selectedSection) =
+        [[[self.headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
+          map:^NSNumber *(UISegmentedControl *control) {
+              return @(control.selectedSegmentIndex);
+          }] doNext:^(NSNumber *index) {
+              [UIView animateWithDuration:0 animations:^{
+                  [self.collectionView setContentOffset:CGPointZero animated:YES];
+                  [self.collectionViewLayout invalidateLayout];
+                  [self.collectionView reloadData];
+              } completion:nil];
+          }];
+    }
+    return _headerView;
+}
+
+- (GTZalgoFooterView *)footerView
+{
+    if (!_footerView) {
+        _footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                              withReuseIdentifier:@"zalgoFooterView"
+                                                                     forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    }
+    return _footerView;
+}
+
 #pragma mark - UICollectionViewControllerDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -57,7 +91,6 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     GTGlitchInputCell *cell = (GTGlitchInputCell *)[collectionView cellForItemAtIndexPath:indexPath];
     [self.delegate shouldGlitch:cell.label.text];
 }
-
 
 #pragma mark - UICollectionViewControllerDataSource
 
@@ -116,33 +149,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        if (!self.headerView) {
-            self.headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                 withReuseIdentifier:@"glitchInputHeaderView"
-                                                                        forIndexPath:indexPath];
-
-            RAC(self, selectedSection) =
-            [[[self.headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
-             map:^NSNumber *(UISegmentedControl *control) {
-                 return @(control.selectedSegmentIndex);
-            }] doNext:^(NSNumber *index) {
-                [UIView animateWithDuration:0 animations:^{
-                    [self.collectionView performBatchUpdates:^{
-                        [self.collectionView setContentOffset:CGPointZero animated:YES];
-                        [self.collectionViewLayout invalidateLayout];
-                    } completion:^(BOOL finished) {
-                        [self.collectionView reloadData];
-                    }];
-                }];
-
-            }];
-        }
         return self.headerView;
-    }
-    if (!self.footerView) {
-        self.footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                             withReuseIdentifier:@"zalgoFooterView"
-                                                                    forIndexPath:indexPath];
     }
     return self.footerView;
 }
