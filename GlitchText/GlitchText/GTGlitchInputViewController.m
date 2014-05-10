@@ -2,6 +2,7 @@
 
 #import "GTGlitchInputCell.h"
 #import "GTGlitchInputHeaderView.h"
+#import "GTZalgoFooterView.h"
 #import "GTZalgo.h"
 #import "NSString+GlitchText.h"
 
@@ -18,6 +19,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 @property (strong, nonatomic) GTZalgo *zalgo;
 @property (strong, nonatomic) GTGlitchInputHeaderView *headerView;
+@property (strong, nonatomic) GTZalgoFooterView *footerView;
 @property (assign, nonatomic) GTGlitchSection selectedSection;
 
 @end
@@ -88,7 +90,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTGlitchInputCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIDGlitchInputCell forIndexPath:indexPath];
+    GTGlitchInputCell * cell= [collectionView dequeueReusableCellWithReuseIdentifier:@"glitchInputCell" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
 
     GTZalgo *zalgo = [GTZalgo sharedInstance];
@@ -113,28 +115,46 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.headerView) {
-        self.headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                             withReuseIdentifier:@"glitchInputHeaderView"
-                                                                    forIndexPath:indexPath];
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        if (!self.headerView) {
+            self.headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                 withReuseIdentifier:@"glitchInputHeaderView"
+                                                                        forIndexPath:indexPath];
 
-        RAC(self, selectedSection) =
-        [[[self.headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
-         map:^NSNumber *(UISegmentedControl *control) {
-             return @(control.selectedSegmentIndex);
-        }] doNext:^(NSNumber *index) {
-            [UIView animateWithDuration:0 animations:^{
-                [self.collectionView performBatchUpdates:^{
-                    [self.collectionView setContentOffset:CGPointZero animated:YES];
-                    [self.collectionViewLayout invalidateLayout];
-                } completion:^(BOOL finished) {
-                    [self.collectionView reloadData];
+            RAC(self, selectedSection) =
+            [[[self.headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
+             map:^NSNumber *(UISegmentedControl *control) {
+                 return @(control.selectedSegmentIndex);
+            }] doNext:^(NSNumber *index) {
+                [UIView animateWithDuration:0 animations:^{
+                    [self.collectionView performBatchUpdates:^{
+                        [self.collectionView setContentOffset:CGPointZero animated:YES];
+                        [self.collectionViewLayout invalidateLayout];
+                    } completion:^(BOOL finished) {
+                        [self.collectionView reloadData];
+                    }];
                 }];
-            }];
 
-        }];
+            }];
+        }
+        return self.headerView;
     }
-    return self.headerView;
+    if (!self.footerView) {
+        self.footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                             withReuseIdentifier:@"zalgoFooterView"
+                                                                    forIndexPath:indexPath];
+    }
+    return self.footerView;
 }
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    if (self.selectedSection == GTGlitchSectionZalgo) {
+        return CGSizeMake(320, 166);
+    }
+    return CGSizeZero;
+}
+
 
 @end

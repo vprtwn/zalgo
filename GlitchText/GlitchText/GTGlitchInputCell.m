@@ -1,7 +1,5 @@
 #import "GTGlitchInputCell.h"
 
-NSString *const kReuseIDGlitchInputCell = @"glitchInputCell";
-
 @interface GTGlitchInputCell ()
 
 
@@ -23,13 +21,5 @@ NSString *const kReuseIDGlitchInputCell = @"glitchInputCell";
 
     return self;
 }
-
-
-- (void)prepareForReuse
-{
-
-}
-
-
 
 @end
