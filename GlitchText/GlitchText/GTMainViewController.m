@@ -1,7 +1,7 @@
 #import "GTMainViewController.h"
 
 #import "GTZalgo.h"
-#import "GTGlitchInputViewController.h"
+#import "GTGlitchViewController.h"
 #import "GTFontTableViewController.h"
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
@@ -13,7 +13,7 @@
 @property (strong, nonatomic) GTZalgo *zalgo;
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (strong, nonatomic) GTGlitchInputViewController *glitchInputVC;
+@property (strong, nonatomic) GTGlitchViewController *glitchVC;
 @property (strong, nonatomic) GTFontTableViewController *fontTVC;
 
 // menu buttons
@@ -33,8 +33,8 @@
 
     self.zalgo = [GTZalgo new];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    self.glitchInputVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchInputViewController"];
-    self.glitchInputVC.delegate = self;
+    self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
+    self.glitchVC.delegate = self;
 
     [self.textView becomeFirstResponder];
 }
@@ -86,14 +86,14 @@
     else {
         self.glitchButton.selected = YES;
         [self.textView resignFirstResponder];
-        self.textView.inputView = self.glitchInputVC.view;
+        self.textView.inputView = self.glitchVC.view;
         [self.textView becomeFirstResponder];
     }
 }
 
 #pragma mark - GTGlitchInputDelegate
 
-- (void)shouldGlitch:(NSString *)text
+- (void)didSelectGlitch:(NSString *)text
 {
     NSRange selectedRange = self.textView.selectedRange;
     if (selectedRange.length) {

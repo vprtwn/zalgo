@@ -1,8 +1,6 @@
-#import "GTGlitchInputHeaderView.h"
+#import "GTSectionHeaderView.h"
 
-NSString *const kReuseIDGlitchInputHeaderView = @"glitchInputHeaderView";
-
-@implementation GTGlitchInputHeaderView
+@implementation GTSectionHeaderView
 
 - (id)initWithFrame:(CGRect)frame
 {

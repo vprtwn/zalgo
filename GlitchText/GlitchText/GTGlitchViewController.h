@@ -2,11 +2,11 @@
 
 @protocol GTGlitchInputDelegate <NSObject>
 
-- (void)shouldGlitch:(NSString *)text;
+- (void)didSelectGlitch:(NSString *)text;
 
 @end
 
-@interface GTGlitchInputViewController : UICollectionViewController
+@interface GTGlitchViewController : UICollectionViewController
 
 @property (weak, nonatomic) id<GTGlitchInputDelegate> delegate;
 

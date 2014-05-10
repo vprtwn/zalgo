@@ -1,11 +1,11 @@
-#import "GTGlitchInputCell.h"
+#import "GTButtonCell.h"
 #import <UIImage-Helpers/UIImage+ImageWithColor.h>
 
-@interface GTGlitchInputCell ()
+@interface GTButtonCell ()
 
 @end
 
-@implementation GTGlitchInputCell
+@implementation GTButtonCell
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -47,7 +47,7 @@
 
     if (self.highlighted) {
         CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextSetGrayFillColor(context, 0.41, 1.0);
+        CGContextSetGrayFillColor(context, 0.41, 0.5);
         CGContextFillRect(context, self.bounds);
     }
 }

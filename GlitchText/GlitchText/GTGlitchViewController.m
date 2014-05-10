@@ -1,7 +1,7 @@
-#import "GTGlitchInputViewController.h"
+#import "GTGlitchViewController.h"
 
-#import "GTGlitchInputCell.h"
-#import "GTGlitchInputHeaderView.h"
+#import "GTButtonCell.h"
+#import "GTSectionHeaderView.h"
 #import "GTZalgoFooterView.h"
 #import "GTZalgo.h"
 #import "NSString+GlitchText.h"
@@ -15,16 +15,16 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     GTGlitchSectionDown
 };
 
-@interface GTGlitchInputViewController ()
+@interface GTGlitchViewController ()
 
 @property (strong, nonatomic) GTZalgo *zalgo;
-@property (strong, nonatomic) GTGlitchInputHeaderView *headerView;
+@property (strong, nonatomic) GTSectionHeaderView *headerView;
 @property (strong, nonatomic) GTZalgoFooterView *footerView;
 @property (assign, nonatomic) GTGlitchSection selectedSection;
 
 @end
 
-@implementation GTGlitchInputViewController
+@implementation GTGlitchViewController
 
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -52,11 +52,11 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 #pragma mark - header and footer views
 
-- (GTGlitchInputHeaderView *)headerView
+- (GTSectionHeaderView *)headerView
 {
     if (!_headerView) {
         _headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                              withReuseIdentifier:@"glitchInputHeaderView"
+                                                              withReuseIdentifier:@"glitchHeaderView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
         RAC(self, selectedSection) =
@@ -88,8 +88,8 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTGlitchInputCell *cell = (GTGlitchInputCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self.delegate shouldGlitch:cell.label.text];
+    GTButtonCell *cell = (GTButtonCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [self.delegate didSelectGlitch:cell.label.text];
 }
 
 #pragma mark - UICollectionViewControllerDataSource
@@ -102,20 +102,21 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger count;
+    GTZalgo *zalgo = [GTZalgo sharedInstance];
     switch (self.selectedSection) {
         case GTGlitchSectionZalgo:
             count = 0;
             break;
         case GTGlitchSectionUp:
-            count = [GTZalgoUp length];
+            count = [zalgo.up count];
             break;
 
         case GTGlitchSectionMid:
-            count = [GTZalgoMid length];
+            count = [zalgo.mid count];
             break;
 
         case GTGlitchSectionDown:
-            count = [GTZalgoDown length];
+            count = [zalgo.down count];
             break;
     }
     return count;
@@ -123,7 +124,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTGlitchInputCell * cell= [collectionView dequeueReusableCellWithReuseIdentifier:@"glitchInputCell" forIndexPath:indexPath];
+    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"glitchButtonCell" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
 
     GTZalgo *zalgo = [GTZalgo sharedInstance];
