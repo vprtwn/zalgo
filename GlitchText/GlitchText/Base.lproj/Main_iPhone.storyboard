@@ -85,6 +85,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="shareButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="G4y-Gy-7EK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6W-UG-slL">
                                         <rect key="frame" x="103" y="8" width="40" height="34"/>
@@ -99,6 +102,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="symbolButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Vdp-wf-SE1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qh0-ZH-bZc">
                                         <rect key="frame" x="156" y="8" width="32" height="34"/>
@@ -112,6 +118,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="kaomojiButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="V1m-Nj-ZRn"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCF-Iq-75C">
                                         <rect key="frame" x="205" y="2" width="40" height="46"/>
@@ -126,6 +135,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="movementButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8uo-dm-lS1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -334,14 +346,14 @@
             </objects>
             <point key="canvasLocation" x="1287" y="792"/>
         </scene>
-        <!--Symbol View Controller-->
+        <!--Arrow View Controller-->
         <scene sceneID="iwV-G3-1CE">
             <objects>
-                <collectionViewController storyboardIdentifier="SymbolViewController" autoresizesArchivedViewToFullSize="NO" id="IBV-9O-dT9" customClass="GTSymbolViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="SymbolViewController" autoresizesArchivedViewToFullSize="NO" id="IBV-9O-dT9" customClass="GTArrowViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="tG4-o9-Fdn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.81176477670000002" green="0.82745105029999999" blue="0.84705889229999998" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hkm-dc-8qE" customClass="GTFixedHeaderLayout">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="320" height="50"/>
@@ -349,14 +361,14 @@
                             <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="symbolInputCell" id="y8I-5h-Yeb" customClass="GTButtonCell">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="arrowButtonCell" id="y8I-5h-Yeb" customClass="GTButtonCell">
                                 <rect key="frame" x="10" y="50" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UK-WT-MS2">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="↺" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UK-WT-MS2">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -372,7 +384,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="symbolHeaderView" id="XOq-hB-pxM" customClass="GTGlitchHeaderView">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="symbolHeaderView" id="XOq-hB-pxM" customClass="GTArrowHeaderView">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
@@ -380,17 +392,18 @@
                                     <rect key="frame" x="20" y="11" width="280" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
-                                        <segment title="bla"/>
-                                        <segment title="bla"/>
-                                        <segment title="Mid"/>
-                                        <segment title="Down"/>
+                                        <segment title="➡︎"/>
+                                        <segment title="⬅︎"/>
+                                        <segment title="⬆︎⬇︎"/>
+                                        <segment title="↔︎↕︎"/>
+                                        <segment title="↺"/>
                                     </segments>
-                                    <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
-                                <outlet property="segmentedControl" destination="EYv-u7-iN2" id="Wrw-BW-GSu"/>
+                                <outlet property="segmentedControl" destination="EYv-u7-iN2" id="PBC-Wq-4Z6"/>
                             </connections>
                         </collectionReusableView>
                         <connections>

@@ -38,12 +38,6 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -90,22 +84,22 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
         }];
 
         [_footerView.keyboardButton addTarget:self.delegate
-                                       action:@selector(dismissGlitchView)
+                                       action:@selector(showDefaultKeyboard)
                              forControlEvents:UIControlEventTouchUpInside];
     }
     return _footerView;
 }
 
 
-#pragma mark - UICollectionViewControllerDelegate
+#pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GTButtonCell *cell = (GTButtonCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self.delegate didSelectGlitch:cell.label.text];
+    [self.delegate shouldEnterText:cell.label.text];
 }
 
-#pragma mark - UICollectionViewControllerDataSource
+#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

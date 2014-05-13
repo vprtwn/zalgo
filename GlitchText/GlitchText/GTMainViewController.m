@@ -2,18 +2,20 @@
 
 #import "GTZalgo.h"
 #import "GTGlitchViewController.h"
+#import "GTArrowViewController.h"
 #import "GTFontTableViewController.h"
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface GTMainViewController () <UITextViewDelegate, GTGlitchInputDelegate>
+@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate>
 
 @property (strong, nonatomic) GTZalgo *zalgo;
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) GTGlitchViewController *glitchVC;
+@property (strong, nonatomic) GTArrowViewController *symbolVC;
 @property (strong, nonatomic) GTFontTableViewController *fontTVC;
 
 // menu buttons
@@ -44,6 +46,7 @@
     self.zalgo = [GTZalgo sharedInstance];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
+    self.symbolVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SymbolViewController"];
     self.glitchVC.delegate = self;
 
     [self.textView becomeFirstResponder];
@@ -88,7 +91,8 @@
     }
 }
 
-- (IBAction)glitchButtonAction:(id)sender {
+- (IBAction)glitchButtonAction:(id)sender
+{
     [self deselectAllExcept:@[self.glitchButton]];
     if (self.glitchButton.selected) {
         self.glitchButton.selected = NO;
@@ -104,9 +108,39 @@
     }
 }
 
-#pragma mark - GTGlitchInputDelegate
+- (IBAction)symbolButtonAction:(id)sender
+{
+    [self deselectAllExcept:@[self.symbolButton]];
+    if (self.symbolButton.selected) {
+        self.symbolButton.selected = NO;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = nil;
+        [self.textView becomeFirstResponder];
+    }
+    else {
+        self.symbolButton.selected = YES;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = self.symbolVC.view;
+        [self.textView becomeFirstResponder];
+    }
+}
 
-- (void)didSelectGlitch:(NSString *)text
+- (IBAction)kaomojiButtonAction:(id)sender
+{
+}
+
+- (IBAction)movementButtonAction:(id)sender
+{
+}
+
+- (IBAction)shareButtonAction:(id)sender
+{
+}
+
+
+#pragma mark - GTInputDelegate
+
+- (void)shouldEnterText:(NSString *)text
 {
     NSRange selectedRange = self.textView.selectedRange;
     if (selectedRange.length) {
@@ -124,9 +158,9 @@
     }
 }
 
-- (void)dismissGlitchView
+- (void)showDefaultKeyboard;
 {
-    self.glitchButton.selected = NO;
+    [self deselectAllExcept:nil];
     [self.textView resignFirstResponder];
     self.textView.inputView = nil;
     [self.textView becomeFirstResponder];   

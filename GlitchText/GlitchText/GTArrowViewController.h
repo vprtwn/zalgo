@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "GTInputDelegate.h"
 
-@interface GTGlitchViewController : UICollectionViewController
+@interface GTArrowViewController : UICollectionViewController
 
 @property (weak, nonatomic) id<GTInputDelegate> delegate;
 
