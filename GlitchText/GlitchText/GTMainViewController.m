@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) GTGlitchViewController *glitchVC;
-@property (strong, nonatomic) GTArrowViewController *symbolVC;
+@property (strong, nonatomic) GTArrowViewController *arrowVC;
 @property (strong, nonatomic) GTFontTableViewController *fontTVC;
 
 // menu buttons
@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *glitchButton;
 @property (weak, nonatomic) IBOutlet UIButton *symbolButton;
 @property (weak, nonatomic) IBOutlet UIButton *kaomojiButton;
-@property (weak, nonatomic) IBOutlet UIButton *movementButton;
+@property (weak, nonatomic) IBOutlet UIButton *arrowButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (strong, nonatomic) NSArray *buttons;
 
@@ -38,7 +38,7 @@
                      self.glitchButton,
                      self.symbolButton,
                      self.kaomojiButton,
-                     self.movementButton,
+                     self.arrowButton,
                      self.shareButton];
 
     self.textView.delegate = self;
@@ -46,8 +46,9 @@
     self.zalgo = [GTZalgo sharedInstance];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
-    self.symbolVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SymbolViewController"];
     self.glitchVC.delegate = self;
+    self.arrowVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SymbolViewController"];
+    self.arrowVC.delegate = self;
 
     [self.textView becomeFirstResponder];
 }
@@ -120,7 +121,7 @@
     else {
         self.symbolButton.selected = YES;
         [self.textView resignFirstResponder];
-        self.textView.inputView = self.symbolVC.view;
+        self.textView.inputView = nil;
         [self.textView becomeFirstResponder];
     }
 }
@@ -129,8 +130,21 @@
 {
 }
 
-- (IBAction)movementButtonAction:(id)sender
+- (IBAction)arrowButtonAction:(id)sender
 {
+    [self deselectAllExcept:@[self.arrowButton]];
+    if (self.arrowButton.selected) {
+        self.arrowButton.selected = NO;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = nil;
+        [self.textView becomeFirstResponder];
+    }
+    else {
+        self.arrowButton.selected = YES;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = self.arrowVC.view;
+        [self.textView becomeFirstResponder];
+    }
 }
 
 - (IBAction)shareButtonAction:(id)sender
@@ -156,6 +170,12 @@
     else {
         self.textView.text = [self.textView.text stringByAppendingString:text];
     }
+}
+
+- (void)shouldInvokeTheHiveMind
+{
+    self.textView.text = [[GTZalgo sharedInstance] process:self.textView.text];
+    self.textView.textAlignment = self.textView.textAlignment;
 }
 
 - (void)showDefaultKeyboard;

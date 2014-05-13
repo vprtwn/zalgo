@@ -136,7 +136,7 @@
                                             <color key="titleColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="movementButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8uo-dm-lS1"/>
+                                            <action selector="arrowButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EcD-Ah-IhQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -163,10 +163,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="arrowButton" destination="MCF-Iq-75C" id="VwU-H1-gUJ"/>
                         <outlet property="fontButton" destination="LLB-gL-m8f" id="47T-gR-XSe"/>
                         <outlet property="glitchButton" destination="eno-hu-WSs" id="hWT-0a-M3X"/>
                         <outlet property="kaomojiButton" destination="Qh0-ZH-bZc" id="9tp-Kl-E6M"/>
-                        <outlet property="movementButton" destination="MCF-Iq-75C" id="ruj-cF-cDO"/>
                         <outlet property="shareButton" destination="liQ-OH-M2I" id="a7D-fT-dMg"/>
                         <outlet property="symbolButton" destination="j6W-UG-slL" id="94Y-84-mVF"/>
                         <outlet property="textView" destination="eO0-vf-xUc" id="clY-fL-6r2"/>
@@ -298,6 +298,12 @@
                             <rect key="frame" x="0.0" y="100" width="320" height="172"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7c-up-l0g">
+                                    <rect key="frame" x="54" y="53" width="212" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Invoke "/>
+                                </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INVOKE THE HIVE MIND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Q-Vf-Drx">
                                     <rect key="frame" x="17" y="0.0" width="287" height="172"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -325,6 +331,7 @@
                                 </button>
                             </subviews>
                             <connections>
+                                <outlet property="invokeButton" destination="E7c-up-l0g" id="Zz7-2r-Vce"/>
                                 <outlet property="keyboardButton" destination="sX5-A3-T7t" id="SR2-eq-Nxe"/>
                                 <outlet property="previewLabel" destination="V6Q-Vf-Drx" id="pB8-q4-I3x"/>
                                 <outlet property="segmentedControl" destination="TCp-Ho-0sc" id="MKx-A6-C55"/>

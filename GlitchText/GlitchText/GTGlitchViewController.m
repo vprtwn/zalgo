@@ -38,11 +38,19 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - header and footer views
 
@@ -86,6 +94,14 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
         [_footerView.keyboardButton addTarget:self.delegate
                                        action:@selector(showDefaultKeyboard)
                              forControlEvents:UIControlEventTouchUpInside];
+
+        UIButton *invokeButton = _footerView.invokeButton;
+        invokeButton.layer.borderColor = invokeButton.tintColor.CGColor;
+        invokeButton.layer.backgroundColor = invokeButton.tintColor.CGColor;
+        invokeButton.layer.borderWidth = 1.5;
+        invokeButton.layer.cornerRadius = 4.0f;
+
+        [invokeButton addTarget:self.delegate action:@selector(shouldInvokeTheHiveMind) forControlEvents:UIControlEventTouchUpInside];
     }
     return _footerView;
 }
