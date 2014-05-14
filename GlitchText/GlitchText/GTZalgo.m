@@ -33,7 +33,9 @@ NSString *const GTZalgoDown = @"̗̘̙̜̝̞̟̠̤̥̦̪̫̬̭̮̯̰̱̲̳̹̺̻
 
 
 
-NSString *const GTZalgoMid = @"̴̵̶̸̷̡̢̧̨̛̀́̕͘͜͟͢͝͞͠͡҉";
+NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠͡҉";
+
+
 
 
 
