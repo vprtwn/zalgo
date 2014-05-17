@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *glitchButton;
 @property (weak, nonatomic) IBOutlet UIButton *symbolButton;
 @property (weak, nonatomic) IBOutlet UIButton *shapeButton;
-@property (weak, nonatomic) IBOutlet UIButton *recentButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (strong, nonatomic) NSArray *buttons;
 
@@ -40,7 +39,6 @@
                      self.glitchButton,
                      self.symbolButton,
                      self.shapeButton,
-                     self.recentButton,
                      self.shareButton];
 
     self.textView.delegate = self;
@@ -76,7 +74,7 @@
 
 - (IBAction)fontButtonAction:(id)sender
 {
-    [self deselectAllExcept:@[self.fontButton, self.glitchButton]];
+    [self deselectAllExcept:@[self.fontButton]];
     self.textView.inputView = nil;
     if (self.fontButton.selected) {
         self.fontButton.selected = NO;
@@ -101,11 +99,6 @@
 - (IBAction)shapeButtonAction:(id)sender
 {
     [self tapButton:self.shapeButton inputView:self.shapeVC.view];
-}
-
-- (IBAction)recentButtonAction:(id)sender
-{
-    [self tapButton:self.recentButton inputView:nil];
 }
 
 - (IBAction)shareButtonAction:(id)sender
@@ -146,18 +139,24 @@
 - (void)shouldEnterText:(NSString *)text
 {
     NSRange selectedRange = self.textView.selectedRange;
+    NSString *currentText = self.textView.text;
     if (selectedRange.length) {
-        NSString *selectedString = [self.textView.text substringWithRange:selectedRange];
+        NSString *selectedString = [currentText substringWithRange:selectedRange];
         NSString *newSelectedString = [selectedString appendToEachCharacter:text];
-        self.textView.text = [self.textView.text stringByReplacingCharactersInRange:selectedRange
-                                                                         withString:newSelectedString];
+        self.textView.text = [currentText stringByReplacingCharactersInRange:selectedRange
+                                                                  withString:newSelectedString];
         self.textView.textAlignment = self.textView.textAlignment;
         // reselect
         NSRange newRange = [self.textView.text rangeOfString:newSelectedString];
         self.textView.selectedRange = newRange;
     }
     else {
-        self.textView.text = [self.textView.text stringByAppendingString:text];
+        NSString *firstHalf = [currentText substringToIndex:selectedRange.location];
+        NSString *secondHalf = [currentText substringFromIndex:selectedRange.location];
+        firstHalf = [firstHalf stringByAppendingString:text];
+        self.textView.text = [firstHalf stringByAppendingString:secondHalf];
+        NSRange newRange = NSMakeRange(selectedRange.location + text.length, 0);
+        self.textView.selectedRange = newRange;
     }
 }
 
