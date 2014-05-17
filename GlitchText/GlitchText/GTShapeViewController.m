@@ -1,46 +1,46 @@
-#import "GTSymbolViewController.h"
-#import "GTSymbolHeaderView.h"
+#import "GTShapeViewController.h"
+#import "GTShapeHeaderView.h"
 #import "GTButtonCell.h"
 #import "NSString+GlitchText.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-typedef NS_ENUM(NSUInteger, GTSymbolSection) {
-    GTSymbolSection1,
-    GTSymbolSection2,
-    GTSymbolSection3
+typedef NS_ENUM(NSUInteger, GTShapeSection) {
+    GTShapeSection1,
+    GTShapeSection2,
+    GTShapeSection3
 };
 
 
-@interface GTSymbolViewController ()
+@interface GTShapeViewController ()
 
-@property (strong, nonatomic) GTSymbolHeaderView *headerView;
+@property (strong, nonatomic) GTShapeHeaderView *headerView;
 
 @property (strong, nonatomic) NSArray *s1;
 @property (strong, nonatomic) NSArray *s2;
 @property (strong, nonatomic) NSArray *s3;
-@property (assign, nonatomic) GTSymbolSection selectedSection;
+@property (assign, nonatomic) GTShapeSection selectedSection;
 
 @end
 
-@implementation GTSymbolViewController
+@implementation GTShapeViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (!self) return nil;
 
-    self.s1 = [@"☻☹☼❂☽☾☄❁☂☃✍✎✆✄෴〠☠⎈❥☏☢✇☣♲✓✔✕✖✘☒✿❀☙❧❦" characterArray];
-    self.s2 = [@"⧫✦✧♤♧♡♢♚♛☗☖♜♝♞♟♔♕♖♗♘♙⚀⚁⚂⚃⚄⚅✙✚✝✞✟✠☩☥♰♱⚚⚕⚖⚗⚛☧⚒☭☪☬⚑⚐☮☯☸⚔Ꙭꙭꙮ" characterArray];
-    self.s3 = [@"☛☞➔➜➞➠➢➪➫➬➳←☚☜↑↓☟➘➚⍟✰★✯✡✩✫✬✶✷✵✹✺❊✻✽❉✲✾❃❋✣✤✦✧❈※⁕⁑⁂" characterArray];
+    self.s1 = [@"∟∠∡∢⦣≀∽⧺⧻⋓⋐⋑⋒⋇⋘⋙⋉⋊⋋⋌≡≣⊙☉⊗⊖⦾⦿⊕⊛⫨⟠⿰⿱⿲⿳⿴⿵⿶⿷⿸⿹⿺◰◱◱◳⊠⊞⊟⧈⊡" characterArray];
+    self.s2 = [@"⦁◦∘∙●○◯❍◌◍◎◉⦿■□▣❏❐❑❒◆◇►▻◄◅▼▽▲△▰▱◬◭◮◸◹◺◿◆◇◊◈❖◘◙◚◛▧▥▦▨▩◧◨◩◪" characterArray];
+    self.s3 = [@"▖▗▘▙▚▛▜▝▞▟❘❙❚▀▔▁▂▂▄▇█▉▊▋▌▍▎▏▕▐░▒▓◢◣◤◥╱╲╳╭╮╰╯│┃┊┋┆┇╎╏║─━┈┉┄┅╌╍═－-∕" characterArray];
 
     return self;
 }
 
-- (GTSymbolHeaderView *)headerView
+- (GTShapeHeaderView *)headerView
 {
     if (!_headerView) {
         _headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                              withReuseIdentifier:@"symbolHeaderView"
+                                                              withReuseIdentifier:@"shapeHeaderView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         RAC(self, selectedSection) =
         [[[_headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
@@ -87,15 +87,15 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
 {
     NSInteger count;
     switch (self.selectedSection) {
-        case GTSymbolSection1:
+        case GTShapeSection1:
             count = [self.s1 count];
             break;
 
-        case GTSymbolSection2:
+        case GTShapeSection2:
             count = [self.s2 count];
             break;
 
-        case GTSymbolSection3:
+        case GTShapeSection3:
             count = [self.s3 count];
             break;
     }
@@ -104,19 +104,19 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"symbolButtonCell" forIndexPath:indexPath];
+    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"shapeButtonCell" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
 
     switch (self.selectedSection) {
-        case GTSymbolSection1:
+        case GTShapeSection1:
             cell.label.text = self.s1[row];
             break;
 
-        case GTSymbolSection2:
+        case GTShapeSection2:
             cell.label.text = self.s2[row];
             break;
 
-        case GTSymbolSection3:
+        case GTShapeSection3:
             cell.label.text = self.s3[row];
             break;
     }

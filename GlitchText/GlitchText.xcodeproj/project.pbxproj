@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		305A72C2A2B04B79BABB4A5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 861D5B4AEACB43098D113584 /* libPods.a */; };
+		961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E03192804B500797CA8 /* GTShapeViewController.m */; };
+		961A5E07192804C900797CA8 /* GTShapeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E06192804C900797CA8 /* GTShapeHeaderView.m */; };
 		9622946519196661002861DB /* GTButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9622946419196661002861DB /* GTButtonCell.m */; };
 		964E844B191EB0C0008A304D /* GTSymbolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E844A191EB0C0008A304D /* GTSymbolViewController.m */; };
 		964E844E191EE408008A304D /* GTSymbolHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E844D191EE408008A304D /* GTSymbolHeaderView.m */; };
@@ -51,6 +53,10 @@
 /* Begin PBXFileReference section */
 		861D5B4AEACB43098D113584 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96153FA81921B2BE0064C304 /* GTInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTInputDelegate.h; sourceTree = "<group>"; };
+		961A5E02192804B500797CA8 /* GTShapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShapeViewController.h; sourceTree = "<group>"; };
+		961A5E03192804B500797CA8 /* GTShapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTShapeViewController.m; sourceTree = "<group>"; };
+		961A5E05192804C900797CA8 /* GTShapeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShapeHeaderView.h; sourceTree = "<group>"; };
+		961A5E06192804C900797CA8 /* GTShapeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTShapeHeaderView.m; sourceTree = "<group>"; };
 		9622946319196661002861DB /* GTButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTButtonCell.h; sourceTree = "<group>"; };
 		9622946419196661002861DB /* GTButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTButtonCell.m; sourceTree = "<group>"; };
 		964E8449191EB0C0008A304D /* GTSymbolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSymbolViewController.h; sourceTree = "<group>"; };
@@ -125,7 +131,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		964E8448191EB0A5008A304D /* Arrow */ = {
+		961A5E01192804A200797CA8 /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				961A5E02192804B500797CA8 /* GTShapeViewController.h */,
+				961A5E03192804B500797CA8 /* GTShapeViewController.m */,
+				961A5E05192804C900797CA8 /* GTShapeHeaderView.h */,
+				961A5E06192804C900797CA8 /* GTShapeHeaderView.m */,
+			);
+			name = Shape;
+			sourceTree = "<group>";
+		};
+		964E8448191EB0A5008A304D /* Symbol */ = {
 			isa = PBXGroup;
 			children = (
 				964E8449191EB0C0008A304D /* GTSymbolViewController.h */,
@@ -133,7 +150,7 @@
 				964E844C191EE408008A304D /* GTSymbolHeaderView.h */,
 				964E844D191EE408008A304D /* GTSymbolHeaderView.m */,
 			);
-			name = Arrow;
+			name = Symbol;
 			sourceTree = "<group>";
 		};
 		968B72D8190FE11C00D2B288 = {
@@ -176,7 +193,8 @@
 				968B72F6190FE11C00D2B288 /* Main_iPhone.storyboard */,
 				968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */,
 				96D16CDA1919873F00A56728 /* Glitch */,
-				964E8448191EB0A5008A304D /* Arrow */,
+				964E8448191EB0A5008A304D /* Symbol */,
+				961A5E01192804A200797CA8 /* Shape */,
 				96D38712191B52C500989B8F /* Categories */,
 				96D38716191B576C00989B8F /* UIComponents */,
 				968B72FC190FE11C00D2B288 /* GTMainViewController.h */,
@@ -397,6 +415,7 @@
 				96E432281915615900D617C2 /* NSString+GlitchText.m in Sources */,
 				96554830191E7F5F00699CC9 /* GTZalgoFooterView.m in Sources */,
 				96E43225191559F800D617C2 /* GTZalgo.m in Sources */,
+				961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */,
 				96D38711191B486D00989B8F /* NSArray+GlitchText.m in Sources */,
 				964E844E191EE408008A304D /* GTSymbolHeaderView.m in Sources */,
 				968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */,
@@ -409,6 +428,7 @@
 				968B72F1190FE11C00D2B288 /* main.m in Sources */,
 				96D16CD919196F3E00A56728 /* GTGlitchHeaderView.m in Sources */,
 				96D38719191B57AA00989B8F /* GTFixedHeaderLayout.m in Sources */,
+				961A5E07192804C900797CA8 /* GTShapeHeaderView.m in Sources */,
 				96D0D7FF19194EB700542773 /* GTFontTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

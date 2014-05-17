@@ -3,6 +3,7 @@
 #import "GTZalgo.h"
 #import "GTGlitchViewController.h"
 #import "GTSymbolViewController.h"
+#import "GTShapeViewController.h"
 #import "GTFontTableViewController.h"
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) GTGlitchViewController *glitchVC;
 @property (strong, nonatomic) GTSymbolViewController *symbolVC;
+@property (strong, nonatomic) GTShapeViewController *shapeVC;
 @property (strong, nonatomic) GTFontTableViewController *fontTVC;
 
 // menu buttons
@@ -49,6 +51,8 @@
     self.glitchVC.delegate = self;
     self.symbolVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SymbolViewController"];
     self.symbolVC.delegate = self;
+    self.shapeVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"ShapeViewController"];
+    self.shapeVC.delegate = self;
 
     [self.textView becomeFirstResponder];
 }
@@ -73,6 +77,7 @@
 - (IBAction)fontButtonAction:(id)sender
 {
     [self deselectAllExcept:@[self.fontButton, self.glitchButton]];
+    self.textView.inputView = nil;
     if (self.fontButton.selected) {
         self.fontButton.selected = NO;
         [self.textView becomeFirstResponder];
@@ -95,7 +100,7 @@
 
 - (IBAction)shapeButtonAction:(id)sender
 {
-    [self tapButton:self.shapeButton inputView:nil];
+    [self tapButton:self.shapeButton inputView:self.shapeVC.view];
 }
 
 - (IBAction)recentButtonAction:(id)sender
@@ -105,6 +110,7 @@
 
 - (IBAction)shareButtonAction:(id)sender
 {
+    [[UIPasteboard generalPasteboard] setString:self.textView.text];
 }
 
 - (void)deselectAllExcept:(NSArray *)buttons

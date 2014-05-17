@@ -74,9 +74,9 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠͡҉
     if (mode == GTZalgoModeOff) {
         return c;
     }
-    NSUInteger upMaxRand, midMaxRand, downMaxRand;
-    NSUInteger upMin, midMin, downMin;
-    NSUInteger midDivisor = 1;
+    int upMaxRand, midMaxRand, downMaxRand;
+    int upMin, midMin, downMin;
+    int midDivisor = 1;
     switch (mode) {
         case GTZalgoModeNormal:
             upMaxRand = downMaxRand = 8;
