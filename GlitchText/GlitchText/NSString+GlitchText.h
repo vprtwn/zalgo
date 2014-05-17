@@ -8,6 +8,8 @@
 
 - (BOOL)isZalgo;
 
+- (BOOL)isWhitespace;
+
 - (NSString *)appendToEachCharacter:(NSString *)text;
 
 @end

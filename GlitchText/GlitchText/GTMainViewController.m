@@ -2,7 +2,7 @@
 
 #import "GTZalgo.h"
 #import "GTGlitchViewController.h"
-#import "GTArrowViewController.h"
+#import "GTSymbolViewController.h"
 #import "GTFontTableViewController.h"
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
@@ -15,15 +15,15 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) GTGlitchViewController *glitchVC;
-@property (strong, nonatomic) GTArrowViewController *arrowVC;
+@property (strong, nonatomic) GTSymbolViewController *symbolVC;
 @property (strong, nonatomic) GTFontTableViewController *fontTVC;
 
 // menu buttons
 @property (weak, nonatomic) IBOutlet UIButton *fontButton;
 @property (weak, nonatomic) IBOutlet UIButton *glitchButton;
 @property (weak, nonatomic) IBOutlet UIButton *symbolButton;
-@property (weak, nonatomic) IBOutlet UIButton *kaomojiButton;
-@property (weak, nonatomic) IBOutlet UIButton *arrowButton;
+@property (weak, nonatomic) IBOutlet UIButton *shapeButton;
+@property (weak, nonatomic) IBOutlet UIButton *recentButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (strong, nonatomic) NSArray *buttons;
 
@@ -37,8 +37,8 @@
     self.buttons = @[self.fontButton,
                      self.glitchButton,
                      self.symbolButton,
-                     self.kaomojiButton,
-                     self.arrowButton,
+                     self.shapeButton,
+                     self.recentButton,
                      self.shareButton];
 
     self.textView.delegate = self;
@@ -47,8 +47,8 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
     self.glitchVC.delegate = self;
-    self.arrowVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SymbolViewController"];
-    self.arrowVC.delegate = self;
+    self.symbolVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SymbolViewController"];
+    self.symbolVC.delegate = self;
 
     [self.textView becomeFirstResponder];
 }
@@ -70,15 +70,6 @@
 
 #pragma mark - Buttons
 
-- (void)deselectAllExcept:(NSArray *)buttons
-{
-    for (UIButton *b in self.buttons) {
-        if (![buttons containsObject:b]) {
-            b.selected = NO;
-        }
-    }
-}
-
 - (IBAction)fontButtonAction:(id)sender
 {
     [self deselectAllExcept:@[self.fontButton, self.glitchButton]];
@@ -94,61 +85,53 @@
 
 - (IBAction)glitchButtonAction:(id)sender
 {
-    [self deselectAllExcept:@[self.glitchButton]];
-    if (self.glitchButton.selected) {
-        self.glitchButton.selected = NO;
-        [self.textView resignFirstResponder];
-        self.textView.inputView = nil;
-        [self.textView becomeFirstResponder];
-    }
-    else {
-        self.glitchButton.selected = YES;
-        [self.textView resignFirstResponder];
-        self.textView.inputView = self.glitchVC.view;
-        [self.textView becomeFirstResponder];
-    }
+    [self tapButton:self.glitchButton inputView:self.glitchVC.view];
 }
 
 - (IBAction)symbolButtonAction:(id)sender
 {
-    [self deselectAllExcept:@[self.symbolButton]];
-    if (self.symbolButton.selected) {
-        self.symbolButton.selected = NO;
-        [self.textView resignFirstResponder];
-        self.textView.inputView = nil;
-        [self.textView becomeFirstResponder];
-    }
-    else {
-        self.symbolButton.selected = YES;
-        [self.textView resignFirstResponder];
-        self.textView.inputView = nil;
-        [self.textView becomeFirstResponder];
-    }
+    [self tapButton:self.symbolButton inputView:self.symbolVC.view];
 }
 
-- (IBAction)kaomojiButtonAction:(id)sender
+- (IBAction)shapeButtonAction:(id)sender
 {
+    [self tapButton:self.shapeButton inputView:nil];
 }
 
-- (IBAction)arrowButtonAction:(id)sender
+- (IBAction)recentButtonAction:(id)sender
 {
-    [self deselectAllExcept:@[self.arrowButton]];
-    if (self.arrowButton.selected) {
-        self.arrowButton.selected = NO;
-        [self.textView resignFirstResponder];
-        self.textView.inputView = nil;
-        [self.textView becomeFirstResponder];
-    }
-    else {
-        self.arrowButton.selected = YES;
-        [self.textView resignFirstResponder];
-        self.textView.inputView = self.arrowVC.view;
-        [self.textView becomeFirstResponder];
-    }
+    [self tapButton:self.recentButton inputView:nil];
 }
 
 - (IBAction)shareButtonAction:(id)sender
 {
+}
+
+- (void)deselectAllExcept:(NSArray *)buttons
+{
+    for (UIButton *b in self.buttons) {
+        if (![buttons containsObject:b]) {
+            b.selected = NO;
+        }
+    }
+}
+
+
+- (void)tapButton:(UIButton *)button inputView:(UIView *)view
+{
+    [self deselectAllExcept:@[button]];
+    if (button.selected) {
+        button.selected = NO;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = nil;
+        [self.textView becomeFirstResponder];
+    }
+    else {
+        button.selected = YES;
+        [self.textView resignFirstResponder];
+        self.textView.inputView = view;
+        [self.textView becomeFirstResponder];
+    }
 }
 
 
@@ -174,7 +157,7 @@
 
 - (void)shouldInvokeTheHiveMind
 {
-    self.textView.text = [[GTZalgo sharedInstance] process:self.textView.text];
+    self.textView.text = [[GTZalgo sharedInstance] process:self.textView.text mode:GTZalgoModeNormal];
     self.textView.textAlignment = self.textView.textAlignment;
 }
 

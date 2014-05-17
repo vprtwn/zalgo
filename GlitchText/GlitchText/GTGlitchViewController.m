@@ -84,20 +84,17 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
         RAC(self.zalgo, mode) =
-        [[[_footerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
+        [[_footerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
          map:^NSNumber *(UISegmentedControl *control) {
              return @(control.selectedSegmentIndex);
-        }] doNext:^(NSNumber *index) {
-            _footerView.previewLabel.text = [self.zalgo process:@"INVOKE THE HIVE MIND" mode:[index integerValue]];
         }];
-
         [_footerView.keyboardButton addTarget:self.delegate
                                        action:@selector(showDefaultKeyboard)
                              forControlEvents:UIControlEventTouchUpInside];
 
         UIButton *invokeButton = _footerView.invokeButton;
-        invokeButton.layer.borderColor = invokeButton.tintColor.CGColor;
-        invokeButton.layer.backgroundColor = invokeButton.tintColor.CGColor;
+        invokeButton.layer.borderColor = invokeButton.backgroundColor.CGColor;
+        invokeButton.layer.backgroundColor = invokeButton.backgroundColor.CGColor;
         invokeButton.layer.borderWidth = 1.5;
         invokeButton.layer.cornerRadius = 4.0f;
 

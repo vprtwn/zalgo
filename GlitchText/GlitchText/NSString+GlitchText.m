@@ -25,6 +25,11 @@
 }
 
 
+- (BOOL)isWhitespace {
+    return [self rangeOfCharacterFromSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].location != NSNotFound;
+}
+
+
 - (NSString *)appendToEachCharacter:(NSString *)text
 {
     NSMutableString *newString = [[NSMutableString alloc] initWithCapacity:self.length*text.length];

@@ -1,6 +1,6 @@
-#import "GTArrowHeaderView.h"
+#import "GTSymbolHeaderView.h"
 
-@implementation GTArrowHeaderView
+@implementation GTSymbolHeaderView
 
 - (id)initWithFrame:(CGRect)frame
 {

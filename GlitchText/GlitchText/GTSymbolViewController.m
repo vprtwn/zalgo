@@ -1,48 +1,42 @@
-#import "GTArrowViewController.h"
-#import "GTArrowHeaderView.h"
+#import "GTSymbolViewController.h"
+#import "GTSymbolHeaderView.h"
 #import "GTButtonCell.h"
 #import "NSString+GlitchText.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-typedef NS_ENUM(NSUInteger, GTArrowSection) {
-    GTArrowSectionRight,
-    GTArrowSectionLeft,
-    GTArrowSectionUp,
-    GTArrowSectionOpposing,
-    GTArrowSectionMisc
+typedef NS_ENUM(NSUInteger, GTSymbolSection) {
+    GTSymbolSection1,
+    GTSymbolSection2,
+    GTSymbolSection3
 };
 
 
-@interface GTArrowViewController ()
+@interface GTSymbolViewController ()
 
-@property (strong, nonatomic) GTArrowHeaderView *headerView;
+@property (strong, nonatomic) GTSymbolHeaderView *headerView;
 
-@property (strong, nonatomic) NSArray *right;
-@property (strong, nonatomic) NSArray *left;
-@property (strong, nonatomic) NSArray *up;
-@property (strong, nonatomic) NSArray *opposing;
-@property (strong, nonatomic) NSArray *misc;
-@property (assign, nonatomic) GTArrowSection selectedSection;
+@property (strong, nonatomic) NSArray *s1;
+@property (strong, nonatomic) NSArray *s2;
+@property (strong, nonatomic) NSArray *s3;
+@property (assign, nonatomic) GTSymbolSection selectedSection;
 
 @end
 
-@implementation GTArrowViewController
+@implementation GTSymbolViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (!self) return nil;
 
-    self.right = [@"→⇒⇨⇾➾⇢➔➜➙➛☛☞➝➞➟➠➢➣➤➥➦➧➨⥤⇀⇁⇰➩➪➫➬➭➮➯➱➲➳➵➸➻➺➼➽⇉⇶⇛⇏↛↝↣↠↦⇥⇝↬⇴⇸⇻" characterArray];
-    self.left = [@"←⇐⇦⇽⇠☚☜↼↽↚↜↢↞↤⇇⇤⇚⇍⇜↫⇷⇺" characterArray];
-    self.up = [@"↑⇑⇡⇧⇪⥣↟↾↿↥⇫⇬⇭⇮⇯⇈⇞↓⇓⇩⇣☟⥥↡⇂⇃⇊↧↯⇟" characterArray];
-    self.opposing = [@"⇔⇿⇋⇌⇄⇆↹⇎↭↮⇹⇼⇕⇳⇅↨" characterArray];
-    self.misc = [@"➘⇘⇲➷➴⤷➚⇗➹➶⇖↸⇱⇙⤶⤹↵↲↳↰↱↴↶↷↺↻⎯⏐" characterArray];
+    self.s1 = [@"→⇒⇨⇾➾⇢➔➜➙➛☛☞➝➞➟➠➢➣➤➥➦➧➨⥤⇀⇁⇰➩➪➫➬➭➮➯➱➲➳➵➸➻➺➼➽⇉⇶⇛⇏↛↝↣↠↦⇥⇝↬⇴⇸⇻" characterArray];
+    self.s2 = [@"←⇐⇦⇽⇠☚☜↼↽↚↜↢↞↤⇇⇤⇚⇍⇜↫⇷⇺" characterArray];
+    self.s3 = [@"↑⇑⇡⇧⇪⥣↟↾↿↥⇫⇬⇭⇮⇯⇈⇞↓⇓⇩⇣☟⥥↡⇂⇃⇊↧↯⇟" characterArray];
 
     return self;
 }
 
-- (GTArrowHeaderView *)headerView
+- (GTSymbolHeaderView *)headerView
 {
     if (!_headerView) {
         _headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
@@ -93,24 +87,16 @@ typedef NS_ENUM(NSUInteger, GTArrowSection) {
 {
     NSInteger count;
     switch (self.selectedSection) {
-        case GTArrowSectionRight:
-            count = [self.right count];
+        case GTSymbolSection1:
+            count = [self.s1 count];
             break;
 
-        case GTArrowSectionLeft:
-            count = [self.left count];
+        case GTSymbolSection2:
+            count = [self.s2 count];
             break;
 
-        case GTArrowSectionUp:
-            count = [self.up count];
-            break;
-
-        case GTArrowSectionOpposing:
-            count = [self.opposing count];
-            break;
-
-        case GTArrowSectionMisc:
-            count = [self.misc count];
+        case GTSymbolSection3:
+            count = [self.s3 count];
             break;
     }
     return count;
@@ -118,31 +104,22 @@ typedef NS_ENUM(NSUInteger, GTArrowSection) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"arrowButtonCell" forIndexPath:indexPath];
+    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"symbolButtonCell" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
 
     switch (self.selectedSection) {
-        case GTArrowSectionRight:
-            cell.label.text = self.right[row];
+        case GTSymbolSection1:
+            cell.label.text = self.s1[row];
             break;
 
-        case GTArrowSectionLeft:
-            cell.label.text = self.left[row];
+        case GTSymbolSection2:
+            cell.label.text = self.s2[row];
             break;
 
-        case GTArrowSectionUp:
-            cell.label.text = self.up[row];
-            break;
-
-        case GTArrowSectionOpposing:
-            cell.label.text = self.opposing[row];
-            break;
-
-        case GTArrowSectionMisc:
-            cell.label.text = self.misc[row];
+        case GTSymbolSection3:
+            cell.label.text = self.s3[row];
             break;
     }
-
     return cell;
 }
 

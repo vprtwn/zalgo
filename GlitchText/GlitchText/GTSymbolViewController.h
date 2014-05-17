@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "GTInputDelegate.h"
 
-@interface GTArrowViewController : UICollectionViewController
+@interface GTSymbolViewController : UICollectionViewController
 
 @property (weak, nonatomic) id<GTInputDelegate> delegate;
 

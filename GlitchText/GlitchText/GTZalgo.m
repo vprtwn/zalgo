@@ -60,7 +60,7 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠͡҉
     self.mid = [GTZalgoMid characterArray];
     self.down = [GTZalgoDown characterArray];
     self.all = [[self.up arrayByAddingObjectsFromArray:self.mid] arrayByAddingObjectsFromArray:self.down];
-    self.mode = GTZalgoModeNormal;
+    self.mode = GTZalgoModeOff;
 
     return self;
 }
@@ -86,9 +86,8 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠͡҉
             midDivisor = 2;
             break;
         case GTZalgoModeUltra:
-            upMaxRand = 16;
+            upMaxRand = downMaxRand = 16;
             midMaxRand = 4;
-            downMaxRand = 64;
             upMin = downMin = 3;
             midMin = 1;
             break;
@@ -145,8 +144,11 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠͡҉
     NSArray *cs = [text characterArray];
     NSMutableString *newText = [NSMutableString new];
     for (NSString *c in cs) {
-        if (![c isZalgo]) {
+        if (![c isZalgo] && ![c isWhitespace]) {
             [newText appendString:[self processOne:c mode:mode]];
+        }
+        else {
+            [newText appendString:c];
         }
     }
     return newText;
