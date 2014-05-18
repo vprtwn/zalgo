@@ -12,22 +12,6 @@
 
 @interface GTMainViewController () <UITextViewDelegate, GTInputDelegate>
 
-@property (strong, nonatomic) GTZalgo *zalgo;
-
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (strong, nonatomic) GTGlitchViewController *glitchVC;
-@property (strong, nonatomic) GTSymbolViewController *symbolVC;
-@property (strong, nonatomic) GTShapeViewController *shapeVC;
-@property (strong, nonatomic) GTFontTableViewController *fontTVC;
-
-// menu buttons
-@property (weak, nonatomic) IBOutlet UIButton *fontButton;
-@property (weak, nonatomic) IBOutlet UIButton *glitchButton;
-@property (weak, nonatomic) IBOutlet UIButton *symbolButton;
-@property (weak, nonatomic) IBOutlet UIButton *shapeButton;
-@property (weak, nonatomic) IBOutlet UIButton *shareButton;
-@property (strong, nonatomic) NSArray *buttons;
-
 @end
 
 @implementation GTMainViewController
@@ -70,7 +54,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Buttons
+#pragma mark - Menu buttons
 
 - (IBAction)fontButtonAction:(id)sender
 {
@@ -115,7 +99,6 @@
     }
 }
 
-
 - (void)tapButton:(UIButton *)button inputView:(UIView *)view
 {
     [self deselectAllExcept:@[button]];
@@ -131,6 +114,66 @@
         self.textView.inputView = view;
         [self.textView becomeFirstResponder];
     }
+}
+
+#pragma mark - text util buttons
+
+- (IBAction)moveLeft:(id)sender
+{
+    NSRange currentRange = self.textView.selectedRange;
+    if (!currentRange.location) {
+        return;
+    }
+    NSRange newRange = NSMakeRange(currentRange.location - 1, currentRange.length);
+    self.textView.selectedRange = newRange;
+    if ([[self.textView.text substringWithRange:NSMakeRange(newRange.location, 1)] isZalgo]) {
+        [self moveLeft:nil];
+    }
+}
+
+- (IBAction)moveRight:(id)sender
+{
+    NSRange currentRange = self.textView.selectedRange;
+    if (currentRange.location == self.textView.text.length) {
+        return;
+    }
+    NSRange newRange = NSMakeRange(currentRange.location + 1, currentRange.length);
+    self.textView.selectedRange = newRange;
+    if (newRange.location != self.textView.text.length &&
+        [[self.textView.text substringWithRange:NSMakeRange(newRange.location, 1)] isZalgo]) {
+        [self moveRight:nil];
+    }
+}
+
+- (IBAction)insertLineAbove:(id)sender
+{
+    NSString *currentText = self.textView.text;
+    self.textView.text = [@"\n" stringByAppendingString:currentText];
+    self.textView.textAlignment = self.textView.textAlignment;
+}
+
+- (IBAction)insertLineBelow:(id)sender
+{
+    NSString *currentText = self.textView.text;
+    NSRange currentRange = self.textView.selectedRange;
+    self.textView.text = [currentText stringByAppendingString:@"\n"];
+    self.textView.selectedRange = NSMakeRange(currentRange.location, currentRange.length);
+    self.textView.textAlignment = self.textView.textAlignment;
+}
+
+- (IBAction)delete:(id)sender
+{
+    NSRange currentRange = self.textView.selectedRange;
+    if (!currentRange.location) {
+        return;
+    }
+    NSString *currentText = self.textView.text;
+    NSString *firstHalf = [currentText substringToIndex:currentRange.location];
+    NSString *secondHalf = [currentText substringFromIndex:currentRange.location];
+    firstHalf = [firstHalf substringToIndex:firstHalf.length - 1];
+    self.textView.text = [firstHalf stringByAppendingString:secondHalf];
+    self.textView.selectedRange = NSMakeRange(currentRange.location - 1, currentRange.length);
+    self.textView.textAlignment = self.textView.textAlignment;
 }
 
 

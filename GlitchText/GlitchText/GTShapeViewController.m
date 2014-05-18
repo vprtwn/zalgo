@@ -29,12 +29,13 @@ typedef NS_ENUM(NSUInteger, GTShapeSection) {
     self = [super initWithCoder:aDecoder];
     if (!self) return nil;
 
-    self.s1 = [@"∟∠∡∢⦣≀∽⧺⧻⋓⋐⋑⋒⋇⋘⋙⋉⋊⋋⋌≡≣⊙☉⊗⊖⦾⦿⊕⊛⫨⟠⿰⿱⿲⿳⿴⿵⿶⿷⿸⿹⿺◰◱◱◳⊠⊞⊟⧈⊡" characterArray];
+    self.s1 = [@"▖▗▘▙▚▛▜▝▞▟❘❙❚▀▔▁▂▂▄▇█▉▊▋▌▍▎▏▕▐░▒▓◢◣◤◥╱╲╳╭╮╰╯│┃┊┋┆┇╎╏║─━┈┉┄┅╌╍═－-∕" characterArray];
     self.s2 = [@"⦁◦∘∙●○◯❍◌◍◎◉⦿■□▣❏❐❑❒◆◇►▻◄◅▼▽▲△▰▱◬◭◮◸◹◺◿◆◇◊◈❖◘◙◚◛▧▥▦▨▩◧◨◩◪" characterArray];
-    self.s3 = [@"▖▗▘▙▚▛▜▝▞▟❘❙❚▀▔▁▂▂▄▇█▉▊▋▌▍▎▏▕▐░▒▓◢◣◤◥╱╲╳╭╮╰╯│┃┊┋┆┇╎╏║─━┈┉┄┅╌╍═－-∕" characterArray];
+    self.s3 = [@"∟∠∡∢⦣≀∽⧺⧻⋓⋐⋑⋒⋇⋘⋙⋉⋊⋋⋌≡≣⊙☉⊗⊖⦾⦿⊕⊛⫨⟠⿰⿱⿲⿳⿴⿵⿶⿷⿸⿹⿺◰◱◱◳⊠⊞⊟⧈⊡" characterArray];
 
     return self;
 }
+
 
 - (GTShapeHeaderView *)headerView
 {
