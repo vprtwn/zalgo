@@ -139,7 +139,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="&lt;">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="moveLeft:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Bzx-4B-o1f"/>
@@ -150,7 +150,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title=">">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="moveRight:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9aZ-cN-dMa"/>
@@ -161,7 +161,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="+↑">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="insertLineAbove:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9BD-yo-7Vk"/>
@@ -172,7 +172,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="+↓">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="insertLineBelow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YaK-uh-seG"/>
@@ -183,7 +183,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="⌫">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="delete:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="C8R-jX-Sca"/>
