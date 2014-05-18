@@ -2,17 +2,11 @@
 
 typedef NS_ENUM(NSUInteger, GTFontID) {
     GTFontIDNormal,
-    GTFontIDZalgo
+    GTFontIDSubway
 };
-
-@protocol GTFontTableViewControllerDelegate <NSObject>
-
-- (void)didSelectFontWithID:(GTFontID)fontID;
-
-@end
 
 @interface GTFontTableViewController : UITableViewController
 
-@property (weak, nonatomic) id<GTFontTableViewControllerDelegate> delegate;
+- (NSString *)applyFont:(NSString *)text;
 
 @end

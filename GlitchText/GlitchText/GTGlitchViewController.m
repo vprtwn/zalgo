@@ -84,9 +84,13 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
         RAC(self.zalgo, mode) =
-        [[_footerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
+        [[[_footerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
          map:^NSNumber *(UISegmentedControl *control) {
              return @(control.selectedSegmentIndex);
+        }] doNext:^(NSNumber *index) {
+            if (index.integerValue != GTZalgoModeOff) {
+                [self.delegate showDefaultKeyboard];
+            }
         }];
         [_footerView.keyboardButton addTarget:self.delegate
                                        action:@selector(showDefaultKeyboard)
