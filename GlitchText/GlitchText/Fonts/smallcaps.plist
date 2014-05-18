@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>sᴍᴀʟʟ ᴄᴀᴘs</string>
+	<key>a</key>
+	<string>ᴀ</string>
+	<key>b</key>
+	<string>ʙ</string>
+	<key>c</key>
+	<string>ᴄ</string>
+	<key>d</key>
+	<string>ᴅ</string>
+	<key>e</key>
+	<string>ᴇ</string>
+	<key>f</key>
+	<string>ғ</string>
+	<key>g</key>
+	<string>ɢ</string>
+	<key>h</key>
+	<string>ʜ</string>
+	<key>i</key>
+	<string>ɪ</string>
+	<key>j</key>
+	<string>ᴊ</string>
+	<key>k</key>
+	<string>ᴋ</string>
+	<key>l</key>
+	<string>ʟ</string>
+	<key>m</key>
+	<string>ᴍ</string>
+	<key>n</key>
+	<string>ɴ</string>
+	<key>o</key>
+	<string>ᴏ</string>
+	<key>p</key>
+	<string>ᴘ</string>
+	<key>q</key>
+	<string>ǫ</string>
+	<key>r</key>
+	<string>ʀ</string>
+	<key>s</key>
+	<string>s</string>
+	<key>t</key>
+	<string>ᴛ</string>
+	<key>u</key>
+	<string>ᴜ</string>
+	<key>v</key>
+	<string>ᴠ</string>
+	<key>w</key>
+	<string>ᴡ</string>
+	<key>x</key>
+	<string>x</string>
+	<key>y</key>
+	<string>ʏ</string>
+	<key>z</key>
+	<string>ᴢ</string>
+</dict>
+</plist>

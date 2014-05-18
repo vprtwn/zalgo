@@ -17,12 +17,12 @@
 
 @implementation GTFontTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        [self loadFonts];
-    }
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    [self loadFonts];
     return self;
 }
 

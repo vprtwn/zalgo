@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		305A72C2A2B04B79BABB4A5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 861D5B4AEACB43098D113584 /* libPods.a */; };
+		9617376019291E4B003C0A10 /* circles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9617375F19291E4B003C0A10 /* circles.plist */; };
+		9617376219292392003C0A10 /* squares.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9617376119292392003C0A10 /* squares.plist */; };
+		961737641929240F003C0A10 /* stamps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961737631929240F003C0A10 /* stamps.plist */; };
+		9617376619292486003C0A10 /* light.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9617376519292486003C0A10 /* light.plist */; };
+		96173768192925B9003C0A10 /* tiny.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96173767192925B9003C0A10 /* tiny.plist */; };
+		9617376A1929265A003C0A10 /* smallcaps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961737691929265A003C0A10 /* smallcaps.plist */; };
+		9617376C19292763003C0A10 /* copperplate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9617376B19292763003C0A10 /* copperplate.plist */; };
 		961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E03192804B500797CA8 /* GTShapeViewController.m */; };
 		961A5E07192804C900797CA8 /* GTShapeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E06192804C900797CA8 /* GTShapeHeaderView.m */; };
 		9622946519196661002861DB /* GTButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9622946419196661002861DB /* GTButtonCell.m */; };
@@ -54,6 +61,13 @@
 /* Begin PBXFileReference section */
 		861D5B4AEACB43098D113584 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96153FA81921B2BE0064C304 /* GTInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTInputDelegate.h; sourceTree = "<group>"; };
+		9617375F19291E4B003C0A10 /* circles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = circles.plist; path = Fonts/circles.plist; sourceTree = "<group>"; };
+		9617376119292392003C0A10 /* squares.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = squares.plist; path = Fonts/squares.plist; sourceTree = "<group>"; };
+		961737631929240F003C0A10 /* stamps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = stamps.plist; path = Fonts/stamps.plist; sourceTree = "<group>"; };
+		9617376519292486003C0A10 /* light.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = light.plist; path = Fonts/light.plist; sourceTree = "<group>"; };
+		96173767192925B9003C0A10 /* tiny.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tiny.plist; path = Fonts/tiny.plist; sourceTree = "<group>"; };
+		961737691929265A003C0A10 /* smallcaps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = smallcaps.plist; path = Fonts/smallcaps.plist; sourceTree = "<group>"; };
+		9617376B19292763003C0A10 /* copperplate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = copperplate.plist; path = Fonts/copperplate.plist; sourceTree = "<group>"; };
 		961A5E02192804B500797CA8 /* GTShapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShapeViewController.h; sourceTree = "<group>"; };
 		961A5E03192804B500797CA8 /* GTShapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTShapeViewController.m; sourceTree = "<group>"; };
 		961A5E05192804C900797CA8 /* GTShapeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShapeHeaderView.h; sourceTree = "<group>"; };
@@ -158,6 +172,13 @@
 		9660E85D1928599C00D12C6D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9617376B19292763003C0A10 /* copperplate.plist */,
+				961737691929265A003C0A10 /* smallcaps.plist */,
+				96173767192925B9003C0A10 /* tiny.plist */,
+				9617376519292486003C0A10 /* light.plist */,
+				9617376119292392003C0A10 /* squares.plist */,
+				961737631929240F003C0A10 /* stamps.plist */,
+				9617375F19291E4B003C0A10 /* circles.plist */,
 				9660E85E192859BE00D12C6D /* subway.plist */,
 			);
 			name = Fonts;
@@ -369,9 +390,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				968B72FB190FE11C00D2B288 /* Main_iPad.storyboard in Resources */,
+				9617376A1929265A003C0A10 /* smallcaps.plist in Resources */,
 				9660E85F192859BE00D12C6D /* subway.plist in Resources */,
+				9617376019291E4B003C0A10 /* circles.plist in Resources */,
 				968B7300190FE11C00D2B288 /* Images.xcassets in Resources */,
 				968B72F8190FE11C00D2B288 /* Main_iPhone.storyboard in Resources */,
+				9617376C19292763003C0A10 /* copperplate.plist in Resources */,
+				9617376219292392003C0A10 /* squares.plist in Resources */,
+				9617376619292486003C0A10 /* light.plist in Resources */,
+				961737641929240F003C0A10 /* stamps.plist in Resources */,
+				96173768192925B9003C0A10 /* tiny.plist in Resources */,
 				968B72EF190FE11C00D2B288 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

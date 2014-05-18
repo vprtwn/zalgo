@@ -225,9 +225,9 @@
         return YES;
     }
 
-    // zalgo
     else {
-        NSString *processed = [self.zalgo process:text];
+        NSString *fontText = [self.fontTVC applyFont:text];
+        NSString *processed = [self.zalgo process:fontText];
         NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:processed];
         textView.text = newText;
         textView.textAlignment = textView.textAlignment;

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>ｌｉｇｈｔ</string>
+	<key>a</key>
+	<string>ａ</string>
+	<key>b</key>
+	<string>ｂ</string>
+	<key>c</key>
+	<string>ｃ</string>
+	<key>d</key>
+	<string>ｄ</string>
+	<key>e</key>
+	<string>ｅ</string>
+	<key>f</key>
+	<string>ｆ</string>
+	<key>g</key>
+	<string>ｇ</string>
+	<key>h</key>
+	<string>ｈ</string>
+	<key>i</key>
+	<string>ｉ</string>
+	<key>j</key>
+	<string>ｊ</string>
+	<key>k</key>
+	<string>ｋ</string>
+	<key>l</key>
+	<string>ｌ</string>
+	<key>m</key>
+	<string>ｍ</string>
+	<key>n</key>
+	<string>ｎ</string>
+	<key>o</key>
+	<string>ｏ</string>
+	<key>p</key>
+	<string>ｐ</string>
+	<key>q</key>
+	<string>ｑ</string>
+	<key>r</key>
+	<string>ｒ</string>
+	<key>s</key>
+	<string>ｓ</string>
+	<key>t</key>
+	<string>ｔ</string>
+	<key>u</key>
+	<string>ｕ</string>
+	<key>v</key>
+	<string>ｖ</string>
+	<key>w</key>
+	<string>ｗ</string>
+	<key>x</key>
+	<string>ｘ</string>
+	<key>y</key>
+	<string>ｙ</string>
+	<key>z</key>
+	<string>ｚ</string>
+</dict>
+</plist>
