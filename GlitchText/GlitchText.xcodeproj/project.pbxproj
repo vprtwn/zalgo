@@ -15,6 +15,7 @@
 		96173768192925B9003C0A10 /* tiny.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96173767192925B9003C0A10 /* tiny.plist */; };
 		9617376A1929265A003C0A10 /* smallcaps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961737691929265A003C0A10 /* smallcaps.plist */; };
 		9617376C19292763003C0A10 /* copperplate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9617376B19292763003C0A10 /* copperplate.plist */; };
+		9617376F19298C4D003C0A10 /* NSDictionary+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 9617376E19298C4D003C0A10 /* NSDictionary+GlitchText.m */; };
 		961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E03192804B500797CA8 /* GTShapeViewController.m */; };
 		961A5E07192804C900797CA8 /* GTShapeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E06192804C900797CA8 /* GTShapeHeaderView.m */; };
 		9622946519196661002861DB /* GTButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9622946419196661002861DB /* GTButtonCell.m */; };
@@ -68,6 +69,8 @@
 		96173767192925B9003C0A10 /* tiny.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tiny.plist; path = Fonts/tiny.plist; sourceTree = "<group>"; };
 		961737691929265A003C0A10 /* smallcaps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = smallcaps.plist; path = Fonts/smallcaps.plist; sourceTree = "<group>"; };
 		9617376B19292763003C0A10 /* copperplate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = copperplate.plist; path = Fonts/copperplate.plist; sourceTree = "<group>"; };
+		9617376D19298C4D003C0A10 /* NSDictionary+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GlitchText.h"; sourceTree = "<group>"; };
+		9617376E19298C4D003C0A10 /* NSDictionary+GlitchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GlitchText.m"; sourceTree = "<group>"; };
 		961A5E02192804B500797CA8 /* GTShapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShapeViewController.h; sourceTree = "<group>"; };
 		961A5E03192804B500797CA8 /* GTShapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTShapeViewController.m; sourceTree = "<group>"; };
 		961A5E05192804C900797CA8 /* GTShapeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShapeHeaderView.h; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				96E432271915615900D617C2 /* NSString+GlitchText.m */,
 				96D3870F191B486D00989B8F /* NSArray+GlitchText.h */,
 				96D38710191B486D00989B8F /* NSArray+GlitchText.m */,
+				9617376D19298C4D003C0A10 /* NSDictionary+GlitchText.h */,
+				9617376E19298C4D003C0A10 /* NSDictionary+GlitchText.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				96AF73F919196382007BB4DD /* GTGlitchViewController.m in Sources */,
 				96554833191E84B900699CC9 /* GTTextRange.m in Sources */,
 				9622946519196661002861DB /* GTButtonCell.m in Sources */,
+				9617376F19298C4D003C0A10 /* NSDictionary+GlitchText.m in Sources */,
 				968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */,
 				964E844B191EB0C0008A304D /* GTSymbolViewController.m in Sources */,
 				968B72F1190FE11C00D2B288 /* main.m in Sources */,

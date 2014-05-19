@@ -10,7 +10,7 @@
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate>
+@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate>
 
 @end
 
@@ -29,12 +29,17 @@
 
     self.zalgo = [GTZalgo sharedInstance];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+
     self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
     self.glitchVC.delegate = self;
+
     self.symbolVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SymbolViewController"];
     self.symbolVC.delegate = self;
+
     self.shapeVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"ShapeViewController"];
     self.shapeVC.delegate = self;
+
+    self.fontTVC.delegate = self;
 
     [self.textView becomeFirstResponder];
 }
@@ -215,6 +220,14 @@
     [self.textView resignFirstResponder];
     self.textView.inputView = nil;
     [self.textView becomeFirstResponder];   
+}
+
+#pragma mark - GTFontTableViewControllerDelegate
+
+- (void)didSelectFont
+{
+    self.textView.inputView = nil;
+    [self.textView becomeFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate

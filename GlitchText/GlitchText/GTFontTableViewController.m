@@ -1,5 +1,6 @@
 #import "GTFontTableViewController.h"
 #import "NSString+GlitchText.h"
+#import "NSDictionary+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -12,6 +13,13 @@
 @property (strong, nonatomic) NSDictionary *currentFont;
 @property (strong, nonatomic) NSDictionary *normal;
 @property (strong, nonatomic) NSDictionary *subway;
+@property (strong, nonatomic) NSDictionary *circles;
+@property (strong, nonatomic) NSDictionary *squares;
+@property (strong, nonatomic) NSDictionary *stamps;
+@property (strong, nonatomic) NSDictionary *light;
+@property (strong, nonatomic) NSDictionary *tiny;
+@property (strong, nonatomic) NSDictionary *smallcaps;
+@property (strong, nonatomic) NSDictionary *copperplate;
 
 @end
 
@@ -35,10 +43,22 @@
 - (void)loadFonts
 {
     self.normal = @{};
-    NSString *subwayPath = [[NSBundle mainBundle] pathForResource:@"subway" ofType:@"plist"];
-    self.subway = [NSDictionary dictionaryWithContentsOfFile:subwayPath];
+    self.subway = [NSDictionary dictionaryWithPlistNamed:@"subway"];
+    self.circles = [NSDictionary dictionaryWithPlistNamed:@"circles"];
+    self.squares = [NSDictionary dictionaryWithPlistNamed:@"stamps"];
+    self.light = [NSDictionary dictionaryWithPlistNamed:@"light"];
+    self.tiny = [NSDictionary dictionaryWithPlistNamed:@"tiny"];
+    self.smallcaps = [NSDictionary dictionaryWithPlistNamed:@"smallcaps"];
+    self.copperplate = [NSDictionary dictionaryWithPlistNamed:@"copperplate"];
+
     self.fonts = @[self.normal,
-                   self.subway];
+                   self.subway,
+                   self.circles,
+                   self.squares,
+                   self.light,
+                   self.tiny,
+                   self.smallcaps,
+                   self.copperplate];
     self.currentFont = self.normal;
     self.previousRow = 0;
 }
@@ -95,6 +115,8 @@
 
     self.previousRow = nextRow;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    [self.delegate didSelectFont];
 }
 
 @end
