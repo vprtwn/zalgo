@@ -28,6 +28,7 @@
     self.textView.delegate = self;
 
     self.zalgo = [GTZalgo sharedInstance];
+
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
 
     self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
@@ -208,12 +209,6 @@
     }
 }
 
-- (void)shouldInvokeTheHiveMind
-{
-    self.textView.text = [[GTZalgo sharedInstance] process:self.textView.text mode:GTZalgoModeNormal];
-    self.textView.textAlignment = self.textView.textAlignment;
-}
-
 - (void)showDefaultKeyboard;
 {
     [self deselectAllExcept:nil];
@@ -240,9 +235,12 @@
     }
 
     else {
-        NSString *fontText = [self.fontTVC applyFont:text];
-        NSString *processed = [self.zalgo process:fontText];
-        NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:processed];
+        NSString *processedText = [self.fontTVC applyFont:text];
+        if ([GTZalgo sharedInstance].enabled) {
+            processedText = [self.zalgo process:processedText];
+        }
+        NSString *newText = [textView.text stringByReplacingCharactersInRange:range
+                                                                   withString:processedText];
         textView.text = newText;
         textView.textAlignment = textView.textAlignment;
         return NO;

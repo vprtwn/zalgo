@@ -84,16 +84,8 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
                                                               withReuseIdentifier:@"zalgoFooterView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
-        RAC(self.zalgo, mode) =
-        [[[_footerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
-         map:^NSNumber *(UISegmentedControl *control) {
-             return @(control.selectedSegmentIndex);
-        }] doNext:^(NSNumber *index) {
-            if (index.integerValue != GTZalgoModeOff) {
-//                [self.delegate showDefaultKeyboard];
-            }
-        }];
-
+        RAC(self.zalgo, enabled) = RACObserve(_footerView.segmentedControl, selectedSegmentIndex);
+        
         RAC(_footerView.segmentedControl, tintColor) =
         [RACObserve(_footerView.segmentedControl, selectedSegmentIndex)
         map:^UIColor *(NSNumber *index) {
@@ -109,13 +101,6 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
                                        action:@selector(showDefaultKeyboard)
                              forControlEvents:UIControlEventTouchUpInside];
 
-        UIButton *invokeButton = _footerView.invokeButton;
-        invokeButton.layer.borderColor = invokeButton.backgroundColor.CGColor;
-        invokeButton.layer.backgroundColor = invokeButton.backgroundColor.CGColor;
-        invokeButton.layer.borderWidth = 1.5;
-        invokeButton.layer.cornerRadius = 4.0f;
-
-        [invokeButton addTarget:self.delegate action:@selector(shouldInvokeTheHiveMind) forControlEvents:UIControlEventTouchUpInside];
     }
     return _footerView;
 }

@@ -442,7 +442,7 @@
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="12" id="M1a-D9-btB" customClass="GTFixedHeaderLayout">
                             <size key="itemSize" width="40" height="40"/>
                             <size key="headerReferenceSize" width="320" height="50"/>
-                            <size key="footerReferenceSize" width="320" height="125"/>
+                            <size key="footerReferenceSize" width="320" height="114"/>
                             <inset key="sectionInset" minX="10" minY="8" maxX="10" maxY="8"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -491,19 +491,9 @@
                             </connections>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="zalgoFooterView" id="KjV-za-Af1" customClass="GTZalgoFooterView">
-                            <rect key="frame" x="0.0" y="106" width="320" height="125"/>
+                            <rect key="frame" x="0.0" y="106" width="320" height="114"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7c-up-l0g">
-                                    <rect key="frame" x="90" y="48" width="135" height="39"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                    <color key="tintColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
-                                    <state key="normal" title="INVOKE">
-                                        <color key="titleColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TCp-Ho-0sc">
                                     <rect key="frame" x="51" y="5" width="218" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -514,16 +504,15 @@
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </segmentedControl>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX5-A3-T7t">
-                                    <rect key="frame" x="134" y="95" width="46" height="30"/>
+                                    <rect key="frame" x="126" y="58" width="68" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                     <state key="normal" title="⌨">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
                             </subviews>
                             <connections>
-                                <outlet property="invokeButton" destination="E7c-up-l0g" id="Zz7-2r-Vce"/>
                                 <outlet property="keyboardButton" destination="sX5-A3-T7t" id="SR2-eq-Nxe"/>
                                 <outlet property="segmentedControl" destination="TCp-Ho-0sc" id="MKx-A6-C55"/>
                             </connections>

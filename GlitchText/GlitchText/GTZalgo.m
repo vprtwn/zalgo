@@ -60,7 +60,7 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠⃣�
     self.mid = [GTZalgoMid characterArray];
     self.down = [GTZalgoDown characterArray];
     self.all = [[self.up arrayByAddingObjectsFromArray:self.mid] arrayByAddingObjectsFromArray:self.down];
-    self.mode = GTZalgoModeOff;
+    self.enabled = NO;
 
     return self;
 }
@@ -69,38 +69,14 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠⃣�
 //
 // BEHOLD THE ZALGORITHM
 //
-- (NSString *)processOne:(NSString *)c mode:(GTZalgoMode)mode
+- (NSString *)processOne:(NSString *)c
 {
-    if (mode == GTZalgoModeOff) {
-        return c;
-    }
-    int upMaxRand, midMaxRand, downMaxRand;
-    int upMin, midMin, downMin;
-    int midDivisor = 1;
-    switch (mode) {
-        case GTZalgoModeNormal:
-            upMaxRand = downMaxRand = 8;
-            midMaxRand = 6;
-            upMin = downMin = 1;
-            midMin = 0;
-            midDivisor = 2;
-            break;
-        case GTZalgoModeUltra:
-            upMaxRand = downMaxRand = 16;
-            midMaxRand = 4;
-            upMin = downMin = 3;
-            midMin = 1;
-            break;
-        default:
-            break;
-    }
-
-    NSUInteger upCount = arc4random_uniform(upMaxRand) + upMin;
-    NSUInteger midCount = (arc4random_uniform(midMaxRand) + midMin)/midDivisor;
-    NSUInteger downCount = arc4random_uniform(downMaxRand) + downMin;
+    NSUInteger upCount = arc4random_uniform(8) + 1;
+    NSUInteger midCount = arc4random_uniform(6)/2;
+    NSUInteger downCount = arc4random_uniform(8) + 1;
     NSUInteger length = 1 + upCount + midCount + downCount;
-    
-    unichar buffer[length + 1];
+
+    unichar buffer[length];
     NSUInteger i = 0;
     buffer[i] = [c characterAtIndex:0];
     i++;
@@ -126,28 +102,16 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠⃣�
     return [NSString stringWithCharacters:buffer length:length];
 }
 
-
+// Add a time limit?
 - (NSString *)process:(NSString *)text
 {
-    if (self.mode == GTZalgoModeOff) {
-        return text;
-    }
-    return [self process:text mode:self.mode];
-}
-
-
-- (NSString *)process:(NSString *)text mode:(GTZalgoMode)mode
-{
-    if (mode == GTZalgoModeOff) {
-        return text;
-    }
     NSArray *cs = [text characterArray];
     NSMutableString *newText = [NSMutableString new];
     for (NSString *c in cs) {
         if (![c isZalgo] && ![c isWhitespace]) {
-            [newText appendString:[self processOne:c mode:mode]];
+            [newText appendString:[self processOne:c]];
         }
-        else {
+        else if (![c isZalgo]) {
             [newText appendString:c];
         }
     }
