@@ -226,6 +226,7 @@
 
 - (void)didSelectFont
 {
+    self.fontButton.selected = NO;
     self.textView.inputView = nil;
     [self.textView becomeFirstResponder];
 }

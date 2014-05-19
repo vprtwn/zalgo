@@ -5,6 +5,7 @@
 #import "GTZalgoFooterView.h"
 #import "GTZalgo.h"
 #import "NSString+GlitchText.h"
+#import "UIColor+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -89,9 +90,21 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
              return @(control.selectedSegmentIndex);
         }] doNext:^(NSNumber *index) {
             if (index.integerValue != GTZalgoModeOff) {
-                [self.delegate showDefaultKeyboard];
+//                [self.delegate showDefaultKeyboard];
             }
         }];
+
+        RAC(_footerView.segmentedControl, tintColor) =
+        [RACObserve(_footerView.segmentedControl, selectedSegmentIndex)
+        map:^UIColor *(NSNumber *index) {
+            if (!index.integerValue) {
+                return [UIColor glitchGrayColor];
+            }
+            else {
+                return [UIColor glitchMagentaColor];
+            }
+        }];
+
         [_footerView.keyboardButton addTarget:self.delegate
                                        action:@selector(showDefaultKeyboard)
                              forControlEvents:UIControlEventTouchUpInside];

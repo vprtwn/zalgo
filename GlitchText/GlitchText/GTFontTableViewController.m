@@ -1,12 +1,13 @@
 #import "GTFontTableViewController.h"
 #import "NSString+GlitchText.h"
 #import "NSDictionary+GlitchText.h"
+#import "UIColor+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface GTFontTableViewController ()
 
-@property (assign, nonatomic) NSUInteger previousRow;
+@property (assign, nonatomic) NSUInteger selectedRow;
 
 // fonts
 @property (strong, nonatomic) NSArray *fonts;
@@ -37,7 +38,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
     self.clearsSelectionOnViewWillAppear = NO;
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionTop];
 }
 
 - (void)loadFonts
@@ -45,7 +50,8 @@
     self.normal = @{};
     self.subway = [NSDictionary dictionaryWithPlistNamed:@"subway"];
     self.circles = [NSDictionary dictionaryWithPlistNamed:@"circles"];
-    self.squares = [NSDictionary dictionaryWithPlistNamed:@"stamps"];
+    self.squares = [NSDictionary dictionaryWithPlistNamed:@"squares"];
+    self.stamps = [NSDictionary dictionaryWithPlistNamed:@"stamps"];
     self.light = [NSDictionary dictionaryWithPlistNamed:@"light"];
     self.tiny = [NSDictionary dictionaryWithPlistNamed:@"tiny"];
     self.smallcaps = [NSDictionary dictionaryWithPlistNamed:@"smallcaps"];
@@ -55,12 +61,13 @@
                    self.subway,
                    self.circles,
                    self.squares,
+                   self.stamps,
                    self.light,
                    self.tiny,
                    self.smallcaps,
                    self.copperplate];
     self.currentFont = self.normal;
-    self.previousRow = 0;
+    self.selectedRow = 0;
 }
 
 - (NSString *)applyFont:(NSString *)text
@@ -100,22 +107,15 @@
 
 #pragma mark - UITableViewDelegate
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.selectedBackgroundView = [UIView new];
+    cell.selectedBackgroundView.backgroundColor = [UIColor glitchGreenColor];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSUInteger nextRow = indexPath.row;
-    self.currentFont = self.fonts[nextRow];
-
-    NSIndexPath *previousIndexPath = [NSIndexPath indexPathForRow:self.previousRow inSection:0];
-    UITableViewCell *previousCell = [self.tableView cellForRowAtIndexPath:previousIndexPath];
-    previousCell.accessoryType = UITableViewCellAccessoryNone;
-
-    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:nextRow inSection:0];
-    UITableViewCell *nextCell = [self.tableView cellForRowAtIndexPath:nextIndexPath];
-    nextCell.accessoryType = UITableViewCellAccessoryCheckmark;
-
-    self.previousRow = nextRow;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    self.selectedRow = indexPath.row;
     [self.delegate didSelectFont];
 }
 
