@@ -580,9 +580,9 @@
                                     <rect key="frame" x="20" y="11" width="280" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
-                                        <segment title="☂"/>
-                                        <segment title="♣︎"/>
-                                        <segment title="★"/>
+                                        <segment title="♫"/>
+                                        <segment title="♛"/>
+                                        <segment title="➜"/>
                                     </segments>
                                     <color key="tintColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
@@ -655,8 +655,8 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
                                         <segment title="▙"/>
-                                        <segment title="◸"/>
-                                        <segment title="≣"/>
+                                        <segment title="⦿"/>
+                                        <segment title="ლ"/>
                                     </segments>
                                     <color key="tintColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
