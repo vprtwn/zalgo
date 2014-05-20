@@ -151,34 +151,44 @@
     }
 }
 
-- (IBAction)insertLineAbove:(id)sender
-{
-    NSString *currentText = self.textView.text;
-    self.textView.text = [@"\n" stringByAppendingString:currentText];
-    self.textView.textAlignment = self.textView.textAlignment;
-}
-
 - (IBAction)insertLineBelow:(id)sender
 {
     NSString *currentText = self.textView.text;
     NSRange currentRange = self.textView.selectedRange;
     self.textView.text = [currentText stringByAppendingString:@"\n"];
-    self.textView.selectedRange = NSMakeRange(currentRange.location, currentRange.length);
+    self.textView.selectedRange = NSMakeRange(currentRange.location + 1, currentRange.length);
     self.textView.textAlignment = self.textView.textAlignment;
+}
+
+- (IBAction)showKeyboard:(id)sender {
+    self.textView.inputView = nil;
+    [self.textView becomeFirstResponder];
 }
 
 - (IBAction)delete:(id)sender
 {
     NSRange currentRange = self.textView.selectedRange;
-    if (!currentRange.location) {
+    if (!currentRange.location && !currentRange.length) {
         return;
     }
+    NSRange newRange = currentRange;
     NSString *currentText = self.textView.text;
-    NSString *firstHalf = [currentText substringToIndex:currentRange.location];
-    NSString *secondHalf = [currentText substringFromIndex:currentRange.location];
-    firstHalf = [firstHalf substringToIndex:firstHalf.length - 1];
-    self.textView.text = [firstHalf stringByAppendingString:secondHalf];
-    self.textView.selectedRange = NSMakeRange(currentRange.location - 1, currentRange.length);
+    NSString *newText = currentText;
+
+    if (!currentRange.length) {
+        NSString *firstHalf = [currentText substringToIndex:currentRange.location];
+        NSString *secondHalf = [currentText substringFromIndex:currentRange.location];
+        firstHalf = [firstHalf substringToIndex:firstHalf.length - 1];
+        newText = [firstHalf stringByAppendingString:secondHalf];
+        newRange = NSMakeRange(currentRange.location - 1, currentRange.length);
+    }
+    else {
+        newText = [currentText stringByReplacingCharactersInRange:currentRange withString:@""];
+        newRange = NSMakeRange(currentRange.location, 0);
+    }
+
+    self.textView.text = newText;
+    self.textView.selectedRange = newRange;
     self.textView.textAlignment = self.textView.textAlignment;
 }
 

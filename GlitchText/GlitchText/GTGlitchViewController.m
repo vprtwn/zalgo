@@ -81,22 +81,11 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 {
     if (!_footerView) {
         _footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                              withReuseIdentifier:@"zalgoFooterView"
+                                                            withReuseIdentifier:@"zalgoFooterView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
         RAC(self.zalgo, enabled) = RACObserve(_footerView.segmentedControl, selectedSegmentIndex);
         
-        RAC(_footerView.segmentedControl, tintColor) =
-        [RACObserve(_footerView.segmentedControl, selectedSegmentIndex)
-        map:^UIColor *(NSNumber *index) {
-            if (!index.integerValue) {
-                return [UIColor glitchGrayColor];
-            }
-            else {
-                return [UIColor glitchMagentaColor];
-            }
-        }];
-
         [_footerView.keyboardButton addTarget:self.delegate
                                        action:@selector(showDefaultKeyboard)
                              forControlEvents:UIControlEventTouchUpInside];

@@ -33,7 +33,7 @@
                                 <rect key="frame" x="10" y="30" width="300" height="273"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="tintColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -126,7 +126,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="F76-Jh-gt3"/>
                                     <constraint firstAttribute="height" constant="49" id="Upe-5B-tEI"/>
@@ -141,43 +141,43 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="&lt;">
-                                            <color key="titleColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="moveLeft:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Bzx-4B-o1f"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdF-i5-mzA">
-                                        <rect key="frame" x="61" y="8" width="30" height="30"/>
+                                        <rect key="frame" x="63" y="8" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title=">">
-                                            <color key="titleColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="moveRight:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9aZ-cN-dMa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bA7-g1-U5y">
-                                        <rect key="frame" x="138" y="8" width="30" height="30"/>
+                                        <rect key="frame" x="120" y="10" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="+↑">
-                                            <color key="titleColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="↩︎">
+                                            <color key="titleColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="insertLineAbove:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9BD-yo-7Vk"/>
+                                            <action selector="insertLineBelow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zk2-Pu-AoH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7o-Iq-8a4">
-                                        <rect key="frame" x="186" y="8" width="30" height="30"/>
+                                        <rect key="frame" x="193" y="6" width="30" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="+↓">
-                                            <color key="titleColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="⌨">
+                                            <color key="titleColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="insertLineBelow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YaK-uh-seG"/>
+                                            <action selector="showKeyboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9O1-EJ-Stx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxh-xP-BQs">
@@ -185,7 +185,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="⌫">
-                                            <color key="titleColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="delete:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="C8R-jX-Sca"/>
@@ -198,18 +198,18 @@
                                     <constraint firstAttribute="width" constant="320" id="5V8-ec-hf7"/>
                                     <constraint firstAttribute="bottom" secondItem="uxh-xP-BQs" secondAttribute="bottom" constant="9" id="6X2-00-XLI"/>
                                     <constraint firstItem="nJX-hV-DGu" firstAttribute="leading" secondItem="AWB-B2-dQe" secondAttribute="leading" constant="13" id="7h1-Jj-ZJq"/>
-                                    <constraint firstItem="A7o-Iq-8a4" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="8" id="EDK-pY-1O1"/>
+                                    <constraint firstItem="A7o-Iq-8a4" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="6" id="EDK-pY-1O1"/>
                                     <constraint firstAttribute="bottom" secondItem="JdF-i5-mzA" secondAttribute="bottom" constant="11" id="Mvl-kC-yOf"/>
                                     <constraint firstAttribute="height" constant="49" id="MxC-Hc-XRB"/>
-                                    <constraint firstItem="bA7-g1-U5y" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="8" id="R2n-mp-F8r"/>
+                                    <constraint firstItem="bA7-g1-U5y" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="10" id="R2n-mp-F8r"/>
                                     <constraint firstItem="JdF-i5-mzA" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="8" id="Y7l-Xc-J2O"/>
-                                    <constraint firstAttribute="bottom" secondItem="A7o-Iq-8a4" secondAttribute="bottom" constant="11" id="aWv-Kc-PYH"/>
-                                    <constraint firstItem="A7o-Iq-8a4" firstAttribute="leading" secondItem="bA7-g1-U5y" secondAttribute="trailing" constant="18" id="dnD-TM-W9C"/>
+                                    <constraint firstAttribute="bottom" secondItem="A7o-Iq-8a4" secondAttribute="bottom" constant="5" id="aWv-Kc-PYH"/>
+                                    <constraint firstItem="A7o-Iq-8a4" firstAttribute="leading" secondItem="bA7-g1-U5y" secondAttribute="trailing" constant="43" id="dnD-TM-W9C"/>
                                     <constraint firstItem="nJX-hV-DGu" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="8" id="iTT-T1-WCD"/>
-                                    <constraint firstAttribute="bottom" secondItem="bA7-g1-U5y" secondAttribute="bottom" constant="11" id="tBl-hM-3zX"/>
-                                    <constraint firstItem="bA7-g1-U5y" firstAttribute="leading" secondItem="JdF-i5-mzA" secondAttribute="trailing" constant="47" id="vAo-T4-cN0"/>
+                                    <constraint firstAttribute="bottom" secondItem="bA7-g1-U5y" secondAttribute="bottom" constant="9" id="tBl-hM-3zX"/>
+                                    <constraint firstItem="bA7-g1-U5y" firstAttribute="leading" secondItem="JdF-i5-mzA" secondAttribute="trailing" constant="27" id="vAo-T4-cN0"/>
                                     <constraint firstItem="uxh-xP-BQs" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="10" id="wIa-sl-LfN"/>
-                                    <constraint firstItem="JdF-i5-mzA" firstAttribute="leading" secondItem="nJX-hV-DGu" secondAttribute="trailing" constant="18" id="zvh-3Z-RC3"/>
+                                    <constraint firstItem="JdF-i5-mzA" firstAttribute="leading" secondItem="nJX-hV-DGu" secondAttribute="trailing" constant="20" id="zvh-3Z-RC3"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -482,7 +482,7 @@
                                         <segment title="MID"/>
                                         <segment title="DOWN"/>
                                     </segments>
-                                    <color key="tintColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="tintColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -501,14 +501,15 @@
                                         <segment title="OFF"/>
                                         <segment title="ON"/>
                                     </segments>
-                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="tintColor" red="0.63566246810000004" green="0.076587916579999998" blue="0.2890034735" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX5-A3-T7t">
                                     <rect key="frame" x="126" y="58" width="68" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                    <color key="tintColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="⌨">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                             </subviews>
@@ -583,7 +584,7 @@
                                         <segment title="♣︎"/>
                                         <segment title="★"/>
                                     </segments>
-                                    <color key="tintColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="tintColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -657,7 +658,7 @@
                                         <segment title="◸"/>
                                         <segment title="≣"/>
                                     </segments>
-                                    <color key="tintColor" red="0.91764712333679199" green="0.32156863808631897" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="tintColor" red="0.63566246811224492" green="0.076587916582699311" blue="0.28900347351704836" alpha="1" colorSpace="calibratedRGB"/>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
