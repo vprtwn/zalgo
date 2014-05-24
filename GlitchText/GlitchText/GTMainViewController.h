@@ -4,8 +4,6 @@
 
 @interface GTMainViewController : UIViewController
 
-@property (strong, nonatomic) GTZalgo *zalgo;
-
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) GTGlitchViewController *glitchVC;
 @property (strong, nonatomic) GTSymbolViewController *symbolVC;

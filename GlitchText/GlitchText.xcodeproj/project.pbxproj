@@ -21,7 +21,6 @@
 		9622946519196661002861DB /* GTButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9622946419196661002861DB /* GTButtonCell.m */; };
 		964E844B191EB0C0008A304D /* GTSymbolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E844A191EB0C0008A304D /* GTSymbolViewController.m */; };
 		964E844E191EE408008A304D /* GTSymbolHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E844D191EE408008A304D /* GTSymbolHeaderView.m */; };
-		96554830191E7F5F00699CC9 /* GTZalgoFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9655482F191E7F5F00699CC9 /* GTZalgoFooterView.m */; };
 		96554833191E84B900699CC9 /* GTTextRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 96554832191E84B900699CC9 /* GTTextRange.m */; };
 		9660E85F192859BE00D12C6D /* subway.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9660E85E192859BE00D12C6D /* subway.plist */; };
 		968B72E5190FE11C00D2B288 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E4190FE11C00D2B288 /* Foundation.framework */; };
@@ -82,8 +81,6 @@
 		964E844A191EB0C0008A304D /* GTSymbolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSymbolViewController.m; sourceTree = "<group>"; };
 		964E844C191EE408008A304D /* GTSymbolHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSymbolHeaderView.h; sourceTree = "<group>"; };
 		964E844D191EE408008A304D /* GTSymbolHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSymbolHeaderView.m; sourceTree = "<group>"; };
-		9655482E191E7F5F00699CC9 /* GTZalgoFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZalgoFooterView.h; sourceTree = "<group>"; };
-		9655482F191E7F5F00699CC9 /* GTZalgoFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZalgoFooterView.m; sourceTree = "<group>"; };
 		96554831191E84B900699CC9 /* GTTextRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTextRange.h; sourceTree = "<group>"; };
 		96554832191E84B900699CC9 /* GTTextRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTextRange.m; sourceTree = "<group>"; };
 		9660E85E192859BE00D12C6D /* subway.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = subway.plist; path = Fonts/subway.plist; sourceTree = "<group>"; };
@@ -283,8 +280,6 @@
 				96AF73F819196382007BB4DD /* GTGlitchViewController.m */,
 				96D16CD719196F3E00A56728 /* GTGlitchHeaderView.h */,
 				96D16CD819196F3E00A56728 /* GTGlitchHeaderView.m */,
-				9655482E191E7F5F00699CC9 /* GTZalgoFooterView.h */,
-				9655482F191E7F5F00699CC9 /* GTZalgoFooterView.m */,
 			);
 			name = Glitch;
 			sourceTree = "<group>";
@@ -463,7 +458,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E432281915615900D617C2 /* NSString+GlitchText.m in Sources */,
-				96554830191E7F5F00699CC9 /* GTZalgoFooterView.m in Sources */,
 				96E43225191559F800D617C2 /* GTZalgo.m in Sources */,
 				961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */,
 				96D38711191B486D00989B8F /* NSArray+GlitchText.m in Sources */,

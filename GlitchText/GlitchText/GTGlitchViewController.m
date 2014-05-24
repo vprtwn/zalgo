@@ -2,7 +2,6 @@
 
 #import "GTButtonCell.h"
 #import "GTGlitchHeaderView.h"
-#import "GTZalgoFooterView.h"
 #import "GTZalgo.h"
 #import "NSString+GlitchText.h"
 #import "UIColor+GlitchText.h"
@@ -10,7 +9,6 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 typedef NS_ENUM(NSUInteger, GTGlitchSection) {
-    GTGlitchSectionZalgo,
     GTGlitchSectionUp,
     GTGlitchSectionMid,
     GTGlitchSectionDown
@@ -20,7 +18,6 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 @property (strong, nonatomic) GTZalgo *zalgo;
 @property (strong, nonatomic) GTGlitchHeaderView *headerView;
-@property (strong, nonatomic) GTZalgoFooterView *footerView;
 @property (assign, nonatomic) GTGlitchSection selectedSection;
 
 @end
@@ -35,7 +32,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     }
 
     self.zalgo = [GTZalgo sharedInstance];
-    self.selectedSection = GTGlitchSectionZalgo;
+    self.selectedSection = GTGlitchSectionUp;
     return self;
 }
 
@@ -77,23 +74,6 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     return _headerView;
 }
 
-- (GTZalgoFooterView *)footerView
-{
-    if (!_footerView) {
-        _footerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                            withReuseIdentifier:@"zalgoFooterView"
-                                                                     forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-
-        RAC(self.zalgo, enabled) = RACObserve(_footerView.segmentedControl, selectedSegmentIndex);
-        
-        [_footerView.keyboardButton addTarget:self.delegate
-                                       action:@selector(showDefaultKeyboard)
-                             forControlEvents:UIControlEventTouchUpInside];
-
-    }
-    return _footerView;
-}
-
 
 #pragma mark - UICollectionViewDelegate
 
@@ -114,9 +94,6 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 {
     NSInteger count;
     switch (self.selectedSection) {
-        case GTGlitchSectionZalgo:
-            count = 0;
-            break;
         case GTGlitchSectionUp:
             count = [self.zalgo.up count];
             break;
@@ -138,8 +115,6 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     NSUInteger row = indexPath.row;
 
     switch (self.selectedSection) {
-        case GTGlitchSectionZalgo:
-            break;
         case GTGlitchSectionUp:
             cell.label.text = self.zalgo.up[row];
             break;
@@ -156,21 +131,10 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     return cell;
 }
 
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        return self.headerView;
-    }
-    return self.footerView;
-}
-
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
-    if (self.selectedSection == GTGlitchSectionZalgo) {
-        return CGSizeMake(320, 166);
-    }
-    return CGSizeZero;
+    return self.headerView;
 }
 
 

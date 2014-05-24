@@ -2,17 +2,15 @@
 #import "NSString+GlitchText.h"
 #import "NSDictionary+GlitchText.h"
 #import "UIColor+GlitchText.h"
-
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "GTZalgo.h"
 
 @interface GTFontTableViewController ()
-
-@property (assign, nonatomic) NSUInteger selectedRow;
 
 // fonts
 @property (strong, nonatomic) NSArray *fonts;
 @property (strong, nonatomic) NSDictionary *currentFont;
 @property (strong, nonatomic) NSDictionary *normal;
+@property (strong, nonatomic) NSDictionary *zalgo;
 @property (strong, nonatomic) NSDictionary *subway;
 @property (strong, nonatomic) NSDictionary *circles;
 @property (strong, nonatomic) NSDictionary *squares;
@@ -48,6 +46,7 @@
 - (void)loadFonts
 {
     self.normal = @{};
+    self.zalgo = @{@"INVOKE":@"THE HIVE MIND"};
     self.subway = [NSDictionary dictionaryWithPlistNamed:@"subway"];
     self.circles = [NSDictionary dictionaryWithPlistNamed:@"circles"];
     self.squares = [NSDictionary dictionaryWithPlistNamed:@"squares"];
@@ -58,6 +57,7 @@
     self.copperplate = [NSDictionary dictionaryWithPlistNamed:@"copperplate"];
 
     self.fonts = @[self.normal,
+                   self.zalgo,
                    self.subway,
                    self.circles,
                    self.squares,
@@ -67,11 +67,14 @@
                    self.smallcaps,
                    self.copperplate];
     self.currentFont = self.normal;
-    self.selectedRow = 0;
 }
 
 - (NSString *)applyFont:(NSString *)text
 {
+    if (self.currentFont == self.zalgo) {
+        return [[GTZalgo sharedInstance] process:text];
+    }
+
     NSMutableString *newString = [NSMutableString stringWithString:@""];
     NSArray *characters = [text characterArray];
     for (NSString *c in characters) {
@@ -115,7 +118,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedRow = indexPath.row;
+    self.currentFont = self.fonts[indexPath.row];
     [self.delegate didSelectFont];
 }
 
