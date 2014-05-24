@@ -159,7 +159,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bA7-g1-U5y">
-                                        <rect key="frame" x="120" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="123" y="10" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="↩︎">
@@ -204,10 +204,10 @@
                                     <constraint firstItem="bA7-g1-U5y" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="10" id="R2n-mp-F8r"/>
                                     <constraint firstItem="JdF-i5-mzA" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="8" id="Y7l-Xc-J2O"/>
                                     <constraint firstAttribute="bottom" secondItem="A7o-Iq-8a4" secondAttribute="bottom" constant="5" id="aWv-Kc-PYH"/>
-                                    <constraint firstItem="A7o-Iq-8a4" firstAttribute="leading" secondItem="bA7-g1-U5y" secondAttribute="trailing" constant="43" id="dnD-TM-W9C"/>
+                                    <constraint firstItem="A7o-Iq-8a4" firstAttribute="leading" secondItem="bA7-g1-U5y" secondAttribute="trailing" constant="40" id="dnD-TM-W9C"/>
                                     <constraint firstItem="nJX-hV-DGu" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="8" id="iTT-T1-WCD"/>
                                     <constraint firstAttribute="bottom" secondItem="bA7-g1-U5y" secondAttribute="bottom" constant="9" id="tBl-hM-3zX"/>
-                                    <constraint firstItem="bA7-g1-U5y" firstAttribute="leading" secondItem="JdF-i5-mzA" secondAttribute="trailing" constant="27" id="vAo-T4-cN0"/>
+                                    <constraint firstItem="bA7-g1-U5y" firstAttribute="leading" secondItem="JdF-i5-mzA" secondAttribute="trailing" constant="30" id="vAo-T4-cN0"/>
                                     <constraint firstItem="uxh-xP-BQs" firstAttribute="top" secondItem="AWB-B2-dQe" secondAttribute="top" constant="10" id="wIa-sl-LfN"/>
                                     <constraint firstItem="JdF-i5-mzA" firstAttribute="leading" secondItem="nJX-hV-DGu" secondAttribute="trailing" constant="20" id="zvh-3Z-RC3"/>
                                 </constraints>

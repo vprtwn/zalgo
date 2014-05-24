@@ -40,6 +40,11 @@
 
     self.fontTVC.delegate = self;
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+
     [self.textView becomeFirstResponder];
 }
 
@@ -54,8 +59,13 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+
     NSLog(@"MEMORY WARNING");
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Menu buttons
@@ -159,6 +169,7 @@
 }
 
 - (IBAction)showKeyboard:(id)sender {
+    [self.textView resignFirstResponder];
     self.textView.inputView = nil;
     [self.textView becomeFirstResponder];
 }
@@ -254,5 +265,15 @@
 
     return YES;
 }
+
+#pragma mark - Keyboard notifications
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    if (!self.textView.inputView) {
+        [self deselectAllExcept:nil];
+    }
+}
+
 
 @end
