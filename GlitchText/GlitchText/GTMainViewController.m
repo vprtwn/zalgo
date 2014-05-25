@@ -26,6 +26,8 @@
                      self.shareButton];
 
     self.textView.delegate = self;
+    self.textView.backgroundColor = [UIColor grayColor];
+    ((UIScrollView *)(self.textView)).contentView.
 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
 
@@ -163,8 +165,9 @@
 {
     NSString *currentText = self.textView.text;
     NSRange currentRange = self.textView.selectedRange;
-    self.textView.text = [currentText stringByAppendingString:@"\n"];
-    self.textView.selectedRange = NSMakeRange(currentRange.location + 1, currentRange.length);
+    NSString *newText = [currentText stringByReplacingCharactersInRange:currentRange withString:@"\n"];
+    self.textView.text = newText;
+    self.textView.selectedRange = NSMakeRange(currentRange.location + 1, 0);
     self.textView.textAlignment = self.textView.textAlignment;
 }
 
