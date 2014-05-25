@@ -26,8 +26,6 @@
                      self.shareButton];
 
     self.textView.delegate = self;
-    self.textView.backgroundColor = [UIColor grayColor];
-    ((UIScrollView *)(self.textView)).contentView.
 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
 
