@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		305A72C2A2B04B79BABB4A5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 861D5B4AEACB43098D113584 /* libPods.a */; };
+		960D55C01933EDC7001FB371 /* GTSpringyCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 960D55BF1933EDC7001FB371 /* GTSpringyCollectionViewFlowLayout.m */; };
 		9617376019291E4B003C0A10 /* circles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9617375F19291E4B003C0A10 /* circles.plist */; };
 		9617376219292392003C0A10 /* squares.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9617376119292392003C0A10 /* squares.plist */; };
 		961737641929240F003C0A10 /* stamps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961737631929240F003C0A10 /* stamps.plist */; };
@@ -61,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		861D5B4AEACB43098D113584 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		960D55BE1933EDC7001FB371 /* GTSpringyCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSpringyCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		960D55BF1933EDC7001FB371 /* GTSpringyCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSpringyCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		96153FA81921B2BE0064C304 /* GTInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTInputDelegate.h; sourceTree = "<group>"; };
 		9617375F19291E4B003C0A10 /* circles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = circles.plist; path = Fonts/circles.plist; sourceTree = "<group>"; };
 		9617376119292392003C0A10 /* squares.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = squares.plist; path = Fonts/squares.plist; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 				96D38717191B57AA00989B8F /* GTFixedHeaderLayout.h */,
 				96D38718191B57AA00989B8F /* GTFixedHeaderLayout.m */,
 				96153FA81921B2BE0064C304 /* GTInputDelegate.h */,
+				960D55BE1933EDC7001FB371 /* GTSpringyCollectionViewFlowLayout.h */,
+				960D55BF1933EDC7001FB371 /* GTSpringyCollectionViewFlowLayout.m */,
 			);
 			name = UIComponents;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				96AF73F919196382007BB4DD /* GTGlitchViewController.m in Sources */,
 				96554833191E84B900699CC9 /* GTTextRange.m in Sources */,
 				9622946519196661002861DB /* GTButtonCell.m in Sources */,
+				960D55C01933EDC7001FB371 /* GTSpringyCollectionViewFlowLayout.m in Sources */,
 				9617376F19298C4D003C0A10 /* NSDictionary+GlitchText.m in Sources */,
 				968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */,
 				964E844B191EB0C0008A304D /* GTSymbolViewController.m in Sources */,

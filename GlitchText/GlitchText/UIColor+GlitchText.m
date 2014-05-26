@@ -7,7 +7,7 @@
 }
 
 + (UIColor *)glitchMagentaColor {
-    return [UIColor colorWithRed:0.88 green:0.23 blue:0.93 alpha:1];
+    return [UIColor colorWithRed:0.64 green:0.08 blue:0.29 alpha:1];
 }
 
 + (UIColor *)glitchGrayColor {

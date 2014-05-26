@@ -1,4 +1,5 @@
 #import "GTButtonCell.h"
+#import "UIColor+GlitchText.h"
 #import <UIImage-Helpers/UIImage+ImageWithColor.h>
 
 @interface GTButtonCell ()
@@ -26,7 +27,7 @@
     cellLayer.cornerRadius = cellCornerRadius;
     cellLayer.masksToBounds = NO;
     cellLayer.shadowRadius = shadowCornerRadius;
-    cellLayer.shadowColor = [[UIColor darkGrayColor] CGColor];
+    cellLayer.shadowColor = [[UIColor glitchMagentaColor] CGColor];
     cellLayer.shadowOffset = CGSizeMake(0, 2);
     cellLayer.shadowOpacity = 1;
     CGRect rect = CGRectMake(self.x + 1, self.y + 1, self.width - 2, self.height - 2);
