@@ -8,9 +8,10 @@
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
 
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate>
+@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource>
 
 @end
 
@@ -39,6 +40,8 @@
     self.shapeVC.delegate = self;
 
     self.fontTVC.delegate = self;
+
+
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -101,7 +104,18 @@
 
 - (IBAction)shareButtonAction:(id)sender
 {
-    [[UIPasteboard generalPasteboard] setString:self.textView.text];
+    // TODO: present in popover on iPad
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self] applicationActivities:nil];
+    [activityVC setCompletionHandler:^(NSString *activityType, BOOL completed) {
+        if (activityType == UIActivityTypeCopyToPasteboard) {
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copied to pasteboard", nil)];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+            });
+        }
+    }];
+    activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeAirDrop];
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (void)deselectAllExcept:(NSArray *)buttons
@@ -252,6 +266,7 @@
     [self.textView becomeFirstResponder];   
 }
 
+
 #pragma mark - GTFontTableViewControllerDelegate
 
 - (void)didSelectFont
@@ -292,5 +307,17 @@
     }
 }
 
+
+#pragma mark - UIActivityItemSource
+
+- (id)activityViewControllerPlaceholderItem:(UIActivityViewController *)activityViewController
+{
+    return @"";
+}
+
+- (id)activityViewController:(UIActivityViewController *)activityViewController itemForActivityType:(NSString *)activityType
+{
+    return self.textView.text;
+}
 
 @end
