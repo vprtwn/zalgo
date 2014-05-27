@@ -191,17 +191,17 @@
 
         // check for surrogate pair
         NSUInteger lastCharLength = 1;
-//        if (firstHalf.length >= 2) {
-//            NSMutableArray *a = [NSMutableArray new];
-//            [firstHalf enumerateSubstringsInRange:NSMakeRange(firstHalf.length - 2, 2)
-//                                          options:NSStringEnumerationByComposedCharacterSequences | NSStringEnumerationReverse
-//                                       usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-//                                           [a addObject:substring];
-//            }];
-//            if (a.count == 2) {
-//                lastCharLength = 2;
-//            }
-//        }
+        if (firstHalf.length >= 2) {
+            NSMutableArray *a = [NSMutableArray new];
+            [firstHalf enumerateSubstringsInRange:NSMakeRange(firstHalf.length - 2, 2)
+                                          options:NSStringEnumerationByComposedCharacterSequences | NSStringEnumerationReverse
+                                       usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                                           [a addObject:substring];
+            }];
+            if (a.count == 1) {
+                lastCharLength = 2;
+            }
+        }
 
         firstHalf = [firstHalf substringToIndex:firstHalf.length - lastCharLength];
         newText = [firstHalf stringByAppendingString:secondHalf];
