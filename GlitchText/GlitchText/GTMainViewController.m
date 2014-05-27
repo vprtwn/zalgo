@@ -188,7 +188,22 @@
     if (!currentRange.length) {
         NSString *firstHalf = [currentText substringToIndex:currentRange.location];
         NSString *secondHalf = [currentText substringFromIndex:currentRange.location];
-        firstHalf = [firstHalf substringToIndex:firstHalf.length - 1];
+
+        // check for surrogate pair
+        NSUInteger lastCharLength = 1;
+//        if (firstHalf.length >= 2) {
+//            NSMutableArray *a = [NSMutableArray new];
+//            [firstHalf enumerateSubstringsInRange:NSMakeRange(firstHalf.length - 2, 2)
+//                                          options:NSStringEnumerationByComposedCharacterSequences | NSStringEnumerationReverse
+//                                       usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+//                                           [a addObject:substring];
+//            }];
+//            if (a.count == 2) {
+//                lastCharLength = 2;
+//            }
+//        }
+
+        firstHalf = [firstHalf substringToIndex:firstHalf.length - lastCharLength];
         newText = [firstHalf stringByAppendingString:secondHalf];
         newRange = NSMakeRange(currentRange.location - 1, currentRange.length);
     }
@@ -260,7 +275,7 @@
         [textView.text stringByReplacingCharactersInRange:range
                                                withString:processedText];
         textView.text = newText;
-        textView.selectedRange = NSMakeRange(range.location + range.length, 0);
+        textView.selectedRange = NSMakeRange(range.location + newText.length, 0);
         textView.textAlignment = textView.textAlignment;
         return NO;
     }
