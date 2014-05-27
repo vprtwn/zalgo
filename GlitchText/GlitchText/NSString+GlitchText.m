@@ -8,7 +8,19 @@
     return [self rangeOfString:string].location != NSNotFound;
 }
 
+
 - (NSArray *)characterArray
+{
+    NSUInteger length = [self length];
+    NSMutableArray *mutableArray = [NSMutableArray new];
+    for (int i = 0; i < length; i++) {
+        [mutableArray addObject:[self substringWithRange:NSMakeRange(i, 1)]];
+    }
+    return [mutableArray copy];
+}
+
+
+- (NSArray *)composedCharacterArray
 {
     NSUInteger length = [self length];
     NSMutableArray *mutableArray = [NSMutableArray new];

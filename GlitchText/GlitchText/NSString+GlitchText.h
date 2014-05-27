@@ -6,6 +6,8 @@
 
 - (NSArray *)characterArray;
 
+- (NSArray *)composedCharacterArray;
+
 - (BOOL)isZalgo;
 
 - (BOOL)isWhitespace;

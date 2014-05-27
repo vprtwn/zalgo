@@ -260,6 +260,7 @@
         [textView.text stringByReplacingCharactersInRange:range
                                                withString:processedText];
         textView.text = newText;
+        textView.selectedRange = NSMakeRange(range.location + range.length, 0);
         textView.textAlignment = textView.textAlignment;
         return NO;
     }

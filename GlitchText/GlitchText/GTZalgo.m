@@ -111,10 +111,10 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠⃣�
     return [NSString stringWithCharacters:buffer length:length];
 }
 
-// Add a time limit?
+
 - (NSString *)process:(NSString *)text
 {
-    NSArray *cs = [text characterArray];
+    NSArray *cs = [text composedCharacterArray];
     NSMutableString *newText = [NSMutableString new];
     for (NSString *c in cs) {
         if (![c isZalgo] && ![c isWhitespace]) {

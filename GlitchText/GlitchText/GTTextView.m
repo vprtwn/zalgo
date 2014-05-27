@@ -3,6 +3,16 @@
 
 @implementation GTTextView
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    self.cutCopyPasteEnabled = YES;
+
+    return self;
+}
+
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
     NSString *normalizedAction = [NSStringFromSelector(action) lowercaseString];
