@@ -12,9 +12,11 @@
 {
     NSUInteger length = [self length];
     NSMutableArray *mutableArray = [NSMutableArray new];
-    for (int i = 0; i < length; i++) {
-        [mutableArray addObject:[self substringWithRange:NSMakeRange(i, 1)]];
-    }
+    [self enumerateSubstringsInRange:NSMakeRange(0, length)
+                             options:NSStringEnumerationByComposedCharacterSequences
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                              [mutableArray addObject:substring];
+    }];
     return [mutableArray copy];
 }
 

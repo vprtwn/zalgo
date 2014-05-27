@@ -71,6 +71,15 @@ NSString *const GTZalgoMid = @"̛̕꙰҈̴̵̶̸̷̡̢̧̨̀́͘͜͟͢͝͞͠⃣�
 //
 - (NSString *)processOne:(NSString *)c
 {
+    NSUInteger cLen = c.length;
+    // glitch last char of surrogate pair
+    if (cLen != 1) {
+        NSString *firstPart = [c substringToIndex:cLen - 1];
+        NSString *lastChar = [c substringFromIndex:cLen - 1];
+        NSString *processedLastChar = [self processOne:lastChar];
+        return [NSString stringWithFormat:@"%@%@", firstPart, processedLastChar];
+    }
+
     NSUInteger upCount = arc4random_uniform(8) + 1;
     NSUInteger midCount = arc4random_uniform(6)/2;
     NSUInteger downCount = arc4random_uniform(8) + 1;
