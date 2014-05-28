@@ -290,7 +290,7 @@
         [textView.text stringByReplacingCharactersInRange:range
                                                withString:processedText];
         textView.text = newText;
-        textView.selectedRange = NSMakeRange(range.location + newText.length, 0);
+        textView.selectedRange = NSMakeRange(range.location + processedText.length, 0);
         textView.textAlignment = textView.textAlignment;
         return NO;
     }
