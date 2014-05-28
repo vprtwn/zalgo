@@ -329,4 +329,9 @@
     return self.textView.text;
 }
 
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 @end
