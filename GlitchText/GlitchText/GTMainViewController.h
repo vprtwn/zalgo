@@ -9,6 +9,7 @@
 @property (strong, nonatomic) GTSymbolViewController *symbolVC;
 @property (strong, nonatomic) GTShapeViewController *shapeVC;
 @property (strong, nonatomic) GTFontTableViewController *fontTVC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewHeight;
 
 // menu buttons
 @property (weak, nonatomic) IBOutlet UIButton *fontButton;

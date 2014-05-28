@@ -10,6 +10,7 @@
 
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <FrameAccessor/FrameAccessor.h>
 
 @interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource>
 
@@ -302,6 +303,14 @@
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {
+    NSDictionary *info = [notification userInfo];
+    CGRect frameEnd = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSTimeInterval duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    self.containerViewHeight.constant = frameEnd.size.height;
+
+    [UIView animateWithDuration:duration animations:^{
+        [self.view layoutIfNeeded];
+    }];
     if (!self.textView.inputView) {
         [self deselectAllExcept:nil];
     }
