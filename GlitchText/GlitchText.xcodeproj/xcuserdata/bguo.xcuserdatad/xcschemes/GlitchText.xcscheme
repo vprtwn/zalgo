@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "968B72E0190FE11C00D2B288"
                BuildableName = "GlitchText.app"
-               BlueprintName = "GlitchText"
+               BlueprintName = "Glitch Text"
                ReferencedContainer = "container:GlitchText.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "968B72E0190FE11C00D2B288"
             BuildableName = "GlitchText.app"
-            BlueprintName = "GlitchText"
+            BlueprintName = "Glitch Text"
             ReferencedContainer = "container:GlitchText.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "968B72E0190FE11C00D2B288"
             BuildableName = "GlitchText.app"
-            BlueprintName = "GlitchText"
+            BlueprintName = "Glitch Text"
             ReferencedContainer = "container:GlitchText.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "968B72E0190FE11C00D2B288"
             BuildableName = "GlitchText.app"
-            BlueprintName = "GlitchText"
+            BlueprintName = "Glitch Text"
             ReferencedContainer = "container:GlitchText.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
