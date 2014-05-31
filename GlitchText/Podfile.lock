@@ -1,4 +1,7 @@
 PODS:
+  - FlurrySDK (5.0.0):
+    - FlurrySDK/FlurrySDK
+  - FlurrySDK/FlurrySDK (5.0.0)
   - FrameAccessor (1.3.2)
   - MZAppearance (1.1.3)
   - MZFormSheetController (2.3.4):
@@ -14,6 +17,7 @@ PODS:
   - UIImage-Helpers (0.0.2)
 
 DEPENDENCIES:
+  - FlurrySDK
   - FrameAccessor
   - MZFormSheetController
   - ReactiveCocoa
@@ -21,6 +25,7 @@ DEPENDENCIES:
   - UIImage-Helpers
 
 SPEC CHECKSUMS:
+  FlurrySDK: 1fa28436e86e533e51ab1164c43d8f3b5f8ff99f
   FrameAccessor: 8bf7a2c66f86005ff9bcd1c9cbd0a3eb4970910b
   MZAppearance: c88502c0c2345120630c34e09d5ff09e2969ba30
   MZFormSheetController: 8c453908080c338274e68908849029435d3e2736

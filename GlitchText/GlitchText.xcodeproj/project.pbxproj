@@ -30,7 +30,6 @@
 		968B72F1190FE11C00D2B288 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B72F0190FE11C00D2B288 /* main.m */; };
 		968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B72F4190FE11C00D2B288 /* GTAppDelegate.m */; };
 		968B72F8190FE11C00D2B288 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968B72F6190FE11C00D2B288 /* Main_iPhone.storyboard */; };
-		968B72FB190FE11C00D2B288 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */; };
 		968B72FE190FE11C00D2B288 /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 968B72FD190FE11C00D2B288 /* GTMainViewController.m */; };
 		968B7300190FE11C00D2B288 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968B72FF190FE11C00D2B288 /* Images.xcassets */; };
 		968B7307190FE11C00D2B288 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B7306190FE11C00D2B288 /* XCTest.framework */; };
@@ -47,6 +46,8 @@
 		96D75641192A2BC900D363BB /* UIColor+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D75640192A2BC900D363BB /* UIColor+GlitchText.m */; };
 		96E43225191559F800D617C2 /* GTZalgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E43224191559F800D617C2 /* GTZalgo.m */; };
 		96E432281915615900D617C2 /* NSString+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E432271915615900D617C2 /* NSString+GlitchText.m */; };
+		96E6E6711938F2AD00C9EC21 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E6E6701938F2AD00C9EC21 /* Crashlytics.framework */; };
+		96E6E676193A570E00C9EC21 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96E6E674193A570E00C9EC21 /* Main_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +85,7 @@
 		96554831191E84B900699CC9 /* GTTextRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTextRange.h; sourceTree = "<group>"; };
 		96554832191E84B900699CC9 /* GTTextRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTextRange.m; sourceTree = "<group>"; };
 		9660E85E192859BE00D12C6D /* subway.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = subway.plist; sourceTree = "<group>"; };
-		968B72E1190FE11C00D2B288 /* GlitchText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlitchText.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		968B72E1190FE11C00D2B288 /* Glitch Text.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glitch Text.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		968B72E4190FE11C00D2B288 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		968B72E6190FE11C00D2B288 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		968B72E8190FE11C00D2B288 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -95,7 +96,6 @@
 		968B72F3190FE11C00D2B288 /* GTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTAppDelegate.h; sourceTree = "<group>"; };
 		968B72F4190FE11C00D2B288 /* GTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTAppDelegate.m; sourceTree = "<group>"; };
 		968B72F7190FE11C00D2B288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		968B72FA190FE11C00D2B288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		968B72FC190FE11C00D2B288 /* GTMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMainViewController.h; sourceTree = "<group>"; };
 		968B72FD190FE11C00D2B288 /* GTMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
 		968B72FF190FE11C00D2B288 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -122,6 +122,8 @@
 		96E43224191559F800D617C2 /* GTZalgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZalgo.m; sourceTree = "<group>"; };
 		96E432261915615900D617C2 /* NSString+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GlitchText.h"; sourceTree = "<group>"; };
 		96E432271915615900D617C2 /* NSString+GlitchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GlitchText.m"; sourceTree = "<group>"; };
+		96E6E6701938F2AD00C9EC21 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		96E6E675193A570E00C9EC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		AF720A5749044690B4751E51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				968B72E7190FE11C00D2B288 /* CoreGraphics.framework in Frameworks */,
+				96E6E6711938F2AD00C9EC21 /* Crashlytics.framework in Frameworks */,
 				968B72E9190FE11C00D2B288 /* UIKit.framework in Frameworks */,
 				968B72E5190FE11C00D2B288 /* Foundation.framework in Frameworks */,
 				305A72C2A2B04B79BABB4A5B /* libPods.a in Frameworks */,
@@ -201,7 +204,7 @@
 		968B72E2190FE11C00D2B288 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				968B72E1190FE11C00D2B288 /* GlitchText.app */,
+				968B72E1190FE11C00D2B288 /* Glitch Text.app */,
 				968B7305190FE11C00D2B288 /* GlitchTextTests.xctest */,
 			);
 			name = Products;
@@ -210,6 +213,7 @@
 		968B72E3190FE11C00D2B288 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96E6E6701938F2AD00C9EC21 /* Crashlytics.framework */,
 				968B72E4190FE11C00D2B288 /* Foundation.framework */,
 				968B72E6190FE11C00D2B288 /* CoreGraphics.framework */,
 				968B72E8190FE11C00D2B288 /* UIKit.framework */,
@@ -225,7 +229,7 @@
 				968B72F3190FE11C00D2B288 /* GTAppDelegate.h */,
 				968B72F4190FE11C00D2B288 /* GTAppDelegate.m */,
 				968B72F6190FE11C00D2B288 /* Main_iPhone.storyboard */,
-				968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */,
+				96E6E674193A570E00C9EC21 /* Main_iPad.storyboard */,
 				96D16CDA1919873F00A56728 /* Glitch */,
 				964E8448191EB0A5008A304D /* Symbol */,
 				961A5E01192804A200797CA8 /* Shape */,
@@ -327,6 +331,7 @@
 				968B72DE190FE11C00D2B288 /* Frameworks */,
 				968B72DF190FE11C00D2B288 /* Resources */,
 				433052EED12F4E8883B403B2 /* Copy Pods Resources */,
+				96E6E66F1938F27500C9EC21 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -334,7 +339,7 @@
 			);
 			name = "Glitch Text";
 			productName = GlitchText;
-			productReference = 968B72E1190FE11C00D2B288 /* GlitchText.app */;
+			productReference = 968B72E1190FE11C00D2B288 /* Glitch Text.app */;
 			productType = "com.apple.product-type.application";
 		};
 		968B7304190FE11C00D2B288 /* GlitchTextTests */ = {
@@ -394,7 +399,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				968B72FB190FE11C00D2B288 /* Main_iPad.storyboard in Resources */,
 				9617376A1929265A003C0A10 /* smallcaps.plist in Resources */,
 				9660E85F192859BE00D12C6D /* subway.plist in Resources */,
 				9617376019291E4B003C0A10 /* circles.plist in Resources */,
@@ -404,6 +408,7 @@
 				9617376219292392003C0A10 /* squares.plist in Resources */,
 				9617376619292486003C0A10 /* light.plist in Resources */,
 				961737641929240F003C0A10 /* stamps.plist in Resources */,
+				96E6E676193A570E00C9EC21 /* Main_iPad.storyboard in Resources */,
 				96173768192925B9003C0A10 /* tiny.plist in Resources */,
 				968B72EF190FE11C00D2B288 /* InfoPlist.strings in Resources */,
 			);
@@ -449,6 +454,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		96E6E66F1938F27500C9EC21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 3885017ed24101339d5de097acd32dd57117a9b8 ff0aaf514fcd7f90c7da0d326eaf48b555c1b46446afbf065c79a90a7dc4e795";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -514,20 +532,20 @@
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		968B72F9190FE11C00D2B288 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				968B72FA190FE11C00D2B288 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		968B730F190FE11C00D2B288 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				968B7310190FE11C00D2B288 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		96E6E674193A570E00C9EC21 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96E6E675193A570E00C9EC21 /* Base */,
+			);
+			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -611,10 +629,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GlitchText/Supporting Files/GlitchText-Prefix.pch";
 				INFOPLIST_FILE = "GlitchText/Supporting Files/GlitchText-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -626,10 +648,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GlitchText/Supporting Files/GlitchText-Prefix.pch";
 				INFOPLIST_FILE = "GlitchText/Supporting Files/GlitchText-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

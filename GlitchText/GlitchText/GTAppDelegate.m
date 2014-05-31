@@ -1,10 +1,14 @@
 #import "GTAppDelegate.h"
 
+#import <FlurrySDK/Flurry.h>
+#import <Crashlytics/Crashlytics.h>
+
 @implementation GTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Flurry startSession:@"CBGGMYCDC7MG5DR7V9QG"];
+    [Crashlytics startWithAPIKey:@"3885017ed24101339d5de097acd32dd57117a9b8"];
     return YES;
 }
 							
