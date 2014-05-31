@@ -30,6 +30,9 @@
     self.textView.delegate = self;
 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    }
 
     self.glitchVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"GlitchViewController"];
     self.glitchVC.delegate = self;

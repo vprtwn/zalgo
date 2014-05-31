@@ -476,8 +476,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="768" height="74"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rih-WY-Xlb">
-                                    <rect key="frame" x="20" y="20" width="728" height="29"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rih-WY-Xlb">
+                                    <rect key="frame" x="20" y="23" width="728" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
                                         <segment title="UP"/>
@@ -488,6 +488,12 @@
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Rih-WY-Xlb" secondAttribute="bottom" constant="23" id="ED5-Tb-T8A"/>
+                                <constraint firstAttribute="trailing" secondItem="Rih-WY-Xlb" secondAttribute="trailing" constant="20" id="ZWa-gG-N28"/>
+                                <constraint firstItem="Rih-WY-Xlb" firstAttribute="leading" secondItem="3C3-IT-6gZ" secondAttribute="leading" constant="20" id="mVn-pn-MCS"/>
+                                <constraint firstItem="Rih-WY-Xlb" firstAttribute="top" secondItem="3C3-IT-6gZ" secondAttribute="top" constant="23" id="w3x-7j-Viw"/>
+                            </constraints>
                             <connections>
                                 <outlet property="segmentedControl" destination="Rih-WY-Xlb" id="QZx-oJ-F9B"/>
                             </connections>
@@ -550,8 +556,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="768" height="74"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mD5-go-3WH">
-                                    <rect key="frame" x="20" y="20" width="728" height="29"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mD5-go-3WH">
+                                    <rect key="frame" x="20" y="23" width="728" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
                                         <segment title="♫"/>
@@ -562,6 +568,12 @@
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="mD5-go-3WH" secondAttribute="bottom" constant="23" id="D0p-Nk-SL8"/>
+                                <constraint firstItem="mD5-go-3WH" firstAttribute="leading" secondItem="ddi-rz-Moj" secondAttribute="leading" constant="20" id="V6R-7u-Mb5"/>
+                                <constraint firstItem="mD5-go-3WH" firstAttribute="top" secondItem="ddi-rz-Moj" secondAttribute="top" constant="23" id="dLv-hq-Rsm"/>
+                                <constraint firstAttribute="trailing" secondItem="mD5-go-3WH" secondAttribute="trailing" constant="20" id="uhA-lc-IZ3"/>
+                            </constraints>
                             <connections>
                                 <outlet property="segmentedControl" destination="mD5-go-3WH" id="ADz-XM-Agw"/>
                             </connections>
@@ -624,7 +636,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="768" height="74"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iGh-WK-PaW">
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iGh-WK-PaW">
                                     <rect key="frame" x="20" y="23" width="728" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
@@ -636,6 +648,12 @@
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="iGh-WK-PaW" secondAttribute="bottom" constant="23" id="MMs-bx-Nn1"/>
+                                <constraint firstAttribute="trailing" secondItem="iGh-WK-PaW" secondAttribute="trailing" constant="20" id="jaX-IV-Stf"/>
+                                <constraint firstItem="iGh-WK-PaW" firstAttribute="leading" secondItem="X1d-Wk-d6F" secondAttribute="leading" constant="20" id="xic-NR-l4C"/>
+                                <constraint firstItem="iGh-WK-PaW" firstAttribute="top" secondItem="X1d-Wk-d6F" secondAttribute="top" constant="23" id="zGJ-5Q-IVk"/>
+                            </constraints>
                             <connections>
                                 <outlet property="segmentedControl" destination="iGh-WK-PaW" id="dE0-S1-ETl"/>
                             </connections>
