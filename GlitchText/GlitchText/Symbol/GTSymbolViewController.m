@@ -44,9 +44,13 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:25]}
+            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:GTHeaderFontSizeIpad]}
                                                         forState:UIControlStateNormal];
-        }      
+        }
+        else {
+            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:GTHeaderFontSizeIphone]}
+                                                        forState:UIControlStateNormal];
+        }
 
         RAC(self, selectedSection) =
         [[[_headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]

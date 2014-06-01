@@ -59,7 +59,11 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
                                                               withReuseIdentifier:@"glitchHeaderView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:25]}
+            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:GTHeaderFontSizeIpad*0.8]}
+                                                        forState:UIControlStateNormal];
+        }
+        else {
+            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:GTHeaderFontSizeIphone*0.8]}
                                                         forState:UIControlStateNormal];
         }
 
