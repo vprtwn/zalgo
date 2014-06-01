@@ -2,7 +2,9 @@
 #import "GTSymbolHeaderView.h"
 #import "GTButtonCell.h"
 #import "NSString+GlitchText.h"
+
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <pop/POP.h>
 
 typedef NS_ENUM(NSUInteger, GTSymbolSection) {
     GTSymbolSection1,
@@ -130,7 +132,14 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
             [cell.button setTitle:self.s3[row] forState:UIControlStateNormal];
             break;
     }
+    [cell.button addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+
     return cell;
+}
+
+- (void)touchUpInside:(UIButton *)button
+{
+    [self.delegate shouldEnterText:button.titleLabel.text];
 }
 
 @end

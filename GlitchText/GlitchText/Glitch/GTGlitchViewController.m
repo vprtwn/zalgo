@@ -136,41 +136,19 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
             [cell.button setTitle:self.zalgo.down[row] forState:UIControlStateNormal];
             break;
     }
+    [cell.button addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
 
     return cell;
 }
 
+- (void)touchUpInside:(UIButton *)button
+{
+    [self.delegate shouldEnterText:button.titleLabel.text];
+}
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     return self.headerView;
-}
-
-
-
-#pragma mark - Animation
-
-- (void)scaleToLarge:(UIButton *)button
-{
-    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.7f, 1.7f)];
-    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleLargeAnimation"];
-}
-
-- (void)scaleAnimation:(UIButton *)button
-{
-    POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    scaleAnimation.velocity = [NSValue valueWithCGSize:CGSizeMake(2.f, 2.f)];
-    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.f, 1.f)];
-    scaleAnimation.springBounciness = 20.0f;
-    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleSpringAnimation"];
-}
-
-- (void)scaleToDefault:(UIButton *)button
-{
-    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.f, 1.f)];
-    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleDefaultAnimation"];
 }
 
 @end

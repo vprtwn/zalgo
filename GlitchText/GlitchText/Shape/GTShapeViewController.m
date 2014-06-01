@@ -2,7 +2,9 @@
 #import "GTShapeHeaderView.h"
 #import "GTButtonCell.h"
 #import "NSString+GlitchText.h"
+
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <pop/POP.h>
 
 typedef NS_ENUM(NSUInteger, GTShapeSection) {
     GTShapeSection1,
@@ -73,14 +75,6 @@ typedef NS_ENUM(NSUInteger, GTShapeSection) {
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UICollectionViewDelegate
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    GTButtonCell *cell = (GTButtonCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self.delegate shouldEnterText:cell.button.titleLabel.text];
-}
-
 #pragma mark - UICollectionViewDataSource
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSArray *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -130,7 +124,14 @@ typedef NS_ENUM(NSUInteger, GTShapeSection) {
             [cell.button setTitle:self.s3[row] forState:UIControlStateNormal];
             break;
     }
+    [cell.button addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+
     return cell;
+}
+
+- (void)touchUpInside:(UIButton *)button
+{
+    [self.delegate shouldEnterText:button.titleLabel.text];
 }
 
 @end

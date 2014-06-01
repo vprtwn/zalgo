@@ -37,19 +37,4 @@
     return self;
 }
 
-- (void)setHighlighted:(BOOL)highlighted {
-    [super setHighlighted:highlighted];
-    [self setNeedsDisplay];
-}
-
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
-
-    if (self.highlighted) {
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextSetGrayFillColor(context, 0.41, 0.5);
-        CGContextFillRect(context, self.bounds);
-    }
-}
-
 @end
