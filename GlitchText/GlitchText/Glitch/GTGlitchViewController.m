@@ -58,6 +58,10 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
         _headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                               withReuseIdentifier:@"glitchHeaderView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:25]}
+                                                        forState:UIControlStateNormal];
+        }
 
         RAC(self, selectedSection) =
         [[[_headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]

@@ -43,6 +43,11 @@ typedef NS_ENUM(NSUInteger, GTShapeSection) {
         _headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                               withReuseIdentifier:@"shapeHeaderView"
                                                                      forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            [_headerView.segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:25]}
+                                                        forState:UIControlStateNormal];
+        }
+
         RAC(self, selectedSection) =
         [[[_headerView.segmentedControl rac_signalForControlEvents:UIControlEventValueChanged]
           map:^NSNumber *(UISegmentedControl *control) {
