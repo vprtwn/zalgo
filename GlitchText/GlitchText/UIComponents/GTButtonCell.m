@@ -1,6 +1,8 @@
 #import "GTButtonCell.h"
 #import "UIColor+GlitchText.h"
 
+#import <UIImage+Additions/UIImage+Additions.h>
+
 @interface GTButtonCell ()
 
 @end
