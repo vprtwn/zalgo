@@ -7,6 +7,7 @@
 #import "UIColor+GlitchText.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <pop/POP.h>
 
 typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     GTGlitchSectionUp,
@@ -88,7 +89,7 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GTButtonCell *cell = (GTButtonCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self.delegate shouldEnterText:cell.label.text];
+    [self.delegate shouldEnterText:cell.button.titleLabel.text];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -119,20 +120,20 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"glitchButtonCell" forIndexPath:indexPath];
+    GTButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"glitchButtonCell" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
 
     switch (self.selectedSection) {
         case GTGlitchSectionUp:
-            cell.label.text = self.zalgo.up[row];
+            [cell.button setTitle:self.zalgo.up[row] forState:UIControlStateNormal];
             break;
 
         case GTGlitchSectionMid:
-            cell.label.text = self.zalgo.mid[row];
+            [cell.button setTitle:self.zalgo.mid[row] forState:UIControlStateNormal];
             break;
 
         case GTGlitchSectionDown:
-            cell.label.text = self.zalgo.down[row];
+            [cell.button setTitle:self.zalgo.down[row] forState:UIControlStateNormal];
             break;
     }
 
@@ -145,5 +146,31 @@ typedef NS_ENUM(NSUInteger, GTGlitchSection) {
     return self.headerView;
 }
 
+
+
+#pragma mark - Animation
+
+- (void)scaleToLarge:(UIButton *)button
+{
+    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.7f, 1.7f)];
+    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleLargeAnimation"];
+}
+
+- (void)scaleAnimation:(UIButton *)button
+{
+    POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.velocity = [NSValue valueWithCGSize:CGSizeMake(2.f, 2.f)];
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.f, 1.f)];
+    scaleAnimation.springBounciness = 20.0f;
+    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleSpringAnimation"];
+}
+
+- (void)scaleToDefault:(UIButton *)button
+{
+    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.f, 1.f)];
+    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleDefaultAnimation"];
+}
 
 @end

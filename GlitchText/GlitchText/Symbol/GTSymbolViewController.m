@@ -78,7 +78,7 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GTButtonCell *cell = (GTButtonCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self.delegate shouldEnterText:cell.label.text];
+    [self.delegate shouldEnterText:cell.button.titleLabel.text];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -119,15 +119,15 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
 
     switch (self.selectedSection) {
         case GTSymbolSection1:
-            cell.label.text = self.s1[row];
+            [cell.button setTitle:self.s1[row] forState:UIControlStateNormal];
             break;
 
         case GTSymbolSection2:
-            cell.label.text = self.s2[row];
+            [cell.button setTitle:self.s2[row] forState:UIControlStateNormal];
             break;
 
         case GTSymbolSection3:
-            cell.label.text = self.s3[row];
+            [cell.button setTitle:self.s3[row] forState:UIControlStateNormal];
             break;
     }
     return cell;

@@ -1,8 +1,7 @@
 platform :ios, '6.0'
 
-pod 'ReactiveCocoa'
-pod 'FrameAccessor'
-pod 'UIImage-Helpers'
-pod 'MZFormSheetController'
-pod 'SVProgressHUD'
-pod 'FlurrySDK'
+pod 'ReactiveCocoa', '~>2.3'
+pod 'FrameAccessor', '~>1.3.2'
+pod 'SVProgressHUD', '~>1.0'
+pod 'FlurrySDK', '~>5.0.0'
+pod 'pop', '~> 1.0'

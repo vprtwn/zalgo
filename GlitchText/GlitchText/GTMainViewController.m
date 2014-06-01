@@ -11,6 +11,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <FrameAccessor/FrameAccessor.h>
+#import <pop/POP.h>
 
 @interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource>
 
@@ -26,6 +27,11 @@
                      self.symbolButton,
                      self.shapeButton,
                      self.shareButton];
+    [self.fontButton setTitle:@"🅵" forState:UIControlStateNormal];
+
+    // add animations
+    [self setupAnimations];
+
 
     self.textView.delegate = self;
 
@@ -44,7 +50,6 @@
     self.shapeVC.delegate = self;
 
     self.fontTVC.delegate = self;
-
 
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -91,19 +96,19 @@
     }
 }
 
-- (IBAction)glitchButtonAction:(id)sender
+- (IBAction)glitchButtonAction:(UIButton *)sender
 {
-    [self tapButton:self.glitchButton inputView:self.glitchVC.view];
+    [self touchUpInsideButton:self.glitchButton inputView:self.glitchVC.view];
 }
 
 - (IBAction)symbolButtonAction:(id)sender
 {
-    [self tapButton:self.symbolButton inputView:self.symbolVC.view];
+    [self touchUpInsideButton:self.symbolButton inputView:self.symbolVC.view];
 }
 
 - (IBAction)shapeButtonAction:(id)sender
 {
-    [self tapButton:self.shapeButton inputView:self.shapeVC.view];
+    [self touchUpInsideButton:self.shapeButton inputView:self.shapeVC.view];
 }
 
 - (IBAction)shareButtonAction:(id)sender
@@ -131,9 +136,10 @@
     }
 }
 
-- (void)tapButton:(UIButton *)button inputView:(UIView *)view
+- (void)touchUpInsideButton:(UIButton *)button inputView:(UIView *)view
 {
     [self deselectAllExcept:@[button]];
+
     if (button.selected) {
         button.selected = NO;
         [self.textView resignFirstResponder];
@@ -146,6 +152,69 @@
         self.textView.inputView = view;
         [self.textView becomeFirstResponder];
     }
+}
+
+#pragma mark - Animations
+
+- (void)setupAnimations
+{
+    [self.fontButton addTarget:self action:@selector(scaleToLarge:)
+              forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragEnter];
+    [self.fontButton addTarget:self action:@selector(scaleAnimation:)
+              forControlEvents:UIControlEventTouchUpInside];
+    [self.fontButton addTarget:self action:@selector(scaleToDefault:)
+              forControlEvents:UIControlEventTouchDragExit];
+
+    [self.glitchButton addTarget:self action:@selector(scaleToLarge:)
+              forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragEnter];
+    [self.glitchButton addTarget:self action:@selector(scaleAnimation:)
+              forControlEvents:UIControlEventTouchUpInside];
+    [self.glitchButton addTarget:self action:@selector(scaleToDefault:)
+              forControlEvents:UIControlEventTouchDragExit];
+
+    [self.symbolButton addTarget:self action:@selector(scaleToLarge:)
+              forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragEnter];
+    [self.symbolButton addTarget:self action:@selector(scaleAnimation:)
+              forControlEvents:UIControlEventTouchUpInside];
+    [self.symbolButton addTarget:self action:@selector(scaleToDefault:)
+              forControlEvents:UIControlEventTouchDragExit];
+
+    [self.shapeButton addTarget:self action:@selector(scaleToLarge:)
+              forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragEnter];
+    [self.shapeButton addTarget:self action:@selector(scaleAnimation:)
+              forControlEvents:UIControlEventTouchUpInside];
+    [self.shapeButton addTarget:self action:@selector(scaleToDefault:)
+              forControlEvents:UIControlEventTouchDragExit];
+
+    [self.shareButton addTarget:self action:@selector(scaleToLarge:)
+              forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragEnter];
+    [self.shareButton addTarget:self action:@selector(scaleAnimation:)
+              forControlEvents:UIControlEventTouchUpInside];
+    [self.shareButton addTarget:self action:@selector(scaleToDefault:)
+              forControlEvents:UIControlEventTouchDragExit];      
+}
+
+- (void)scaleToLarge:(UIButton *)button
+{
+    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.7f, 1.7f)];
+    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleLargeAnimation"];
+}
+
+- (void)scaleAnimation:(UIButton *)button
+{
+    POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.velocity = [NSValue valueWithCGSize:CGSizeMake(2.f, 2.f)];
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.f, 1.f)];
+    scaleAnimation.springBounciness = 20.0f;
+    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleSpringAnimation"];
+}
+
+- (void)scaleToDefault:(UIButton *)button
+{
+    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.f, 1.f)];
+    [button.layer pop_addAnimation:scaleAnimation forKey:@"layerScaleDefaultAnimation"];
 }
 
 #pragma mark - text util buttons
