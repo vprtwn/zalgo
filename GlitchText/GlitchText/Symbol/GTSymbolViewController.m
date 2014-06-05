@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
     self = [super initWithCoder:aDecoder];
     if (!self) return nil;
 
-    self.s1 = [@"☻☹☮☯☼♪♫♬❂☽☾☄❁☂☃✍✎✆✄෴〠☠⎈❥☏☢✇☣♲✓✔✕✖✘☒✿❀☙❧❦" characterArray];
+    self.s1 = [@"☻☹ツ웃☮☯☼♪♫♬❂☽☾☄❁☂☃✍✎✆✄෴〠☠⎈❥☏☢✇☣♲✓✔✕✖✘☒✿❀☙❧❦" characterArray];
     self.s2 = [@"⚔✦✧♤♧♡♢♚♛⧫♜♝♞♟♔♕♖♗♘♙⚀⚁⚂⚃⚄⚅✙✚✝✞✟✠☩☥♰♱⚚⚕⚖⚗⚛☧⚒☭☪☬⚑⚐☸ꙮ☗☖" characterArray];
     self.s3 = [@"☛☞➔➜➞➠➢➪➫➬➳←☚☜↑↓☟➘➚⍟✰★✯✡✩✫✬✶✷✵✹✺❊✻✽❉✲✾❃❋✣✤✦✧❈※⁕⁑⁂" characterArray];
 
