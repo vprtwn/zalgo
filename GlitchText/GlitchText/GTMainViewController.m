@@ -13,7 +13,7 @@
 #import <FrameAccessor/FrameAccessor.h>
 #import <pop/POP.h>
 
-@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource>
+@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource, UIPopoverControllerDelegate>
 
 @end
 
@@ -33,6 +33,9 @@
     [self setupAnimations];
 
 
+    // add extra lines
+    self.textView.text = @"\r\r\r";
+    self.textView.selectedRange = NSMakeRange(0, 0);
     self.textView.delegate = self;
 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
@@ -111,9 +114,8 @@
     [self touchUpInsideButton:self.shapeButton inputView:self.shapeVC.view];
 }
 
-- (IBAction)shareButtonAction:(id)sender
+- (IBAction)shareButtonAction:(UIButton *)button
 {
-    // TODO: present in popover on iPad
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self] applicationActivities:nil];
     [activityVC setCompletionHandler:^(NSString *activityType, BOOL completed) {
         if (activityType == UIActivityTypeCopyToPasteboard) {
@@ -124,7 +126,22 @@
         }
     }];
     activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeAirDrop];
-    [self presentViewController:activityVC animated:YES completion:nil];
+
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+    else {
+        if (!self.popover) {
+            self.popover = [[UIPopoverController alloc] initWithContentViewController:activityVC];
+        }
+        CGRect popoverFrame = CGRectMake(CGRectGetMidX(button.frame),
+                                         CGRectGetMaxY(self.textView.frame) + 50,
+                                         button.width, button.height);
+        [self.popover presentPopoverFromRect:popoverFrame
+                                      inView:self.view
+                    permittedArrowDirections:UIPopoverArrowDirectionDown
+                                    animated:YES];
+    }
 }
 
 - (void)deselectAllExcept:(NSArray *)buttons

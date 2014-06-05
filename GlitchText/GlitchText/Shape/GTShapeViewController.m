@@ -108,7 +108,7 @@ typedef NS_ENUM(NSUInteger, GTShapeSection) {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"shapeButtonCell" forIndexPath:indexPath];
+    GTButtonCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"buttonCell" forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
 
     switch (self.selectedSection) {

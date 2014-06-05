@@ -449,28 +449,33 @@
                             <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="glitchButtonCell" id="HQ6-kC-5SZ">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="buttonCell" id="3CK-Or-TVL" customClass="GTButtonCell">
                                 <rect key="frame" x="12" y="80" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3I-jI-ADe">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-SE-jXl">
+                                            <rect key="frame" x="0.0" y="1" width="60" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                             <state key="normal" title="a">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="touchDown:" destination="3CK-Or-TVL" eventType="touchDown" id="t0P-ed-mCZ"/>
+                                                <action selector="touchDragExit:" destination="3CK-Or-TVL" eventType="touchDragExit" id="McF-W3-11e"/>
+                                                <action selector="touchUp:" destination="3CK-Or-TVL" eventType="touchUpInside" id="fyT-IU-s5Z"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="button" destination="R3I-jI-ADe" id="JnH-ln-zC8"/>
+                                    <outlet property="button" destination="5ae-SE-jXl" id="TsK-a0-6V4"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -533,28 +538,33 @@
                             <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="symbolButtonCell" id="4AR-DC-tNi">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="buttonCell" id="w8d-gC-xL4" customClass="GTButtonCell">
                                 <rect key="frame" x="12" y="80" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erA-f6-Uee">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjY-Mh-Byf">
+                                            <rect key="frame" x="0.0" y="1" width="60" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                             <state key="normal" title="a">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="touchDown:" destination="w8d-gC-xL4" eventType="touchDown" id="MAc-kN-kxs"/>
+                                                <action selector="touchDragExit:" destination="w8d-gC-xL4" eventType="touchDragExit" id="Qrh-L6-joA"/>
+                                                <action selector="touchUp:" destination="w8d-gC-xL4" eventType="touchUpInside" id="n6X-i5-r4K"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="button" destination="erA-f6-Uee" id="aTM-VJ-mqv"/>
+                                    <outlet property="button" destination="PjY-Mh-Byf" id="Zgk-V6-4yw"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -617,28 +627,33 @@
                             <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="shapeButtonCell" id="6D4-qN-JQc">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="buttonCell" id="a6W-Vn-wG8" customClass="GTButtonCell">
                                 <rect key="frame" x="12" y="80" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cq-Wq-mHA">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXO-ya-gyU">
+                                            <rect key="frame" x="0.0" y="1" width="60" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                             <state key="normal" title="a">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="touchDown:" destination="a6W-Vn-wG8" eventType="touchDown" id="gJG-oY-deo"/>
+                                                <action selector="touchDragExit:" destination="a6W-Vn-wG8" eventType="touchDragExit" id="MFX-lC-dSE"/>
+                                                <action selector="touchUp:" destination="a6W-Vn-wG8" eventType="touchUpInside" id="Hfq-Db-Kjv"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="button" destination="4cq-Wq-mHA" id="Let-mD-MWk"/>
+                                    <outlet property="button" destination="fXO-ya-gyU" id="ZcZ-ME-acP"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

@@ -2,6 +2,7 @@
 #import "UIColor+GlitchText.h"
 
 #import <UIImage+Additions/UIImage+Additions.h>
+#import <pop/POP.h>
 
 @interface GTButtonCell ()
 
@@ -38,5 +39,19 @@
 
     return self;
 }
+
+- (IBAction)touchUp:(id)sender {
+    self.layer.backgroundColor = [UIColor whiteColor].CGColor;
+}
+
+- (IBAction)touchDragExit:(id)sender {
+    self.layer.backgroundColor = [UIColor whiteColor].CGColor;
+}
+
+- (IBAction)touchDown:(id)sender {
+    self.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+
+}
+
 
 @end
