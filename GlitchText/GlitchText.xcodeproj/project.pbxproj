@@ -375,6 +375,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = bguo;
 				TargetAttributes = {
+					968B72E0190FE11C00D2B288 = {
+						DevelopmentTeam = T2TGK9929F;
+					};
 					968B7304190FE11C00D2B288 = {
 						TestTargetID = 968B72E0190FE11C00D2B288;
 					};
@@ -635,6 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Benjamin Guo (L89VQU4V97)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -654,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Benjamin Guo (L89VQU4V97)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
