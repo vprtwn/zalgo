@@ -114,6 +114,8 @@
 {
     cell.selectedBackgroundView = [UIView new];
     cell.selectedBackgroundView.backgroundColor = [UIColor glitchGreenColor];
+    cell.textLabel.textColor = [UIColor glitchMagentaColor];
+    cell.textLabel.highlightedTextColor = [UIColor glitchMagentaColor];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

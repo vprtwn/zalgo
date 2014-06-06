@@ -14,4 +14,9 @@
     return [UIColor colorWithRed:0.33 green:0.33 blue:0.33 alpha:1];
 }
 
++ (UIColor *)glitchBlueColor
+{
+    return [UIColor colorWithRed:0.48 green:0.84 blue:0.99 alpha:1];
+}
+
 @end

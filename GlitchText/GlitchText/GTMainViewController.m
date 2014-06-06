@@ -7,13 +7,16 @@
 #import "GTFontTableViewController.h"
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
+#import "GTPresentingAnimator.h"
+#import "GTDismissingAnimator.h"
+#import "GTTipViewController.h"
 
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <FrameAccessor/FrameAccessor.h>
 #import <pop/POP.h>
 
-@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource, UIPopoverControllerDelegate>
+@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource, UIPopoverControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @end
 
@@ -116,6 +119,9 @@
 
 - (IBAction)shareButtonAction:(UIButton *)button
 {
+    [self presentPurchaseViewController];
+    return;
+
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self] applicationActivities:nil];
     [activityVC setCompletionHandler:^(NSString *activityType, BOOL completed) {
         if (activityType == UIActivityTypeCopyToPasteboard) {
@@ -422,5 +428,30 @@
 {
     return YES;
 }
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+    return [GTPresentingAnimator new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [GTDismissingAnimator new];
+}
+
+#pragma mark - Purchases
+
+- (void)presentPurchaseViewController
+{
+    GTTipViewController *purchaseVC = [GTTipViewController new];
+    purchaseVC.transitioningDelegate = self;
+    purchaseVC.modalPresentationStyle = UIModalPresentationCustom;
+    [self presentViewController:purchaseVC animated:YES completion:nil];
+}
+
 
 @end

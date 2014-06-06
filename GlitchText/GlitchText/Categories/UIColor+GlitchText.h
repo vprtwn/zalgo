@@ -5,5 +5,6 @@
 + (UIColor *)glitchGreenColor;
 + (UIColor *)glitchMagentaColor;
 + (UIColor *)glitchGrayColor;
++ (UIColor *)glitchBlueColor;
 
 @end
