@@ -25,8 +25,6 @@
 		965F113919417CFC00D63613 /* GTBounceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 965F113819417CFC00D63613 /* GTBounceButton.m */; };
 		9660E85F192859BE00D12C6D /* subway.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9660E85E192859BE00D12C6D /* subway.plist */; };
 		9671C902194161DB00F33960 /* GTTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9671C901194161DB00F33960 /* GTTipViewController.m */; };
-		9671C9061941625900F33960 /* GTDismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9671C9051941625900F33960 /* GTDismissingAnimator.m */; };
-		9671C9091941626500F33960 /* GTPresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9671C9081941626500F33960 /* GTPresentingAnimator.m */; };
 		967C4232193B95BA008BBF16 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 967C4231193B95BA008BBF16 /* Constants.m */; };
 		968B72E5190FE11C00D2B288 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E4190FE11C00D2B288 /* Foundation.framework */; };
 		968B72E7190FE11C00D2B288 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968B72E6190FE11C00D2B288 /* CoreGraphics.framework */; };
@@ -94,10 +92,6 @@
 		9660E85E192859BE00D12C6D /* subway.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = subway.plist; sourceTree = "<group>"; };
 		9671C900194161DB00F33960 /* GTTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTipViewController.h; sourceTree = "<group>"; };
 		9671C901194161DB00F33960 /* GTTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTipViewController.m; sourceTree = "<group>"; };
-		9671C9041941625900F33960 /* GTDismissingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDismissingAnimator.h; sourceTree = "<group>"; };
-		9671C9051941625900F33960 /* GTDismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDismissingAnimator.m; sourceTree = "<group>"; };
-		9671C9071941626500F33960 /* GTPresentingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPresentingAnimator.h; sourceTree = "<group>"; };
-		9671C9081941626500F33960 /* GTPresentingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPresentingAnimator.m; sourceTree = "<group>"; };
 		967C4230193B95BA008BBF16 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		967C4231193B95BA008BBF16 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		968B72E1190FE11C00D2B288 /* Glitch Text.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glitch Text.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,18 +199,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		9671C9031941624B00F33960 /* Animators */ = {
-			isa = PBXGroup;
-			children = (
-				9671C9041941625900F33960 /* GTDismissingAnimator.h */,
-				9671C9051941625900F33960 /* GTDismissingAnimator.m */,
-				9671C9071941626500F33960 /* GTPresentingAnimator.h */,
-				9671C9081941626500F33960 /* GTPresentingAnimator.m */,
-			);
-			name = Animators;
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		968B72D8190FE11C00D2B288 = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +242,6 @@
 				96D16CDA1919873F00A56728 /* Glitch */,
 				964E8448191EB0A5008A304D /* Symbol */,
 				961A5E01192804A200797CA8 /* Shape */,
-				9671C9031941624B00F33960 /* Animators */,
 				96D38712191B52C500989B8F /* Categories */,
 				96D38716191B576C00989B8F /* UIComponents */,
 				9660E85D1928599C00D12C6D /* Fonts */,
@@ -516,10 +497,8 @@
 				96E43225191559F800D617C2 /* GTZalgo.m in Sources */,
 				9671C902194161DB00F33960 /* GTTipViewController.m in Sources */,
 				961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */,
-				9671C9091941626500F33960 /* GTPresentingAnimator.m in Sources */,
 				96D38711191B486D00989B8F /* NSArray+GlitchText.m in Sources */,
 				964E844E191EE408008A304D /* GTSymbolHeaderView.m in Sources */,
-				9671C9061941625900F33960 /* GTDismissingAnimator.m in Sources */,
 				968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */,
 				96D38715191B531F00989B8F /* GTTextView.m in Sources */,
 				96AF73F919196382007BB4DD /* GTGlitchViewController.m in Sources */,

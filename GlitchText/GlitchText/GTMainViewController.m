@@ -7,8 +7,6 @@
 #import "GTFontTableViewController.h"
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
-#import "GTPresentingAnimator.h"
-#import "GTDismissingAnimator.h"
 #import "GTTipViewController.h"
 
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -16,7 +14,7 @@
 #import <FrameAccessor/FrameAccessor.h>
 #import <pop/POP.h>
 
-@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource, UIPopoverControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource, UIPopoverControllerDelegate>
 
 @end
 
@@ -30,7 +28,6 @@
                      self.symbolButton,
                      self.shapeButton,
                      self.shareButton];
-    [self.fontButton setTitle:@"🅵" forState:UIControlStateNormal];
 
     // add animations
     [self setupAnimations];
@@ -119,7 +116,7 @@
 
 - (IBAction)shareButtonAction:(UIButton *)button
 {
-    [self presentPurchaseViewController];
+    [self presentTipVC];
     return;
 
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self] applicationActivities:nil];
@@ -400,7 +397,7 @@
 {
     NSDictionary *info = [notification userInfo];
     CGRect frameEnd = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    NSTimeInterval duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    NSTimeInterval duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     self.containerViewHeight.constant = frameEnd.size.height;
 
     [UIView animateWithDuration:duration animations:^{
@@ -429,28 +426,14 @@
     return YES;
 }
 
-#pragma mark - UIViewControllerTransitioningDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                  presentingController:(UIViewController *)presenting
-                                                                      sourceController:(UIViewController *)source
-{
-    return [GTPresentingAnimator new];
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    return [GTDismissingAnimator new];
-}
 
 #pragma mark - Purchases
 
-- (void)presentPurchaseViewController
+- (void)presentTipVC
 {
-    GTTipViewController *purchaseVC = [GTTipViewController new];
-    purchaseVC.transitioningDelegate = self;
-    purchaseVC.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:purchaseVC animated:YES completion:nil];
+    GTTipViewController *tipVC = [GTTipViewController new];
+    tipVC.modalPresentationStyle = UIModalPresentationCustom;
+    [self presentViewController:tipVC animated:YES completion:nil];
 }
 
 

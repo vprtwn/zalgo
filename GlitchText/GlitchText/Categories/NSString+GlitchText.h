@@ -4,13 +4,13 @@
 
 - (BOOL)containsString:(NSString *)string;
 
-- (NSArray *)characterArray;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *characterArray;
 
-- (NSArray *)composedCharacterArray;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *composedCharacterArray;
 
-- (BOOL)isZalgo;
+@property (NS_NONATOMIC_IOSONLY, getter=isZalgo, readonly) BOOL zalgo;
 
-- (BOOL)isWhitespace;
+@property (NS_NONATOMIC_IOSONLY, getter=isWhitespace, readonly) BOOL whitespace;
 
 - (NSString *)appendToEachCharacter:(NSString *)text;
 

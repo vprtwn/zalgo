@@ -4,7 +4,7 @@
 
 - (id)randomObject
 {
-    return [self objectAtIndex:arc4random_uniform((int)[self count])];
+    return self[arc4random_uniform((int)[self count])];
 }
 
 @end

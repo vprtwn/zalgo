@@ -10,7 +10,7 @@
 
 @implementation GTButtonCell
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (!self) {
@@ -32,7 +32,10 @@
     cellLayer.shadowColor = [[UIColor glitchMagentaColor] CGColor];
     cellLayer.shadowOffset = CGSizeMake(0, 2);
     cellLayer.shadowOpacity = 1;
-    CGRect rect = CGRectMake(self.x + 1, self.y + 1, self.width - 2, self.height - 2);
+    CGRect rect = CGRectMake(self.frame.origin.x + 1,
+                             self.frame.origin.y + 1,
+                             self.frame.size.width - 2,
+                             self.frame.size.height - 2);
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect
                                                     cornerRadius:shadowCornerRadius];
     cellLayer.shadowPath = path.CGPath;

@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
 
 @implementation GTSymbolViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (!self) return nil;

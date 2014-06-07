@@ -2,6 +2,6 @@
 
 @interface NSArray (GlitchText)
 
-- (id)randomObject;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) id randomObject;
 
 @end

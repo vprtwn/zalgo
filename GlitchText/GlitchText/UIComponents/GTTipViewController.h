@@ -4,6 +4,7 @@
 
 @interface GTTipViewController : UIViewController
 
-@property (strong, nonatomic) GTBounceButton *tipButton;
+@property (strong, nonatomic) GTBounceButton *bigTipButton;
+@property (strong, nonatomic) GTBounceButton *smallTipButton;
 
 @end

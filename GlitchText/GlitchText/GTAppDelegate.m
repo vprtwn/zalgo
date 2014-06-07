@@ -7,8 +7,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Flurry startSession:@"CBGGMYCDC7MG5DR7V9QG"];
-    [Crashlytics startWithAPIKey:@"3885017ed24101339d5de097acd32dd57117a9b8"];
+//    [Flurry startSession:@"CBGGMYCDC7MG5DR7V9QG"];
+//    [Crashlytics startWithAPIKey:@"3885017ed24101339d5de097acd32dd57117a9b8"];
     return YES;
 }
 							
