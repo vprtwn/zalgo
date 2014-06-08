@@ -35,7 +35,9 @@
 {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [[UIColor glitchBlueColor] colorWithAlphaComponent:0.95];
+    self.view.backgroundColor = [UIColor glitchBlueColor];
+#warning TODO: iOS8
+//    self.view.backgroundColor = [[UIColor glitchBlueColor] colorWithAlphaComponent:0.95];
     [self addDismissButton];
     [self addTitleLabel];
     [self addTipButtons];

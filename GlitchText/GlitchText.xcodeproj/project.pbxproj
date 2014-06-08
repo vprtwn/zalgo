@@ -664,7 +664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Benjamin Guo (L89VQU4V97)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Benjamin Guo (T2TGK9929F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -674,6 +674,7 @@
 				INFOPLIST_FILE = "GlitchText/Supporting Files/GlitchText-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C49F151C-7ACD-4C25-8D7A-5195ADFF90A7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -684,7 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Benjamin Guo (L89VQU4V97)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Benjamin Guo (T2TGK9929F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -694,6 +695,7 @@
 				INFOPLIST_FILE = "GlitchText/Supporting Files/GlitchText-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C49F151C-7ACD-4C25-8D7A-5195ADFF90A7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

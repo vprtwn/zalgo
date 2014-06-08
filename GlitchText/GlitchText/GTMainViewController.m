@@ -476,12 +476,13 @@
 - (BOOL)presentTipVC
 {
     BOOL hasTipped = [[NSUserDefaults standardUserDefaults] boolForKey:GTUserDefaultsKeyHasTipped];
-    if (!self.smallTip || hasTipped) {
+    if (!self.smallTip || !self.largeTip || hasTipped) {
         return NO;
     }
     GTTipViewController *tipVC = [GTTipViewController new];
     tipVC.delegate = self;
-    tipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+#warning TODO: iOS8
+    tipVC.modalPresentationStyle = UIModalPresentationCurrentContext; // Change this to UIModalPresentationCoverCurrentContext on iOS8
     [tipVC.smallTipButton setTitle:self.smallTip.priceString forState:UIControlStateNormal];
     [tipVC.largeTipButton setTitle:self.largeTip.priceString forState:UIControlStateNormal];
     [self presentViewController:tipVC animated:YES completion:nil];
