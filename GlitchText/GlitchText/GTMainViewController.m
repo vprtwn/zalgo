@@ -8,13 +8,15 @@
 #import "GTTextRange.h"
 #import "NSString+GlitchText.h"
 #import "GTTipViewController.h"
+#import "SKProduct+GlitchText.h"
 
+@import StoreKit;
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <FrameAccessor/FrameAccessor.h>
 #import <pop/POP.h>
 
-@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource, UIPopoverControllerDelegate>
+@interface GTMainViewController () <UITextViewDelegate, GTInputDelegate, GTFontTableViewControllerDelegate, UIActivityItemSource, UIPopoverControllerDelegate, SKProductsRequestDelegate, GTTipViewControllerDelegate>
 
 @end
 
@@ -32,6 +34,8 @@
     // add animations
     [self setupAnimations];
 
+    // in app purchases
+    [self setupInAppPurchases];
 
     // add extra lines
     self.textView.text = @"\r\r\r";
@@ -116,9 +120,15 @@
 
 - (IBAction)shareButtonAction:(UIButton *)button
 {
-    [self presentTipVC];
-    return;
+    BOOL presented = [self presentTipVC];
+    if (presented) {
+        return;
+    }
+    [self presentShareSheet];
+}
 
+- (void)presentShareSheet
+{
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self] applicationActivities:nil];
     [activityVC setCompletionHandler:^(NSString *activityType, BOOL completed) {
         if (activityType == UIActivityTypeCopyToPasteboard) {
@@ -126,6 +136,13 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [SVProgressHUD dismiss];
             });
+        }
+        [self.textView becomeFirstResponder];
+        if (!completed) {
+            [Flurry logEvent:@"share.cancelled"];
+        }
+        else {
+            [Flurry logEvent:[NSString stringWithFormat:@"share.completed.%@", activityType]];
         }
     }];
     activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeAirDrop];
@@ -137,9 +154,9 @@
         if (!self.popover) {
             self.popover = [[UIPopoverController alloc] initWithContentViewController:activityVC];
         }
-        CGRect popoverFrame = CGRectMake(CGRectGetMidX(button.frame),
+        CGRect popoverFrame = CGRectMake(CGRectGetMidX(self.shareButton.frame),
                                          CGRectGetMaxY(self.textView.frame) + 50,
-                                         button.width, button.height);
+                                         self.shareButton.width, self.shareButton.height);
         [self.popover presentPopoverFromRect:popoverFrame
                                       inView:self.view
                     permittedArrowDirections:UIPopoverArrowDirectionDown
@@ -429,12 +446,70 @@
 
 #pragma mark - Purchases
 
-- (void)presentTipVC
-{
-    GTTipViewController *tipVC = [GTTipViewController new];
-    tipVC.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:tipVC animated:YES completion:nil];
+- (void)setupInAppPurchases {
+
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"product_ids"
+                                         withExtension:@"plist"];
+    NSArray *productIDs = [NSArray arrayWithContentsOfURL:url];
+    SKProductsRequest *productsRequest = [[SKProductsRequest alloc]
+                                          initWithProductIdentifiers:[NSSet setWithArray:productIDs]];
+    productsRequest.delegate = self;
+    [productsRequest start];
 }
 
+// SKProductsRequestDelegate protocol method
+- (void)productsRequest:(SKProductsRequest *)request
+     didReceiveResponse:(SKProductsResponse *)response
+{
+    NSArray *products = response.products;
+    if (products.count == 2) {
+        self.smallTip = products[0];
+        self.largeTip = products[1];
+    }
+}
+
+- (void)request:(SKRequest *)request didFailWithError:(NSError *)error
+{
+
+}
+
+- (BOOL)presentTipVC
+{
+    BOOL hasTipped = [[NSUserDefaults standardUserDefaults] boolForKey:GTUserDefaultsKeyHasTipped];
+    if (!self.smallTip || hasTipped) {
+        return NO;
+    }
+    GTTipViewController *tipVC = [GTTipViewController new];
+    tipVC.delegate = self;
+    tipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [tipVC.smallTipButton setTitle:self.smallTip.priceString forState:UIControlStateNormal];
+    [tipVC.largeTipButton setTitle:self.largeTip.priceString forState:UIControlStateNormal];
+    [self presentViewController:tipVC animated:YES completion:nil];
+    return YES;
+}
+
+// GTTipViewControllerDelegate
+
+- (void)didSelectSmallTip
+{
+    [Flurry logEvent:@"tip.small.selected"];
+    SKProduct *product = self.smallTip;
+    SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:product];
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+- (void)didSelectLargeTip
+{
+    [Flurry logEvent:@"tip.large.selected"];
+    SKProduct *product = self.largeTip;
+    SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:product];
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+- (void)didDismiss
+{
+    [Flurry logEvent:@"tip.no.selected"];
+    [self presentShareSheet];
+}
 
 @end

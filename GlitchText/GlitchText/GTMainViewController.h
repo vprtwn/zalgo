@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@class GTZalgo, GTGlitchViewController, GTSymbolViewController, GTShapeViewController, GTFontTableViewController;
+@class GTZalgo, GTGlitchViewController, GTSymbolViewController, GTShapeViewController, GTFontTableViewController, SKProduct;
 
 @interface GTMainViewController : UIViewController
 
@@ -21,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) NSArray *buttons;
 @property (strong, nonatomic) UIPopoverController *popover;
+
+// In App Purchases
+@property (strong, nonatomic) SKProduct *smallTip;
+@property (strong, nonatomic) SKProduct *largeTip;
 
 
 @end

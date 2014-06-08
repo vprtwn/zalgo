@@ -2,6 +2,7 @@
 #import "UIColor+GlitchText.h"
 #import "GTBounceButton.h"
 
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <pop/POP.h>
 
 @interface GTTipViewController()
@@ -10,22 +11,42 @@
 
 @implementation GTTipViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (!self) return nil;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(transactionPurchased)
+                                                 name:GTNotificationNameTransactionPurchased
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(transactionFailed)
+                                                 name:GTNotificationNameTransactionFailed
+                                               object:nil];
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-//    self.view.layer.cornerRadius = 40.f;
-    self.view.backgroundColor = [UIColor glitchBlueColor];
+    self.view.backgroundColor = [[UIColor glitchBlueColor] colorWithAlphaComponent:0.95];
     [self addDismissButton];
     [self addTitleLabel];
     [self addTipButtons];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self bounceSmallTipButton];
-    [self bounceBigTipButton];
+    [self bounceLargeTipButton];
 }
 
 #pragma mark - Private Instance methods
@@ -42,20 +63,20 @@
     return _smallTipButton;
 }
 
-- (UIButton *)bigTipButton
+- (UIButton *)largeTipButton
 {
-    if (!_bigTipButton) {
-        _bigTipButton = [GTBounceButton button];
-        [_bigTipButton setTitle:@"$4.99" forState:UIControlStateNormal];
-        [_bigTipButton addTarget:self action:@selector(tip:) forControlEvents:UIControlEventTouchUpInside];
+    if (!_largeTipButton) {
+        _largeTipButton = [GTBounceButton button];
+        [_largeTipButton setTitle:@"$4.99" forState:UIControlStateNormal];
+        [_largeTipButton addTarget:self action:@selector(tip:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _bigTipButton;
+    return _largeTipButton;
 }
 
 - (void)addTipButtons
 {
-    [self.view addSubview:self.bigTipButton];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bigTipButton
+    [self.view addSubview:self.largeTipButton];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.largeTipButton
                                                           attribute:NSLayoutAttributeCenterX
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view
@@ -63,7 +84,7 @@
                                                          multiplier:1.f
                                                            constant:0.f]];
 
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bigTipButton
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.largeTipButton
                                                           attribute:NSLayoutAttributeCenterY
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view
@@ -89,11 +110,6 @@
                                                            constant:60.f]];
 }
 
-- (void)tip:(UIButton *)button
-{
-
-}
-
 - (void)bounceSmallTipButton
 {
     POPSpringAnimation *scaleDownAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
@@ -109,7 +125,7 @@
 
 }
 
-- (void)bounceBigTipButton
+- (void)bounceLargeTipButton
 {
     POPSpringAnimation *scaleDownAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleDownAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.1, 1.1)];
@@ -118,9 +134,9 @@
         POPSpringAnimation *scaleUpAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
         scaleUpAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
         scaleUpAnimation.springBounciness = 20.f;
-        [self.bigTipButton.layer pop_addAnimation:scaleUpAnimation forKey:@"scaleUpAnimation"];
+        [self.largeTipButton.layer pop_addAnimation:scaleUpAnimation forKey:@"scaleUpAnimation"];
     }];
-    [self.bigTipButton.layer pop_addAnimation:scaleDownAnimation forKey:@"scaleDownAnimation"];
+    [self.largeTipButton.layer pop_addAnimation:scaleDownAnimation forKey:@"scaleDownAnimation"];
 
 }
 
@@ -130,7 +146,7 @@
     titleLabel.text = NSLocalizedString(@"Tip me?", nil); // A/B test
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     titleLabel.textColor = [UIColor glitchGreenColor];
-    titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:45];
+    titleLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:45];
     [self.view addSubview:titleLabel];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:titleLabel
                                                           attribute:NSLayoutAttributeCenterX
@@ -153,7 +169,7 @@
     UIButton *dismissButton = [UIButton buttonWithType:UIButtonTypeSystem];
     dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
     dismissButton.tintColor = [UIColor glitchGreenColor];
-    dismissButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:25];
+    dismissButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:25];
     [dismissButton setTitle:NSLocalizedString(@"Not now", nil) // AB Test this
                    forState:UIControlStateNormal];
     [dismissButton addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
@@ -172,9 +188,51 @@
                                views:NSDictionaryOfVariableBindings(dismissButton)]];
 }
 
+#pragma mark Actions
+
+- (void)tip:(UIButton *)button
+{
+    if (button == self.smallTipButton) {
+        [self.delegate didSelectSmallTip];
+    }
+    else if (button == self.largeTipButton) {
+        [self.delegate didSelectLargeTip];
+    }
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"🐢", nil) maskType:SVProgressHUDMaskTypeClear];
+}
+
+
 - (void)dismiss:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.delegate didDismiss];
+    }];
+}
+
+#pragma mark Notifications
+
+- (void)transactionPurchased {
+    [Flurry logEvent:@"tip.payment.complete"];
+    [SVProgressHUD dismiss];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Payment complete", nil)];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+        [self.delegate didDismiss];
+    }];
+}
+
+- (void)transactionFailed {
+    [Flurry logEvent:@"tip.payment.failed"];
+    [SVProgressHUD dismiss];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Payment failed", nil)];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+        [self.delegate didDismiss];
+    }];
 }
 
 @end

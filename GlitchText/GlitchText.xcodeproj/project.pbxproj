@@ -19,6 +19,9 @@
 		961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E03192804B500797CA8 /* GTShapeViewController.m */; };
 		961A5E07192804C900797CA8 /* GTShapeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961A5E06192804C900797CA8 /* GTShapeHeaderView.m */; };
 		9622946519196661002861DB /* GTButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9622946419196661002861DB /* GTButtonCell.m */; };
+		963B4E851943E8ED0087F156 /* product_ids.plist in Resources */ = {isa = PBXBuildFile; fileRef = 963B4E841943E8ED0087F156 /* product_ids.plist */; };
+		963B4E871943E9890087F156 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963B4E861943E9890087F156 /* StoreKit.framework */; };
+		963B4E8A1943EB290087F156 /* SKProduct+GlitchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 963B4E891943EB290087F156 /* SKProduct+GlitchText.m */; };
 		964E844B191EB0C0008A304D /* GTSymbolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E844A191EB0C0008A304D /* GTSymbolViewController.m */; };
 		964E844E191EE408008A304D /* GTSymbolHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 964E844D191EE408008A304D /* GTSymbolHeaderView.m */; };
 		96554833191E84B900699CC9 /* GTTextRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 96554832191E84B900699CC9 /* GTTextRange.m */; };
@@ -81,6 +84,10 @@
 		961A5E06192804C900797CA8 /* GTShapeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTShapeHeaderView.m; sourceTree = "<group>"; };
 		9622946319196661002861DB /* GTButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTButtonCell.h; sourceTree = "<group>"; };
 		9622946419196661002861DB /* GTButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTButtonCell.m; sourceTree = "<group>"; };
+		963B4E841943E8ED0087F156 /* product_ids.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = product_ids.plist; sourceTree = "<group>"; };
+		963B4E861943E9890087F156 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		963B4E881943EB290087F156 /* SKProduct+GlitchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+GlitchText.h"; sourceTree = "<group>"; };
+		963B4E891943EB290087F156 /* SKProduct+GlitchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+GlitchText.m"; sourceTree = "<group>"; };
 		964E8449191EB0C0008A304D /* GTSymbolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSymbolViewController.h; sourceTree = "<group>"; };
 		964E844A191EB0C0008A304D /* GTSymbolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSymbolViewController.m; sourceTree = "<group>"; };
 		964E844C191EE408008A304D /* GTSymbolHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSymbolHeaderView.h; sourceTree = "<group>"; };
@@ -90,8 +97,8 @@
 		965F113719417CFC00D63613 /* GTBounceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTBounceButton.h; sourceTree = "<group>"; };
 		965F113819417CFC00D63613 /* GTBounceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTBounceButton.m; sourceTree = "<group>"; };
 		9660E85E192859BE00D12C6D /* subway.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = subway.plist; sourceTree = "<group>"; };
-		9671C900194161DB00F33960 /* GTTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTipViewController.h; sourceTree = "<group>"; };
-		9671C901194161DB00F33960 /* GTTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTipViewController.m; sourceTree = "<group>"; };
+		9671C900194161DB00F33960 /* GTTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTTipViewController.h; path = UIComponents/GTTipViewController.h; sourceTree = "<group>"; };
+		9671C901194161DB00F33960 /* GTTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTTipViewController.m; path = UIComponents/GTTipViewController.m; sourceTree = "<group>"; };
 		967C4230193B95BA008BBF16 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		967C4231193B95BA008BBF16 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		968B72E1190FE11C00D2B288 /* Glitch Text.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glitch Text.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				963B4E871943E9890087F156 /* StoreKit.framework in Frameworks */,
 				968B72E7190FE11C00D2B288 /* CoreGraphics.framework in Frameworks */,
 				96E6E6711938F2AD00C9EC21 /* Crashlytics.framework in Frameworks */,
 				968B72E9190FE11C00D2B288 /* UIKit.framework in Frameworks */,
@@ -222,6 +230,7 @@
 		968B72E3190FE11C00D2B288 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				963B4E861943E9890087F156 /* StoreKit.framework */,
 				96E6E6701938F2AD00C9EC21 /* Crashlytics.framework */,
 				968B72E4190FE11C00D2B288 /* Foundation.framework */,
 				968B72E6190FE11C00D2B288 /* CoreGraphics.framework */,
@@ -247,6 +256,8 @@
 				9660E85D1928599C00D12C6D /* Fonts */,
 				968B72FC190FE11C00D2B288 /* GTMainViewController.h */,
 				968B72FD190FE11C00D2B288 /* GTMainViewController.m */,
+				9671C900194161DB00F33960 /* GTTipViewController.h */,
+				9671C901194161DB00F33960 /* GTTipViewController.m */,
 				96D0D7FD19194EB700542773 /* GTFontTableViewController.h */,
 				96D0D7FE19194EB700542773 /* GTFontTableViewController.m */,
 				96E43223191559F800D617C2 /* GTZalgo.h */,
@@ -262,6 +273,7 @@
 		968B72EB190FE11C00D2B288 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				963B4E841943E8ED0087F156 /* product_ids.plist */,
 				968B72EC190FE11C00D2B288 /* GlitchText-Info.plist */,
 				968B72ED190FE11C00D2B288 /* InfoPlist.strings */,
 				968B72F0190FE11C00D2B288 /* main.m */,
@@ -302,6 +314,8 @@
 		96D38712191B52C500989B8F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				963B4E881943EB290087F156 /* SKProduct+GlitchText.h */,
+				963B4E891943EB290087F156 /* SKProduct+GlitchText.m */,
 				96E432261915615900D617C2 /* NSString+GlitchText.h */,
 				96E432271915615900D617C2 /* NSString+GlitchText.m */,
 				96D3870F191B486D00989B8F /* NSArray+GlitchText.h */,
@@ -319,8 +333,6 @@
 			children = (
 				965F113719417CFC00D63613 /* GTBounceButton.h */,
 				965F113819417CFC00D63613 /* GTBounceButton.m */,
-				9671C900194161DB00F33960 /* GTTipViewController.h */,
-				9671C901194161DB00F33960 /* GTTipViewController.m */,
 				9622946319196661002861DB /* GTButtonCell.h */,
 				9622946419196661002861DB /* GTButtonCell.m */,
 				96554831191E84B900699CC9 /* GTTextRange.h */,
@@ -426,6 +438,7 @@
 				9617376219292392003C0A10 /* squares.plist in Resources */,
 				9617376619292486003C0A10 /* light.plist in Resources */,
 				961737641929240F003C0A10 /* stamps.plist in Resources */,
+				963B4E851943E8ED0087F156 /* product_ids.plist in Resources */,
 				96E6E676193A570E00C9EC21 /* Main_iPad.storyboard in Resources */,
 				96173768192925B9003C0A10 /* tiny.plist in Resources */,
 				968B72EF190FE11C00D2B288 /* InfoPlist.strings in Resources */,
@@ -497,6 +510,7 @@
 				96E43225191559F800D617C2 /* GTZalgo.m in Sources */,
 				9671C902194161DB00F33960 /* GTTipViewController.m in Sources */,
 				961A5E04192804B500797CA8 /* GTShapeViewController.m in Sources */,
+				963B4E8A1943EB290087F156 /* SKProduct+GlitchText.m in Sources */,
 				96D38711191B486D00989B8F /* NSArray+GlitchText.m in Sources */,
 				964E844E191EE408008A304D /* GTSymbolHeaderView.m in Sources */,
 				968B72F5190FE11C00D2B288 /* GTAppDelegate.m in Sources */,

@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, GTSymbolSection) {
 
     self.s1 = [@"☻☹ツ웃☮☯☼♪♫♬❂☽☾☄❁☂☃✍✎✆✄෴〠☠⎈❥☏☢✇☣♲✓✔✕✖✘☒✿❀☙❧❦" characterArray];
     self.s2 = [@"⚔✦✧♤♧♡♢♚♛⧫♜♝♞♟♔♕♖♗♘♙⚀⚁⚂⚃⚄⚅✙✚✝✞✟✠☩☥♰♱⚚⚕⚖⚗⚛☧⚒☭☪☬⚑⚐☸ꙮ☗☖" characterArray];
-    self.s3 = [@"☛☞➔➜➞➠➢➪➫➬➳←☚☜↑↓☟➘➚⍟✰★✯✡✩✫✬✶✷✵✹✺❊✻✽❉✲✾❃❋✣✤✦✧❈※⁕⁑⁂" characterArray];
+    self.s3 = [@"☛☞➔➜➞➠➢➪➫➬➳←☚☜↑↓☟➘➚⍟✰★✯✡✩✫✬✶✷✵✹✺❊✻✽❉✲✾❃❋✣✤❈※⁕⁑⁂" characterArray];
 
     return self;
 }
